@@ -2,6 +2,12 @@ import Link from 'next/link';
 import PageShell from '@/components/PageShell';
 import { StaggerGroup, StaggerItem } from '@/components/motion/StaggerGroup';
 import { siteConfig } from '@/lib/site-config';
+import { breadcrumbJsonLd } from '@/lib/breadcrumbs';
+
+const breadcrumbs = breadcrumbJsonLd([
+  { name: 'الرئيسية', path: '/' },
+  { name: 'مكة المكرمة', path: '/makkah' }
+]);
 
 export const metadata = {
   title: 'مكة المكرمة: أهم المعالم والمعلومات للحاج والمعتمر',
@@ -53,6 +59,10 @@ export default function MakkahPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(placeJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
 
       <StaggerGroup className="grid gap-4 md:grid-cols-2">

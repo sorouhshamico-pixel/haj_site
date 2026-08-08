@@ -13,7 +13,8 @@
 - Canonical URLs and Open Graph tags provided by the app shell.
 
 ## Schema Strategy
-- Organization, WebSite, WebPage, BreadcrumbList, Article, FAQPage where relevant.
+- Organization, WebSite, FAQPage, Article, Service, TouristAttraction implemented site-wide.
+- BreadcrumbList implemented on hub, program, guide, document, city-guide, and article pages via `src/lib/breadcrumbs.ts`.
 
 ## Internal Linking
 - Link each hub to subtopic pages and blog articles.

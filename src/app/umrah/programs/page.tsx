@@ -2,6 +2,13 @@ import Link from 'next/link';
 import PageShell from '@/components/PageShell';
 import { umrahPrograms } from '@/lib/programs';
 import { routes } from '@/lib/site-config';
+import { breadcrumbJsonLd } from '@/lib/breadcrumbs';
+
+const breadcrumbs = breadcrumbJsonLd([
+  { name: 'الرئيسية', path: '/' },
+  { name: 'العمرة', path: '/umrah' },
+  { name: 'برامج العمرة', path: '/umrah/programs' }
+]);
 
 export const metadata = {
   title: 'برامج العمرة',
@@ -16,6 +23,7 @@ export default function UmrahProgramsPage() {
       eyebrow="برامج"
       description="نقدم أكثر من فئة لبرامج العمرة تناسب احتياجات وميزانيات مختلفة. تواصل معنا لمعرفة المواعيد والأسعار والتفاصيل الكاملة."
     >
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }} />
       <div className="grid gap-4 md:grid-cols-3">
         {umrahPrograms.map((program) => (
           <Link

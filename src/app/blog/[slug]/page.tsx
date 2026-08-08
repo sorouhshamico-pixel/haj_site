@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import PageShell from '@/components/PageShell';
 import { posts, getPostBySlug } from '@/lib/blog-posts';
 import { siteConfig } from '@/lib/site-config';
+import { breadcrumbJsonLd } from '@/lib/breadcrumbs';
 
 export async function generateStaticParams() {
   return posts.map((post) => ({ slug: post.slug }));
@@ -28,6 +29,12 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     notFound();
   }
 
+  const breadcrumbs = breadcrumbJsonLd([
+    { name: 'الرئيسية', path: '/' },
+    { name: 'المدونة', path: '/blog' },
+    { name: post.title, path: `/blog/${post.slug}` }
+  ]);
+
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -44,6 +51,10 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
       <div className="space-y-8 rounded-[1.5rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-8 shadow-sm">
         {post.sections.map((section) => (

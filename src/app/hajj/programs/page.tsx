@@ -2,6 +2,13 @@ import Link from 'next/link';
 import PageShell from '@/components/PageShell';
 import { hajjPrograms } from '@/lib/programs';
 import { routes } from '@/lib/site-config';
+import { breadcrumbJsonLd } from '@/lib/breadcrumbs';
+
+const breadcrumbs = breadcrumbJsonLd([
+  { name: 'الرئيسية', path: '/' },
+  { name: 'الحج', path: '/hajj' },
+  { name: 'برامج الحج', path: '/hajj/programs' }
+]);
 
 export const metadata = {
   title: 'برامج الحج',
@@ -16,6 +23,7 @@ export default function HajjProgramsPage() {
       eyebrow="برامج"
       description="نقدم أكثر من فئة لبرامج الحج تناسب احتياجات وميزانيات مختلفة. تواصل معنا لمعرفة المواعيد والأسعار والتفاصيل الكاملة للموسم الحالي."
     >
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }} />
       <div className="grid gap-4 md:grid-cols-3">
         {hajjPrograms.map((program) => (
           <Link

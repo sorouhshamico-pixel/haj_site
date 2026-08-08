@@ -1,5 +1,12 @@
 import PageShell from '@/components/PageShell';
 import { StaggerGroup, StaggerItem } from '@/components/motion/StaggerGroup';
+import { breadcrumbJsonLd } from '@/lib/breadcrumbs';
+
+const breadcrumbs = breadcrumbJsonLd([
+  { name: 'الرئيسية', path: '/' },
+  { name: 'الحج', path: '/hajj' },
+  { name: 'الأوراق المطلوبة', path: '/hajj/documents' }
+]);
 
 export const metadata = {
   title: 'الأوراق والمستندات المطلوبة للحج',
@@ -41,6 +48,7 @@ export default function HajjDocumentsPage() {
       eyebrow="الحج"
       description="قائمة إرشادية بأهم الأوراق التي يحتاجها الحاج المصري عادة قبل السفر، مع نصيحة بالتأكد من آخر التحديثات الرسمية قبل موسم كل حج."
     >
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }} />
       <p className="mb-8 max-w-3xl text-sm leading-8 text-[color:var(--color-muted)]">
         تجهيز الأوراق مبكرًا هو الخطوة الأولى نحو رحلة حج مطمئنة بلا مفاجآت في اللحظات الأخيرة. هذه القائمة تجمع أهم المستندات التي يطلبها الحاج المصري عادة، مرتبة لتساعدك على المتابعة بسهولة قبل موعد السفر.
       </p>

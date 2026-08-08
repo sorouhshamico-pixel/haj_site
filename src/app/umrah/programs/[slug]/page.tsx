@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import PageShell from '@/components/PageShell';
 import { umrahPrograms, getProgramBySlug } from '@/lib/programs';
 import { siteConfig, routes } from '@/lib/site-config';
+import { breadcrumbJsonLd } from '@/lib/breadcrumbs';
 
 export async function generateStaticParams() {
   return umrahPrograms.map((program) => ({ slug: program.slug }));
@@ -28,6 +29,13 @@ export default function UmrahProgramDetailPage({ params }: { params: { slug: str
     notFound();
   }
 
+  const breadcrumbs = breadcrumbJsonLd([
+    { name: 'الرئيسية', path: '/' },
+    { name: 'العمرة', path: '/umrah' },
+    { name: 'برامج العمرة', path: '/umrah/programs' },
+    { name: program.name, path: `/umrah/programs/${program.slug}` }
+  ]);
+
   const serviceJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -43,6 +51,10 @@ export default function UmrahProgramDetailPage({ params }: { params: { slug: str
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
       <div className="rounded-[1.5rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-8 shadow-sm">
         <h2 className="text-lg font-semibold text-[color:var(--color-primary)]">ماذا يشمل هذا البرنامج؟</h2>

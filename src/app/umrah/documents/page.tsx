@@ -1,5 +1,12 @@
 import PageShell from '@/components/PageShell';
 import { StaggerGroup, StaggerItem } from '@/components/motion/StaggerGroup';
+import { breadcrumbJsonLd } from '@/lib/breadcrumbs';
+
+const breadcrumbs = breadcrumbJsonLd([
+  { name: 'الرئيسية', path: '/' },
+  { name: 'العمرة', path: '/umrah' },
+  { name: 'الأوراق المطلوبة', path: '/umrah/documents' }
+]);
 
 export const metadata = {
   title: 'الأوراق والمستندات المطلوبة للعمرة',
@@ -37,6 +44,7 @@ export default function UmrahDocumentsPage() {
       eyebrow="العمرة"
       description="قائمة إرشادية بأهم الأوراق التي يحتاجها المعتمر المصري عادة قبل السفر، مع نصيحة بالتأكد من آخر التحديثات الرسمية قبل الحجز."
     >
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }} />
       <p className="mb-8 max-w-3xl text-sm leading-8 text-[color:var(--color-muted)]">
         العمرة قد تكون رحلة أقصر من الحج، لكن التجهيز الجيد للأوراق يوفر عليك وقتًا وجهدًا كبيرين قبل السفر. إليك أهم المستندات التي يحتاجها المعتمر المصري عادة.
       </p>

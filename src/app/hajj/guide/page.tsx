@@ -1,5 +1,12 @@
 import Link from 'next/link';
 import PageShell from '@/components/PageShell';
+import { breadcrumbJsonLd } from '@/lib/breadcrumbs';
+
+const breadcrumbs = breadcrumbJsonLd([
+  { name: 'الرئيسية', path: '/' },
+  { name: 'الحج', path: '/hajj' },
+  { name: 'دليل مناسك الحج', path: '/hajj/guide' }
+]);
 
 export const metadata = {
   title: 'دليل مناسك الحج خطوة بخطوة',
@@ -52,6 +59,7 @@ export default function HajjGuidePage() {
       eyebrow="دليل الحج"
       description="ترتيب مبسط لمناسك الحج من الإحرام حتى طواف الوداع، ليكون مرجعًا سريعًا للحاج قبل السفر وأثناء أداء المناسك."
     >
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }} />
       <div className="space-y-5">
         {rituals.map((step, index) => (
           <div key={step.title} className="rounded-[1.25rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-6 shadow-sm">
