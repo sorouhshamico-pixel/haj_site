@@ -43,6 +43,7 @@ export default function UmrahGuidePage() {
       title="دليل مناسك العمرة خطوة بخطوة"
       eyebrow="دليل العمرة"
       description="ترتيب مبسط لمناسك العمرة من الإحرام حتى الحلق أو التقصير، ليكون مرجعًا سريعًا للمعتمر قبل السفر وأثناء الأداء."
+      image={{ src: '/images/sections/umrah-guide-prophets-mosque.jpg', alt: 'معتمرون في ساحات المسجد النبوي الشريف نهارًا' }}
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }} />
       <div className="space-y-5">

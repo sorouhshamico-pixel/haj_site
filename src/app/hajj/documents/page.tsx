@@ -47,6 +47,7 @@ export default function HajjDocumentsPage() {
       title="الأوراق والمستندات المطلوبة للحج"
       eyebrow="الحج"
       description="قائمة إرشادية بأهم الأوراق التي يحتاجها الحاج المصري عادة قبل السفر، مع نصيحة بالتأكد من آخر التحديثات الرسمية قبل موسم كل حج."
+      image={{ src: '/images/sections/hajj-documents-elders-kaaba.jpg', alt: 'حجاج من كبار السن أمام الكعبة المشرفة ليلًا' }}
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }} />
       <p className="mb-8 max-w-3xl text-sm leading-8 text-[color:var(--color-muted)]">

@@ -63,6 +63,7 @@ export default function MadinahPage() {
       title="المدينة المنورة: أهم المعالم والمعلومات"
       eyebrow="المدن المقدسة"
       description="نظرة تعريفية على أبرز المعالم الدينية والتاريخية في المدينة المنورة، مع نصائح عملية تساعدك على تنظيم زيارتك بهدوء واطمئنان."
+      image={{ src: '/images/sections/madinah-prophets-mosque-dome.jpg', alt: 'قبة المسجد النبوي الخضراء في المدينة المنورة' }}
     >
       <script
         type="application/ld+json"

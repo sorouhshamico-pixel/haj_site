@@ -55,6 +55,7 @@ export default function MakkahPage() {
       title="مكة المكرمة: أهم المعالم والمعلومات"
       eyebrow="المدن المقدسة"
       description="نظرة تعريفية على أبرز المعالم المقدسة والتاريخية في مكة المكرمة، مع نصائح عملية تساعد الحاج والمعتمر القادم من مصر على تنظيم وقته هناك."
+      image={{ src: '/images/sections/makkah-haram-panorama.jpg', alt: 'المسجد الحرام والكعبة المشرفة ليلًا في مكة المكرمة' }}
     >
       <script
         type="application/ld+json"

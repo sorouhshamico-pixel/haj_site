@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, type Variants } from 'framer-motion';
+import { m, type Variants } from 'framer-motion';
 import type { ReactNode } from 'react';
 
 const variants: Variants = {
@@ -18,7 +18,7 @@ export default function Reveal({
   className?: string;
 }) {
   return (
-    <motion.div
+    <m.div
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: '-80px' }}
@@ -27,6 +27,6 @@ export default function Reveal({
       className={className}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }

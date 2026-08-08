@@ -22,6 +22,7 @@ export default function UmrahProgramsPage() {
       title="برامج العمرة"
       eyebrow="برامج"
       description="نقدم أكثر من فئة لبرامج العمرة تناسب احتياجات وميزانيات مختلفة. تواصل معنا لمعرفة المواعيد والأسعار والتفاصيل الكاملة."
+      image={{ src: '/images/sections/umrah-programs-group-warm.jpg', alt: 'مجموعة من المعتمرين مع فريق الإشراف أمام الكعبة المشرفة' }}
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }} />
       <div className="grid gap-4 md:grid-cols-3">

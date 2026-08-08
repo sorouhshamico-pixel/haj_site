@@ -17,11 +17,9 @@ export default function Gallery() {
     <section className="bg-[color:var(--color-background)] py-20">
       <div className="container-shell">
         <Reveal>
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="text-sm font-semibold text-[color:var(--color-gold)]">من رحلاتنا</p>
-              <h2 className="section-title mt-2">لحظات حقيقية من رحلات الحج والعمرة السابقة</h2>
-            </div>
+          <div className="text-center sm:text-right">
+            <p className="text-sm font-semibold text-[color:var(--color-gold)]">من رحلاتنا</p>
+            <h2 className="section-title mt-2">لحظات حقيقية من رحلات الحج والعمرة السابقة</h2>
           </div>
         </Reveal>
         <GalleryGrid photos={photos} />

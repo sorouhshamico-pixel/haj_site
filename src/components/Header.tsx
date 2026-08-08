@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { siteConfig, routes, phoneInternational } from '@/lib/site-config';
@@ -22,7 +22,10 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 8);
+    const onScroll = () => {
+      setIsScrolled(window.scrollY > 8);
+      setIsMenuOpen((open) => (open ? false : open));
+    };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -96,7 +99,7 @@ export default function Header() {
 
       <AnimatePresence>
         {isMenuOpen ? (
-          <motion.nav
+          <m.nav
             id="mobile-nav"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
@@ -116,7 +119,7 @@ export default function Header() {
                 </Link>
               ))}
             </div>
-          </motion.nav>
+          </m.nav>
         ) : null}
       </AnimatePresence>
     </header>

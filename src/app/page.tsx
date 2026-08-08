@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import TrustStrip from '@/components/TrustStrip';
 import JourneyTimeline from '@/components/JourneyTimeline';
 import Gallery from '@/components/Gallery';
@@ -42,12 +43,19 @@ export default function HomePage() {
     <>
       <main id="main-content">
         <section className="relative overflow-hidden bg-[linear-gradient(150deg,rgba(11,59,44,0.97),rgba(15,77,58,0.94)_45%,rgba(8,50,38,0.98))] text-white">
-          <div className="absolute inset-0 bg-[url('/images/hero-banner.jpg')] bg-cover bg-center opacity-[0.14]" />
+          <Image
+            src="/images/hero-banner.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center opacity-[0.14]"
+          />
           <GeometricPattern id="hero-geo" className="pointer-events-none absolute inset-0 h-full w-full text-white/[0.06]" />
           <HeroAnimated />
 
           <div className="container-shell relative grid gap-10 py-24 lg:grid-cols-[1.1fr_0.9fr] lg:py-32">
-            <div className="max-w-3xl">
+            <div className="mx-auto max-w-3xl text-center lg:mx-0 lg:text-right">
               <Reveal>
                 <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm backdrop-blur">
                   <StarTagIcon className="h-4 w-4 text-[color:var(--color-gold-soft)]" />
@@ -55,17 +63,17 @@ export default function HomePage() {
                 </p>
               </Reveal>
               <Reveal delay={0.08}>
-                <h1 className="text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
+                <h1 className="text-4xl font-semibold leading-[1.5] sm:text-5xl lg:text-6xl">
                   مع الشيخ حسن عوض، رحلتك إلى بيت الله في أيدٍ أمينة.
                 </h1>
               </Reveal>
               <Reveal delay={0.16}>
-                <p className="mt-6 max-w-2xl text-lg leading-8 text-white/80">
+                <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/80 lg:mx-0">
                   برامج حج وعمرة من مصر بإشراف ميداني مباشر، ومتابعة لصيقة في كل خطوة من رحلتك إلى مكة المكرمة والمدينة المنورة.
                 </p>
               </Reveal>
               <Reveal delay={0.24}>
-                <div className="mt-8 flex flex-wrap gap-4">
+                <div className="mt-8 flex flex-wrap justify-center gap-4 lg:justify-start">
                   <Link
                     href={routes.hajjPrograms}
                     className="group rounded-full bg-[color:var(--color-gold)] px-6 py-3 font-semibold text-[color:var(--color-primary-dark)] transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/20"
@@ -111,7 +119,7 @@ export default function HomePage() {
         <section className="bg-[color:var(--color-surface)] py-20 lg:py-28">
           <div className="container-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <Reveal>
-              <div>
+              <div className="text-center lg:text-right">
                 <p className="eyebrow">كلمة المدير</p>
                 <h2 className="section-title mt-2">تعرف على الشيخ حسن عوض قبل أن تحجز</h2>
                 <p className="mt-5 text-lg leading-8 text-[color:var(--color-muted)]">
@@ -143,7 +151,7 @@ export default function HomePage() {
         <section className="bg-[color:var(--color-surface)] py-20 lg:py-28">
           <div className="container-shell">
             <Reveal>
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+              <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:items-end sm:justify-between sm:text-right">
                 <div>
                   <p className="eyebrow">قبل أن تسافر</p>
                   <h2 className="section-title mt-2">كل ما تحتاج معرفته قبل رحلتك</h2>
@@ -174,10 +182,10 @@ export default function HomePage() {
           <GeometricPattern id="why-geo" className="pointer-events-none absolute inset-0 h-full w-full text-[color:var(--color-primary)]/[0.04]" />
           <div className="container-shell relative grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <Reveal>
-              <div>
+              <div className="rounded-[2rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-8 text-center shadow-sm sm:p-10 lg:text-right">
                 <p className="eyebrow">لماذا الشيخ حسن عوض؟</p>
                 <h2 className="section-title mt-3">إشراف ميداني حقيقي على كل رحلة حج وعمرة</h2>
-                <p className="mt-5 max-w-2xl text-lg leading-8 text-[color:var(--color-muted)]">
+                <p className="mt-5 text-lg leading-8 text-[color:var(--color-muted)]">
                   نرافق حجاجنا ومعتمرينا خطوة بخطوة من التسجيل وحتى العودة، مع متابعة ميدانية مباشرة في مكة المكرمة والمدينة المنورة، وبرامج مصممة لتناسب مختلف الفئات والميزانيات.
                 </p>
               </div>
@@ -200,12 +208,12 @@ export default function HomePage() {
         <section className="bg-[color:var(--color-background)] py-20 lg:py-28">
           <div className="container-shell">
             <Reveal>
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+              <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:items-end sm:justify-between sm:text-right">
                 <div>
                   <p className="eyebrow">برامجنا</p>
                   <h2 className="section-title mt-2">فئات برامج تناسب كل احتياج وميزانية</h2>
                 </div>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap justify-center gap-3 sm:justify-start">
                   <Link href={routes.hajjPrograms} className="text-sm font-semibold text-[color:var(--color-primary)] transition hover:text-[color:var(--color-primary-dark)]">
                     كل برامج الحج ←
                   </Link>
@@ -239,7 +247,7 @@ export default function HomePage() {
         <section className="bg-[color:var(--color-surface)] py-20 lg:py-28">
           <div className="container-shell">
             <Reveal>
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+              <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:items-end sm:justify-between sm:text-right">
                 <div>
                   <p className="eyebrow">دليلنا</p>
                   <h2 className="section-title mt-2">أحدث المقالات من مدونتنا</h2>
@@ -272,7 +280,7 @@ export default function HomePage() {
         <section className="bg-[color:var(--color-background)] py-20 lg:py-28">
           <div className="container-shell grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
             <Reveal>
-              <div>
+              <div className="text-center lg:text-right">
                 <p className="eyebrow">أسئلة شائعة</p>
                 <h2 className="section-title mt-2">إجابات سريعة قبل أن تسأل</h2>
                 <p className="mt-5 text-lg leading-8 text-[color:var(--color-muted)]">

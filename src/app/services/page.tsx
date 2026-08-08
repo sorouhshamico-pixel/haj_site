@@ -33,7 +33,12 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <PageShell title="خدماتنا" eyebrow="خدمات" description="نقدم خدمات موجهة لتسهيل رحلة الحج والعمرة مع وضوح المعلومات وتوجيه مريح من قبل وأثناء وبعد الرحلة.">
+    <PageShell
+      title="خدماتنا"
+      eyebrow="خدمات"
+      description="نقدم خدمات موجهة لتسهيل رحلة الحج والعمرة مع وضوح المعلومات وتوجيه مريح من قبل وأثناء وبعد الرحلة."
+      image={{ src: '/images/sections/services-field-support.jpg', alt: 'فريق الإشراف الميداني لشركة الشيخ حسن عوض أثناء إحدى الرحلات' }}
+    >
       <StaggerGroup className="grid gap-4 md:grid-cols-2">
         {services.map((service) => (
           <StaggerItem key={service.title}>

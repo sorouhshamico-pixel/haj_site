@@ -43,6 +43,7 @@ export default function UmrahDocumentsPage() {
       title="الأوراق والمستندات المطلوبة للعمرة"
       eyebrow="العمرة"
       description="قائمة إرشادية بأهم الأوراق التي يحتاجها المعتمر المصري عادة قبل السفر، مع نصيحة بالتأكد من آخر التحديثات الرسمية قبل الحجز."
+      image={{ src: '/images/sections/umrah-documents-prophets-mosque.jpg', alt: 'معتمرون أمام باحات المسجد النبوي الشريف' }}
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }} />
       <p className="mb-8 max-w-3xl text-sm leading-8 text-[color:var(--color-muted)]">

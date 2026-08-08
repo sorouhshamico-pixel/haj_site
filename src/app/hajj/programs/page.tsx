@@ -22,6 +22,7 @@ export default function HajjProgramsPage() {
       title="برامج الحج"
       eyebrow="برامج"
       description="نقدم أكثر من فئة لبرامج الحج تناسب احتياجات وميزانيات مختلفة. تواصل معنا لمعرفة المواعيد والأسعار والتفاصيل الكاملة للموسم الحالي."
+      image={{ src: '/images/sections/hajj-programs-group-kaaba.jpg', alt: 'مجموعة من الحجاج مع فريق الإشراف أمام الكعبة المشرفة' }}
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }} />
       <div className="grid gap-4 md:grid-cols-3">

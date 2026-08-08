@@ -58,6 +58,7 @@ export default function HajjGuidePage() {
       title="دليل مناسك الحج خطوة بخطوة"
       eyebrow="دليل الحج"
       description="ترتيب مبسط لمناسك الحج من الإحرام حتى طواف الوداع، ليكون مرجعًا سريعًا للحاج قبل السفر وأثناء أداء المناسك."
+      image={{ src: '/images/sections/hajj-guide-pilgrims-kaaba.jpg', alt: 'حجاج يؤدون مناسك الحج أمام الكعبة المشرفة ليلًا' }}
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }} />
       <div className="space-y-5">

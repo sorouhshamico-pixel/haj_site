@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 import { StaggerGroup, StaggerItem } from '@/components/motion/StaggerGroup';
 
 type Photo = { src: string; alt: string };
@@ -37,7 +37,7 @@ export default function GalleryGrid({ photos }: { photos: Photo[] }) {
 
       <AnimatePresence>
         {activePhoto ? (
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -47,7 +47,7 @@ export default function GalleryGrid({ photos }: { photos: Photo[] }) {
             aria-modal="true"
             aria-label={activePhoto.alt}
           >
-            <motion.div
+            <m.div
               initial={{ scale: 0.92, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.96, opacity: 0 }}
@@ -69,8 +69,8 @@ export default function GalleryGrid({ photos }: { photos: Photo[] }) {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
                 </svg>
               </button>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
         ) : null}
       </AnimatePresence>
     </>

@@ -4,6 +4,8 @@ import './globals.css';
 import { siteConfig, phoneInternational, phoneSecondaryInternational } from '@/lib/site-config';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import FloatingActions from '@/components/FloatingActions';
+import MotionProvider from '@/components/motion/MotionProvider';
 
 const notoKufiArabic = Noto_Kufi_Arabic({
   subsets: ['arabic'],
@@ -101,9 +103,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           تخطَّ إلى المحتوى الرئيسي
         </a>
-        <Header />
-        {children}
-        <Footer />
+        <MotionProvider>
+          <Header />
+          {children}
+          <Footer />
+          <FloatingActions />
+        </MotionProvider>
       </body>
     </html>
   );
