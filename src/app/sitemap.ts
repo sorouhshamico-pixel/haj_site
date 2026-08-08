@@ -20,6 +20,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...umrahPrograms.map((program) => `/umrah/programs/${program.slug}`),
     '/umrah/guide',
     '/umrah/documents',
+    '/makkah',
+    '/madinah',
     '/blog',
     ...posts.map((post) => `/blog/${post.slug}`),
     '/contact',

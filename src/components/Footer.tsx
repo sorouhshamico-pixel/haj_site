@@ -27,6 +27,8 @@ export default function Footer() {
             <li><Link href={routes.umrah}>العمرة</Link></li>
             <li><Link href={routes.hajjPrograms}>برامج الحج</Link></li>
             <li><Link href={routes.umrahPrograms}>برامج العمرة</Link></li>
+            <li><Link href={routes.makkah}>مكة المكرمة</Link></li>
+            <li><Link href={routes.madinah}>المدينة المنورة</Link></li>
           </ul>
         </div>
         <div>

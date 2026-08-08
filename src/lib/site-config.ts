@@ -66,6 +66,8 @@ export const routes = {
   hajjPrograms: '/hajj/programs',
   umrah: '/umrah',
   umrahPrograms: '/umrah/programs',
+  makkah: '/makkah',
+  madinah: '/madinah',
   blog: '/blog',
   contact: '/contact',
   faq: '/faq',

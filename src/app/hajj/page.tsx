@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Reveal from '@/components/motion/Reveal';
 import { StaggerGroup, StaggerItem } from '@/components/motion/StaggerGroup';
-import { StarTagIcon, DocumentIcon, CompassIcon, HeartHandIcon } from '@/components/icons';
+import { StarTagIcon, DocumentIcon, CompassIcon, HeartHandIcon, MapPinIcon } from '@/components/icons';
 
 export const metadata = {
   title: 'الحج',
@@ -13,6 +13,8 @@ const sections = [
   { icon: StarTagIcon, title: 'برامج الحج', href: '/hajj/programs', text: 'تعرف على فئات برامج الحج المتاحة وتواصل معنا لمعرفة المواعيد والأسعار.' },
   { icon: DocumentIcon, title: 'الأوراق المطلوبة', href: '/hajj/documents', text: 'قائمة إرشادية بالمستندات التي يحتاجها الحاج المصري قبل السفر.' },
   { icon: CompassIcon, title: 'مناسك الحج', href: '/hajj/guide', text: 'دليل مرتب خطوة بخطوة لمناسك الحج من الإحرام حتى طواف الوداع.' },
+  { icon: MapPinIcon, title: 'مكة المكرمة', href: '/makkah', text: 'أبرز المعالم المقدسة والتاريخية في مكة المكرمة ونصائح عملية للحاج.' },
+  { icon: MapPinIcon, title: 'المدينة المنورة', href: '/madinah', text: 'المسجد النبوي وأبرز معالم المدينة المنورة ونصائح عملية للزيارة.' },
   { icon: HeartHandIcon, title: 'الأسئلة الشائعة', href: '/faq', text: 'إجابات سريعة على أكثر الأسئلة تكرارًا حول الحج والعمرة.' }
 ];
 

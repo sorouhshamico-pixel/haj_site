@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Reveal from '@/components/motion/Reveal';
 import { StaggerGroup, StaggerItem } from '@/components/motion/StaggerGroup';
-import { StarTagIcon, DocumentIcon, CompassIcon, HeartHandIcon } from '@/components/icons';
+import { StarTagIcon, DocumentIcon, CompassIcon, HeartHandIcon, MapPinIcon } from '@/components/icons';
 
 export const metadata = {
   title: 'العمرة',
@@ -13,6 +13,8 @@ const sections = [
   { icon: StarTagIcon, title: 'برامج العمرة', href: '/umrah/programs', text: 'تعرف على فئات برامج العمرة المتاحة وتواصل معنا لمعرفة المواعيد والأسعار.' },
   { icon: DocumentIcon, title: 'الأوراق المطلوبة', href: '/umrah/documents', text: 'قائمة إرشادية بالمستندات التي يحتاجها المعتمر المصري قبل السفر.' },
   { icon: CompassIcon, title: 'مناسك العمرة', href: '/umrah/guide', text: 'دليل مرتب خطوة بخطوة لمناسك العمرة من الإحرام حتى الحلق أو التقصير.' },
+  { icon: MapPinIcon, title: 'مكة المكرمة', href: '/makkah', text: 'أبرز المعالم المقدسة والتاريخية في مكة المكرمة ونصائح عملية للمعتمر.' },
+  { icon: MapPinIcon, title: 'المدينة المنورة', href: '/madinah', text: 'المسجد النبوي وأبرز معالم المدينة المنورة ونصائح عملية للزيارة.' },
   { icon: HeartHandIcon, title: 'الأسئلة الشائعة', href: '/faq', text: 'إجابات سريعة على أكثر الأسئلة تكرارًا حول الحج والعمرة.' }
 ];
 
