@@ -15,7 +15,7 @@ export default function BlogPage() {
       <Reveal>
         <div className="max-w-3xl">
           <p className="text-sm font-semibold text-[color:var(--color-gold)]">المدونة</p>
-          <h1 className="mt-4 text-4xl font-semibold text-[color:var(--color-primary)]">محتوى عربي ذي قيمة حول الحج والعمرة</h1>
+          <h1 className="mt-4 text-4xl font-semibold text-[color:var(--color-primary)]">دليلك الكامل لرحلة الحج والعمرة</h1>
           <p className="mt-6 text-lg leading-8 text-[color:var(--color-muted)]">
             مقالات ودلائل عملية تساعدك على الاستعداد لرحلة الحج أو العمرة، من المناسك خطوة بخطوة إلى النصائح العملية قبل السفر.
           </p>

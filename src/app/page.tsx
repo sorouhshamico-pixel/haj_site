@@ -1,12 +1,16 @@
 import Link from 'next/link';
 import TrustStrip from '@/components/TrustStrip';
+import JourneyTimeline from '@/components/JourneyTimeline';
 import Gallery from '@/components/Gallery';
 import CTASection from '@/components/CTASection';
 import GeometricPattern from '@/components/GeometricPattern';
 import Reveal from '@/components/motion/Reveal';
 import { StaggerGroup, StaggerItem } from '@/components/motion/StaggerGroup';
-import { CompassIcon, DocumentIcon, StarTagIcon, ShieldIcon, GroupIcon, HeartHandIcon } from '@/components/icons';
+import { CompassIcon, DocumentIcon, StarTagIcon, ShieldIcon, GroupIcon, HeartHandIcon, CalendarIcon } from '@/components/icons';
 import { routes } from '@/lib/site-config';
+import { hajjPrograms, umrahPrograms } from '@/lib/programs';
+import { posts } from '@/lib/blog-posts';
+import { faqs } from '@/lib/faqs';
 import HeroAnimated from '@/components/HeroAnimated';
 
 const trustItems = [
@@ -28,6 +32,10 @@ const whyUs = [
   { icon: CompassIcon, title: 'دعم وتواصل مستمر' },
   { icon: HeartHandIcon, title: 'برامج تناسب جميع الفئات' }
 ];
+
+const featuredPrograms = [hajjPrograms[1], umrahPrograms[1]];
+const latestPosts = posts.slice(0, 3);
+const faqPreview = faqs.slice(0, 4);
 
 export default function HomePage() {
   return (
@@ -86,9 +94,9 @@ export default function HomePage() {
                 <div className="rounded-[1.5rem] bg-[color:var(--color-ivory)] p-6 text-[color:var(--color-text)]">
                   <p className="text-sm font-semibold text-[color:var(--color-primary)]">ماذا ستجد هنا؟</p>
                   <ul className="mt-4 space-y-3 text-sm leading-8 text-[color:var(--color-muted)]">
-                    <li>• معلومات موثوقة عن الحج والعمرة من منظور عربي واضح.</li>
-                    <li>• دليل شامل لخطوات السفر والاستعدادات.</li>
-                    <li>• برامج متعددة تناسب احتياجات وميزانيات مختلفة.</li>
+                    <li>• دليل مناسك كامل للحج والعمرة، خطوة بخطوة.</li>
+                    <li>• 6 فئات برامج بين الحج والعمرة تناسب كل ميزانية.</li>
+                    <li>• صور وفيديوهات حقيقية من رحلاتنا السابقة.</li>
                   </ul>
                 </div>
               </div>
@@ -98,15 +106,47 @@ export default function HomePage() {
 
         <TrustStrip />
 
+        <JourneyTimeline />
+
+        <section className="bg-[color:var(--color-surface)] py-20 lg:py-28">
+          <div className="container-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <Reveal>
+              <div>
+                <p className="eyebrow">كلمة المدير</p>
+                <h2 className="section-title mt-2">تعرف على الشيخ حسن عوض قبل أن تحجز</h2>
+                <p className="mt-5 text-lg leading-8 text-[color:var(--color-muted)]">
+                  في دقائق معدودة، يحدثك الشيخ حسن عوض بنفسه عن فلسفة الشركة في تنظيم رحلات الحج والعمرة، وكيف يرافق فريقه كل مجموعة على أرض الواقع في مكة المكرمة والمدينة المنورة.
+                </p>
+                <Link href={routes.about} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--color-primary)] transition hover:text-[color:var(--color-primary-dark)]">
+                  تعرف أكثر على الشركة
+                  <span aria-hidden="true">←</span>
+                </Link>
+              </div>
+            </Reveal>
+            <Reveal delay={0.12}>
+              <div className="overflow-hidden rounded-[1.5rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] shadow-soft">
+                <video
+                  controls
+                  preload="none"
+                  poster="/images/gallery/trip-highlights-poster.jpg"
+                  className="aspect-video w-full bg-black"
+                >
+                  <source src="/videos/trip-highlights.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
         <Gallery />
 
-        <section className="bg-[color:var(--color-background)] py-20">
+        <section className="bg-[color:var(--color-surface)] py-20 lg:py-28">
           <div className="container-shell">
             <Reveal>
               <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
                 <div>
-                  <p className="text-sm font-semibold text-[color:var(--color-gold)]">محتوى ذي قيمة</p>
-                  <h2 className="section-title mt-2">الصفحات الأساسية التي تبني تجربة موثوقة</h2>
+                  <p className="eyebrow">قبل أن تسافر</p>
+                  <h2 className="section-title mt-2">كل ما تحتاج معرفته قبل رحلتك</h2>
                 </div>
               </div>
             </Reveal>
@@ -130,12 +170,12 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="relative overflow-hidden bg-[color:var(--color-ivory)] py-20">
+        <section className="relative overflow-hidden bg-[color:var(--color-ivory)] py-20 lg:py-28">
           <GeometricPattern id="why-geo" className="pointer-events-none absolute inset-0 h-full w-full text-[color:var(--color-primary)]/[0.04]" />
           <div className="container-shell relative grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <Reveal>
               <div>
-                <p className="text-sm font-semibold text-[color:var(--color-gold)]">لماذا الشيخ حسن عوض؟</p>
+                <p className="eyebrow">لماذا الشيخ حسن عوض؟</p>
                 <h2 className="section-title mt-3">إشراف ميداني حقيقي على كل رحلة حج وعمرة</h2>
                 <p className="mt-5 max-w-2xl text-lg leading-8 text-[color:var(--color-muted)]">
                   نرافق حجاجنا ومعتمرينا خطوة بخطوة من التسجيل وحتى العودة، مع متابعة ميدانية مباشرة في مكة المكرمة والمدينة المنورة، وبرامج مصممة لتناسب مختلف الفئات والميزانيات.
@@ -150,6 +190,106 @@ export default function HomePage() {
                       <item.icon className="h-5 w-5 text-[color:var(--color-primary)]" />
                     </div>
                     <p className="text-sm font-semibold text-[color:var(--color-primary)]">{item.title}</p>
+                  </div>
+                </StaggerItem>
+              ))}
+            </StaggerGroup>
+          </div>
+        </section>
+
+        <section className="bg-[color:var(--color-background)] py-20 lg:py-28">
+          <div className="container-shell">
+            <Reveal>
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <p className="eyebrow">برامجنا</p>
+                  <h2 className="section-title mt-2">فئات برامج تناسب كل احتياج وميزانية</h2>
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  <Link href={routes.hajjPrograms} className="text-sm font-semibold text-[color:var(--color-primary)] transition hover:text-[color:var(--color-primary-dark)]">
+                    كل برامج الحج ←
+                  </Link>
+                  <Link href={routes.umrahPrograms} className="text-sm font-semibold text-[color:var(--color-primary)] transition hover:text-[color:var(--color-primary-dark)]">
+                    كل برامج العمرة ←
+                  </Link>
+                </div>
+              </div>
+            </Reveal>
+            <StaggerGroup className="mt-10 grid gap-6 md:grid-cols-2">
+              {featuredPrograms.map((program) => (
+                <StaggerItem key={program.slug}>
+                  <Link
+                    href={`/${program.type}/programs/${program.slug}`}
+                    className="group block h-full rounded-[1.5rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-7 shadow-sm transition hover:-translate-y-1.5 hover:border-[color:var(--color-gold-soft)] hover:shadow-soft"
+                  >
+                    <p className="text-sm font-semibold text-[color:var(--color-gold)]">{program.type === 'hajj' ? 'برنامج حج' : 'برنامج عمرة'}</p>
+                    <h3 className="mt-2 text-xl font-semibold text-[color:var(--color-primary)]">{program.name}</h3>
+                    <p className="mt-3 text-sm leading-8 text-[color:var(--color-muted)]">{program.summary}</p>
+                    <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-[color:var(--color-gold)]">
+                      عرض التفاصيل
+                      <span className="transition-transform group-hover:-translate-x-1">←</span>
+                    </span>
+                  </Link>
+                </StaggerItem>
+              ))}
+            </StaggerGroup>
+          </div>
+        </section>
+
+        <section className="bg-[color:var(--color-surface)] py-20 lg:py-28">
+          <div className="container-shell">
+            <Reveal>
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <p className="eyebrow">دليلنا</p>
+                  <h2 className="section-title mt-2">أحدث المقالات من مدونتنا</h2>
+                </div>
+                <Link href={routes.blog} className="text-sm font-semibold text-[color:var(--color-primary)] transition hover:text-[color:var(--color-primary-dark)]">
+                  كل المقالات ←
+                </Link>
+              </div>
+            </Reveal>
+            <StaggerGroup className="mt-10 grid gap-6 md:grid-cols-3">
+              {latestPosts.map((post) => (
+                <StaggerItem key={post.slug}>
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="group flex h-full flex-col rounded-[1.5rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-7 shadow-sm transition hover:-translate-y-1.5 hover:border-[color:var(--color-gold-soft)] hover:shadow-soft"
+                  >
+                    <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[color:var(--color-ivory)] transition group-hover:bg-[color:var(--color-gold)]/15">
+                      <CalendarIcon className="h-5 w-5 text-[color:var(--color-gold)]" />
+                    </div>
+                    <p className="mt-4 text-sm font-semibold text-[color:var(--color-gold)]">{post.category}</p>
+                    <h3 className="mt-1 text-lg font-semibold text-[color:var(--color-primary)]">{post.title}</h3>
+                    <p className="mt-3 flex-1 text-sm leading-8 text-[color:var(--color-muted)]">{post.excerpt}</p>
+                  </Link>
+                </StaggerItem>
+              ))}
+            </StaggerGroup>
+          </div>
+        </section>
+
+        <section className="bg-[color:var(--color-background)] py-20 lg:py-28">
+          <div className="container-shell grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+            <Reveal>
+              <div>
+                <p className="eyebrow">أسئلة شائعة</p>
+                <h2 className="section-title mt-2">إجابات سريعة قبل أن تسأل</h2>
+                <p className="mt-5 text-lg leading-8 text-[color:var(--color-muted)]">
+                  جمعنا لك أكثر الأسئلة تكرارًا من الحجاج والمعتمرين. لو سؤالك مش موجود، تواصل معنا مباشرة.
+                </p>
+                <Link href={routes.faq} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--color-primary)] transition hover:text-[color:var(--color-primary-dark)]">
+                  كل الأسئلة الشائعة
+                  <span aria-hidden="true">←</span>
+                </Link>
+              </div>
+            </Reveal>
+            <StaggerGroup className="space-y-4">
+              {faqPreview.map((faq) => (
+                <StaggerItem key={faq.question}>
+                  <div className="rounded-[1.25rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-6 shadow-sm">
+                    <h3 className="font-semibold text-[color:var(--color-primary)]">{faq.question}</h3>
+                    <p className="mt-2 text-sm leading-8 text-[color:var(--color-muted)]">{faq.answer}</p>
                   </div>
                 </StaggerItem>
               ))}

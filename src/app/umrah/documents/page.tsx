@@ -1,4 +1,5 @@
 import PageShell from '@/components/PageShell';
+import { StaggerGroup, StaggerItem } from '@/components/motion/StaggerGroup';
 
 export const metadata = {
   title: 'الأوراق والمستندات المطلوبة للعمرة',
@@ -36,14 +37,24 @@ export default function UmrahDocumentsPage() {
       eyebrow="العمرة"
       description="قائمة إرشادية بأهم الأوراق التي يحتاجها المعتمر المصري عادة قبل السفر، مع نصيحة بالتأكد من آخر التحديثات الرسمية قبل الحجز."
     >
-      <div className="grid gap-4 md:grid-cols-2">
-        {documents.map((doc) => (
-          <div key={doc.title} className="rounded-[1.25rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-6 shadow-sm">
-            <h2 className="text-lg font-semibold text-[color:var(--color-primary)]">{doc.title}</h2>
-            <p className="mt-3 text-sm leading-8 text-[color:var(--color-muted)]">{doc.text}</p>
-          </div>
+      <p className="mb-8 max-w-3xl text-sm leading-8 text-[color:var(--color-muted)]">
+        العمرة قد تكون رحلة أقصر من الحج، لكن التجهيز الجيد للأوراق يوفر عليك وقتًا وجهدًا كبيرين قبل السفر. إليك أهم المستندات التي يحتاجها المعتمر المصري عادة.
+      </p>
+      <StaggerGroup className="grid gap-4 md:grid-cols-2">
+        {documents.map((doc, index) => (
+          <StaggerItem key={doc.title}>
+            <div className="flex h-full gap-4 rounded-[1.25rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
+              <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-[color:var(--color-primary)]/10 text-sm font-semibold text-[color:var(--color-primary)]">
+                {index + 1}
+              </span>
+              <div>
+                <h2 className="text-lg font-semibold text-[color:var(--color-primary)]">{doc.title}</h2>
+                <p className="mt-2 text-sm leading-8 text-[color:var(--color-muted)]">{doc.text}</p>
+              </div>
+            </div>
+          </StaggerItem>
         ))}
-      </div>
+      </StaggerGroup>
 
       <div className="mt-10 rounded-[1.25rem] border border-[color:var(--color-border)] bg-[color:var(--color-ivory)] p-6 text-sm leading-8 text-[color:var(--color-muted)]">
         تتغير بعض الاشتراطات من فترة لأخرى بقرار من الجهات الرسمية في مصر والسعودية، لذلك يُنصح دائمًا بالتواصل معنا للتأكد من آخر المستجدات قبل استكمال إجراءات السفر.

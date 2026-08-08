@@ -19,6 +19,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 17.5px;
 }
 
 body {
@@ -29,6 +30,18 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.75;
+}
+
+/* Arabic is a cursive/connected script — letter-spacing can force browsers to
+   drop glyph joining, so headings are kept at normal tracking and instead
+   rely on line-height + text-wrap for a tighter, more deliberate rhythm. */
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.25;
+  text-wrap: balance;
 }
 
 ::selection {
@@ -47,6 +60,10 @@ body {
   }
 
   .section-title {
-    @apply text-2xl sm:text-3xl font-semibold tracking-tight text-[color:var(--color-primary)];
+    @apply text-3xl sm:text-4xl font-semibold text-[color:var(--color-primary)];
+  }
+
+  .eyebrow {
+    @apply text-sm font-semibold text-[color:var(--color-gold)];
   }
 }

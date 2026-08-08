@@ -1,4 +1,5 @@
 import PageShell from '@/components/PageShell';
+import { StaggerGroup, StaggerItem } from '@/components/motion/StaggerGroup';
 
 export const metadata = {
   title: 'الأوراق والمستندات المطلوبة للحج',
@@ -40,14 +41,24 @@ export default function HajjDocumentsPage() {
       eyebrow="الحج"
       description="قائمة إرشادية بأهم الأوراق التي يحتاجها الحاج المصري عادة قبل السفر، مع نصيحة بالتأكد من آخر التحديثات الرسمية قبل موسم كل حج."
     >
-      <div className="grid gap-4 md:grid-cols-2">
-        {documents.map((doc) => (
-          <div key={doc.title} className="rounded-[1.25rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-6 shadow-sm">
-            <h2 className="text-lg font-semibold text-[color:var(--color-primary)]">{doc.title}</h2>
-            <p className="mt-3 text-sm leading-8 text-[color:var(--color-muted)]">{doc.text}</p>
-          </div>
+      <p className="mb-8 max-w-3xl text-sm leading-8 text-[color:var(--color-muted)]">
+        تجهيز الأوراق مبكرًا هو الخطوة الأولى نحو رحلة حج مطمئنة بلا مفاجآت في اللحظات الأخيرة. هذه القائمة تجمع أهم المستندات التي يطلبها الحاج المصري عادة، مرتبة لتساعدك على المتابعة بسهولة قبل موعد السفر.
+      </p>
+      <StaggerGroup className="grid gap-4 md:grid-cols-2">
+        {documents.map((doc, index) => (
+          <StaggerItem key={doc.title}>
+            <div className="flex h-full gap-4 rounded-[1.25rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
+              <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-[color:var(--color-primary)]/10 text-sm font-semibold text-[color:var(--color-primary)]">
+                {index + 1}
+              </span>
+              <div>
+                <h2 className="text-lg font-semibold text-[color:var(--color-primary)]">{doc.title}</h2>
+                <p className="mt-2 text-sm leading-8 text-[color:var(--color-muted)]">{doc.text}</p>
+              </div>
+            </div>
+          </StaggerItem>
         ))}
-      </div>
+      </StaggerGroup>
 
       <div className="mt-10 rounded-[1.25rem] border border-[color:var(--color-border)] bg-[color:var(--color-ivory)] p-6 text-sm leading-8 text-[color:var(--color-muted)]">
         تتغير بعض الاشتراطات (خاصة الصحية منها) من موسم لآخر بقرار من الجهات الرسمية في مصر والسعودية، لذلك يُنصح دائمًا بالتواصل معنا للتأكد من آخر المستجدات قبل استكمال إجراءات السفر.
