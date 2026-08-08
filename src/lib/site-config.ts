@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: 'الشيخ حسن عوض للحج والعمرة',
   shortName: 'الشيخ حسن عوض',
-  description: 'منصة عربية مخصصة للحج والعمرة تقدم معلومات موثوقة وبرامج موجهة للمسافرين من مصر.',
+  description: 'شركة الشيخ حسن عوض لتنظيم رحلات الحج والعمرة من مصر، بإشراف ميداني مباشر وبرامج موثوقة لمختلف الفئات.',
   url: 'https://hassanhaj.com',
   logo: '/images/logo.jpg',
   ogImage: '/images/hero-banner.jpg',

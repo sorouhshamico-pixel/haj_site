@@ -8,7 +8,7 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-semibold text-[color:var(--color-primary)]">{siteConfig.name}</h3>
           <p className="mt-4 max-w-md text-sm leading-8 text-[color:var(--color-muted)]">
-            منصة عربية حديثة لتقديم المعلومات الواضحة والخدمات الموجهة للحجاج والمعتمرين من مصر، مع تركيز على الوضوح والثقة والراحة.
+            شركة متخصصة في تنظيم رحلات الحج والعمرة من مصر، بإشراف ميداني مباشر ومتابعة مستمرة لضمان رحلة مريحة وواضحة من التسجيل وحتى العودة.
           </p>
           <div className="mt-5 flex flex-col gap-2 text-sm text-[color:var(--color-muted)]">
             <a href={`tel:${phoneInternational}`} className="transition hover:text-[color:var(--color-primary)]">{siteConfig.phone}</a>
@@ -50,7 +50,7 @@ export default function Footer() {
       <div className="border-t border-[color:var(--color-border)] bg-[color:var(--color-ivory)]/60">
         <div className="container-shell flex flex-col gap-3 py-4 text-sm text-[color:var(--color-muted)] sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} {siteConfig.name}. جميع الحقوق محفوظة.</p>
-          <p>مبني مع التركيز على الثقة والوضوح والراحة.</p>
+          <p>معكم بثقة في رحلة الحج والعمرة، من التسجيل وحتى العودة.</p>
         </div>
       </div>
     </footer>

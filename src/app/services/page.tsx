@@ -2,7 +2,7 @@ import PageShell from '@/components/PageShell';
 
 export const metadata = {
   title: 'خدماتنا',
-  description: 'استكشف الخدمات الرئيسية التي تدعم الحج والعمرة من مصر عبر منصة عربية منظمة ومريحة.',
+  description: 'استكشف الخدمات الرئيسية التي تقدمها شركة الشيخ حسن عوض لدعم رحلة الحج والعمرة من التسجيل وحتى العودة.',
   alternates: { canonical: '/services' }
 };
 
