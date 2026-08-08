@@ -6,7 +6,7 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="container-shell py-20">
+    <main id="main-content" className="container-shell py-20">
       <div className="max-w-3xl">
         <p className="text-sm font-semibold text-[color:var(--color-gold)]">من نحن</p>
         <h1 className="mt-4 text-4xl font-semibold text-[color:var(--color-primary)]">منصة عربية متخصصة في الحج والعمرة</h1>

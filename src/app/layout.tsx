@@ -95,6 +95,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:right-4 focus:z-50 focus:rounded-full focus:bg-[color:var(--color-primary)] focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-white"
+        >
+          تخطَّ إلى المحتوى الرئيسي
+        </a>
         <Header />
         {children}
         <Footer />

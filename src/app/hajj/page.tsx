@@ -15,7 +15,7 @@ const sections = [
 
 export default function HajjPage() {
   return (
-    <main className="container-shell py-20">
+    <main id="main-content" className="container-shell py-20">
       <div className="max-w-4xl">
         <p className="text-sm font-semibold text-[color:var(--color-gold)]">الحج</p>
         <h1 className="mt-4 text-4xl font-semibold text-[color:var(--color-primary)]">الحج من مصر: دليل موثوق ومبسط</h1>

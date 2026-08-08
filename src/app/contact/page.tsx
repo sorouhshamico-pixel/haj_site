@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="container-shell py-20">
+    <main id="main-content" className="container-shell py-20">
       <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
         <div>
           <p className="text-sm font-semibold text-[color:var(--color-gold)]">تواصل معنا</p>

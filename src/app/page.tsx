@@ -20,7 +20,7 @@ const quickLinks = [
 export default function HomePage() {
   return (
     <>
-      <main>
+      <main id="main-content">
         <section className="relative overflow-hidden bg-[linear-gradient(135deg,rgba(15,77,58,0.95),rgba(8,50,38,0.88))] text-white">
           <div className="absolute inset-0 bg-[url('/images/hero-banner.jpg')] bg-cover bg-center opacity-20" />
           <div className="container-shell relative grid gap-10 py-24 lg:grid-cols-[1.1fr_0.9fr] lg:py-32">

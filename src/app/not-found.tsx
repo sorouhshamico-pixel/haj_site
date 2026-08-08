@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function NotFound() {
   return (
-    <main className="container-shell flex min-h-[70vh] items-center justify-center py-20">
+    <main id="main-content" className="container-shell flex min-h-[70vh] items-center justify-center py-20">
       <div className="max-w-2xl text-center">
         <p className="text-sm font-semibold text-[color:var(--color-gold)]">404</p>
         <h1 className="mt-4 text-4xl font-semibold text-[color:var(--color-primary)]">الصفحة غير موجودة</h1>
