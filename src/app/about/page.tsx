@@ -1,6 +1,7 @@
 export const metadata = {
   title: 'من نحن',
-  description: 'تعرف على هويتنا وماذا نسعى لتقديمه في مجال الحج والعمرة للمسافرين من مصر.'
+  description: 'تعرف على هويتنا وماذا نسعى لتقديمه في مجال الحج والعمرة للمسافرين من مصر.',
+  alternates: { canonical: '/about' }
 };
 
 export default function AboutPage() {

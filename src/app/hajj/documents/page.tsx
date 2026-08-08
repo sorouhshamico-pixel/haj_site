@@ -2,7 +2,8 @@ import PageShell from '@/components/PageShell';
 
 export const metadata = {
   title: 'الأوراق والمستندات المطلوبة للحج',
-  description: 'قائمة إرشادية بالأوراق والمستندات التي يحتاجها الحاج المصري قبل السفر: جواز السفر، التطعيمات، والصور الشخصية.'
+  description: 'قائمة إرشادية بالأوراق والمستندات التي يحتاجها الحاج المصري قبل السفر: جواز السفر، التطعيمات، والصور الشخصية.',
+  alternates: { canonical: '/hajj/documents' }
 };
 
 const documents = [

@@ -4,7 +4,8 @@ import { routes } from '@/lib/site-config';
 
 export const metadata = {
   title: 'برامج العمرة',
-  description: 'فئات برامج العمرة المتاحة من مصر مع الشيخ حسن عوض، تواصل معنا للحصول على التفاصيل الكاملة والمواعيد والأسعار المحدثة.'
+  description: 'فئات برامج العمرة المتاحة من مصر مع الشيخ حسن عوض، تواصل معنا للحصول على التفاصيل الكاملة والمواعيد والأسعار المحدثة.',
+  alternates: { canonical: '/umrah/programs' }
 };
 
 const programCategories = [

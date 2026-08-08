@@ -3,7 +3,8 @@ import { posts } from '@/lib/blog-posts';
 
 export const metadata = {
   title: 'المدونة',
-  description: 'مقالات ودلائل موثوقة حول الحج والعمرة، مناسك الأداء، والاستعداد للسفر من مصر.'
+  description: 'مقالات ودلائل موثوقة حول الحج والعمرة، مناسك الأداء، والاستعداد للسفر من مصر.',
+  alternates: { canonical: '/blog' }
 };
 
 export default function BlogPage() {

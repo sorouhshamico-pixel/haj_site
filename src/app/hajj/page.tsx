@@ -2,7 +2,8 @@ import Link from 'next/link';
 
 export const metadata = {
   title: 'الحج',
-  description: 'دليل شامل للحج من مصر، يشمل المعلومات الأساسية والروابط الداخلية للخطوات والوثائق والاستعداد.'
+  description: 'دليل شامل للحج من مصر، يشمل المعلومات الأساسية والروابط الداخلية للخطوات والوثائق والاستعداد.',
+  alternates: { canonical: '/hajj' }
 };
 
 const sections = [

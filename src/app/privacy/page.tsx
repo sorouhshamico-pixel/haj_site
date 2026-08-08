@@ -2,7 +2,8 @@ import PageShell from '@/components/PageShell';
 
 export const metadata = {
   title: 'سياسة الخصوصية',
-  description: 'تفاصيل سياسة الخصوصية والاستخدام للموقع.'
+  description: 'تفاصيل سياسة الخصوصية والاستخدام للموقع.',
+  alternates: { canonical: '/privacy' }
 };
 
 const sections = [

@@ -4,7 +4,8 @@ import { routes } from '@/lib/site-config';
 
 export const metadata = {
   title: 'برامج الحج',
-  description: 'فئات برامج الحج المتاحة من مصر مع الشيخ حسن عوض، تواصل معنا للحصول على التفاصيل الكاملة والمواعيد والأسعار المحدثة.'
+  description: 'فئات برامج الحج المتاحة من مصر مع الشيخ حسن عوض، تواصل معنا للحصول على التفاصيل الكاملة والمواعيد والأسعار المحدثة.',
+  alternates: { canonical: '/hajj/programs' }
 };
 
 const programCategories = [

@@ -2,7 +2,8 @@ import PageShell from '@/components/PageShell';
 
 export const metadata = {
   title: 'الأسئلة الشائعة',
-  description: 'إجابات واضحة حول الحج والعمرة والاستعداد قبل الرحلة.'
+  description: 'إجابات واضحة حول الحج والعمرة والاستعداد قبل الرحلة.',
+  alternates: { canonical: '/faq' }
 };
 
 const faqs = [

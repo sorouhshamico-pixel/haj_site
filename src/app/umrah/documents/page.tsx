@@ -2,7 +2,8 @@ import PageShell from '@/components/PageShell';
 
 export const metadata = {
   title: 'الأوراق والمستندات المطلوبة للعمرة',
-  description: 'قائمة إرشادية بالأوراق والمستندات التي يحتاجها المعتمر المصري قبل السفر: جواز السفر، التأشيرة، والصور الشخصية.'
+  description: 'قائمة إرشادية بالأوراق والمستندات التي يحتاجها المعتمر المصري قبل السفر: جواز السفر، التأشيرة، والصور الشخصية.',
+  alternates: { canonical: '/umrah/documents' }
 };
 
 const documents = [

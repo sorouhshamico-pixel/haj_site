@@ -3,7 +3,8 @@ import PageShell from '@/components/PageShell';
 
 export const metadata = {
   title: 'دليل مناسك الحج خطوة بخطوة',
-  description: 'دليل شامل لمناسك الحج بالترتيب: الإحرام، الطواف، السعي، يوم عرفة، مزدلفة، رمي الجمرات، والتحلل، بشرح مبسط للحاج القادم من مصر.'
+  description: 'دليل شامل لمناسك الحج بالترتيب: الإحرام، الطواف، السعي، يوم عرفة، مزدلفة، رمي الجمرات، والتحلل، بشرح مبسط للحاج القادم من مصر.',
+  alternates: { canonical: '/hajj/guide' }
 };
 
 const rituals = [

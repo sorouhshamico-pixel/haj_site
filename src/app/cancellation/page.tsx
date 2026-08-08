@@ -2,7 +2,8 @@ import PageShell from '@/components/PageShell';
 
 export const metadata = {
   title: 'سياسة الإلغاء والاسترداد',
-  description: 'معلومات عامة حول سياسة الإلغاء والاسترداد المتعلقة بالاستفسارات والخدمات.'
+  description: 'معلومات عامة حول سياسة الإلغاء والاسترداد المتعلقة بالاستفسارات والخدمات.',
+  alternates: { canonical: '/cancellation' }
 };
 
 export default function CancellationPage() {

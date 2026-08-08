@@ -2,7 +2,8 @@ import Link from 'next/link';
 
 export const metadata = {
   title: 'العمرة',
-  description: 'صفحة عمرة موجهة للمسافرين من مصر، مع محتوى واضح حول الخطوات والوثائق والاستعداد.'
+  description: 'صفحة عمرة موجهة للمسافرين من مصر، مع محتوى واضح حول الخطوات والوثائق والاستعداد.',
+  alternates: { canonical: '/umrah' }
 };
 
 const sections = [

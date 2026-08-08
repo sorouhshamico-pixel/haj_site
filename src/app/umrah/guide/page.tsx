@@ -3,7 +3,8 @@ import PageShell from '@/components/PageShell';
 
 export const metadata = {
   title: 'دليل مناسك العمرة خطوة بخطوة',
-  description: 'دليل شامل لمناسك العمرة بالترتيب: الإحرام، الطواف، السعي بين الصفا والمروة، والحلق أو التقصير، بشرح مبسط للمعتمر القادم من مصر.'
+  description: 'دليل شامل لمناسك العمرة بالترتيب: الإحرام، الطواف، السعي بين الصفا والمروة، والحلق أو التقصير، بشرح مبسط للمعتمر القادم من مصر.',
+  alternates: { canonical: '/umrah/guide' }
 };
 
 const rituals = [

@@ -2,7 +2,8 @@ import PageShell from '@/components/PageShell';
 
 export const metadata = {
   title: 'خدماتنا',
-  description: 'استكشف الخدمات الرئيسية التي تدعم الحج والعمرة من مصر عبر منصة عربية منظمة ومريحة.'
+  description: 'استكشف الخدمات الرئيسية التي تدعم الحج والعمرة من مصر عبر منصة عربية منظمة ومريحة.',
+  alternates: { canonical: '/services' }
 };
 
 const services = [

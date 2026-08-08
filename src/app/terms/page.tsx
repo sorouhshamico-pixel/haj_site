@@ -2,7 +2,8 @@ import PageShell from '@/components/PageShell';
 
 export const metadata = {
   title: 'الشروط والأحكام',
-  description: 'الشروط القانونية لاستخدام الموقع والمحتوى المعروض عليه.'
+  description: 'الشروط القانونية لاستخدام الموقع والمحتوى المعروض عليه.',
+  alternates: { canonical: '/terms' }
 };
 
 const sections = [
