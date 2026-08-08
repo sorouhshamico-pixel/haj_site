@@ -1,22 +1,66 @@
+import Link from 'next/link';
 import PageShell from '@/components/PageShell';
 
 export const metadata = {
-  title: 'دليل العمرة',
-  description: 'محتوى مبسط يشرح رحلة العمرة والخطوات الأساسية قبل السفر.'
+  title: 'دليل مناسك العمرة خطوة بخطوة',
+  description: 'دليل شامل لمناسك العمرة بالترتيب: الإحرام، الطواف، السعي بين الصفا والمروة، والحلق أو التقصير، بشرح مبسط للمعتمر القادم من مصر.'
 };
 
-const steps = ['التحضير', 'الاستعدادات الأساسية', 'الانتقال إلى مكة', 'أداء العمرة بمراحل واضحة'];
+const rituals = [
+  {
+    title: 'الإحرام من الميقات',
+    text: 'يبدأ المعتمر إحرامه من الميقات المحدد بحسب خط رحلته، بنية العمرة ولبس ملابس الإحرام، مع الإكثار من التلبية حتى الوصول إلى مكة المكرمة.'
+  },
+  {
+    title: 'الطواف بالبيت',
+    text: 'عند الوصول إلى المسجد الحرام، يبدأ المعتمر بطواف سبعة أشواط حول الكعبة المشرفة، ابتداءً من الحجر الأسود.'
+  },
+  {
+    title: 'صلاة ركعتين خلف مقام إبراهيم',
+    text: 'بعد إتمام الطواف يُستحب صلاة ركعتين خلف مقام إبراهيم إن أمكن، أو في أي مكان مناسب من المسجد الحرام.'
+  },
+  {
+    title: 'السعي بين الصفا والمروة',
+    text: 'يؤدي المعتمر سبعة أشواط بين جبلي الصفا والمروة، بدءًا من الصفا وانتهاءً بالمروة.'
+  },
+  {
+    title: 'الحلق أو التقصير',
+    text: 'يختم المعتمر عمرته بحلق شعر رأسه أو تقصيره، وبذلك يتم التحلل من الإحرام وتكتمل مناسك العمرة.'
+  }
+];
 
 export default function UmrahGuidePage() {
   return (
-    <PageShell title="دليل العمرة" eyebrow="العمرة" description="صفحة موجهة لتوضيح رحلة العمرة بشكل مبسط ومفيد.">
-      <div className="grid gap-4 md:grid-cols-2">
-        {steps.map((step, index) => (
-          <div key={step} className="rounded-[1.25rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-6 shadow-sm">
-            <p className="text-sm font-semibold text-[color:var(--color-gold)]">الخطوة {index + 1}</p>
-            <h2 className="mt-3 text-lg font-semibold text-[color:var(--color-primary)]">{step}</h2>
+    <PageShell
+      title="دليل مناسك العمرة خطوة بخطوة"
+      eyebrow="دليل العمرة"
+      description="ترتيب مبسط لمناسك العمرة من الإحرام حتى الحلق أو التقصير، ليكون مرجعًا سريعًا للمعتمر قبل السفر وأثناء الأداء."
+    >
+      <div className="space-y-5">
+        {rituals.map((step, index) => (
+          <div key={step.title} className="rounded-[1.25rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-6 shadow-sm">
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[color:var(--color-primary)] text-sm font-semibold text-white">
+                {index + 1}
+              </span>
+              <h2 className="text-lg font-semibold text-[color:var(--color-primary)]">{step.title}</h2>
+            </div>
+            <p className="mt-3 text-sm leading-8 text-[color:var(--color-muted)]">{step.text}</p>
           </div>
         ))}
+      </div>
+
+      <div className="mt-10 rounded-[1.25rem] border border-[color:var(--color-border)] bg-[color:var(--color-ivory)] p-6 text-sm leading-8 text-[color:var(--color-muted)]">
+        هذا الدليل للتعريف العام بترتيب مناسك العمرة، ولا يغني عن استشارة أهل العلم أو المرشدين المرافقين بخصوص التفاصيل الفقهية والحالات الخاصة.
+      </div>
+
+      <div className="mt-8 flex flex-wrap gap-3">
+        <Link href="/umrah/documents" className="rounded-full bg-[color:var(--color-primary)] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[color:var(--color-primary-dark)]">
+          الأوراق المطلوبة للعمرة
+        </Link>
+        <Link href="/umrah/programs" className="rounded-full border border-[color:var(--color-border)] px-5 py-2.5 text-sm font-semibold text-[color:var(--color-primary)] transition hover:bg-[color:var(--color-ivory)]">
+          استعرض برامج العمرة
+        </Link>
       </div>
     </PageShell>
   );
