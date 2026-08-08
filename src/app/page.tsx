@@ -2,7 +2,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { routes, siteConfig } from '@/lib/site-config';
+import TrustStrip from '@/components/TrustStrip';
+import CTASection from '@/components/CTASection';
+import { routes } from '@/lib/site-config';
 
 const trustItems = [
   'إرشاد قبل السفر',
@@ -62,6 +64,8 @@ export default function HomePage() {
           </div>
         </section>
 
+        <TrustStrip />
+
         <section className="bg-[color:var(--color-background)] py-20">
           <div className="container-shell">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
@@ -101,6 +105,7 @@ export default function HomePage() {
           </div>
         </section>
       </main>
+      <CTASection />
       <Footer />
     </>
   );
