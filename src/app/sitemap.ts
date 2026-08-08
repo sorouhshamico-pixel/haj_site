@@ -1,5 +1,7 @@
 import { MetadataRoute } from 'next';
 import { siteConfig } from '@/lib/site-config';
+import { hajjPrograms, umrahPrograms } from '@/lib/programs';
+import { posts } from '@/lib/blog-posts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url;
@@ -10,15 +12,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/services',
     '/hajj',
     '/hajj/programs',
+    ...hajjPrograms.map((program) => `/hajj/programs/${program.slug}`),
     '/hajj/guide',
     '/hajj/documents',
     '/umrah',
     '/umrah/programs',
+    ...umrahPrograms.map((program) => `/umrah/programs/${program.slug}`),
     '/umrah/guide',
     '/umrah/documents',
     '/blog',
-    '/blog/guide-hajj-from-egypt',
-    '/blog/umrah-preparation-tips',
+    ...posts.map((post) => `/blog/${post.slug}`),
     '/contact',
     '/faq',
     '/privacy',
