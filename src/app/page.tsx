@@ -1,8 +1,6 @@
 import Link from 'next/link';
-import Image from 'next/image';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import TrustStrip from '@/components/TrustStrip';
+import Gallery from '@/components/Gallery';
 import CTASection from '@/components/CTASection';
 import { routes } from '@/lib/site-config';
 
@@ -22,10 +20,9 @@ const quickLinks = [
 export default function HomePage() {
   return (
     <>
-      <Header />
       <main>
         <section className="relative overflow-hidden bg-[linear-gradient(135deg,rgba(15,77,58,0.95),rgba(8,50,38,0.88))] text-white">
-          <div className="absolute inset-0 bg-[url('/images/banner.jpeg')] bg-cover bg-center opacity-20" />
+          <div className="absolute inset-0 bg-[url('/images/hero-banner.jpg')] bg-cover bg-center opacity-20" />
           <div className="container-shell relative grid gap-10 py-24 lg:grid-cols-[1.1fr_0.9fr] lg:py-32">
             <div className="max-w-3xl">
               <p className="mb-5 inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm backdrop-blur">رحلة إيمانية تبدأ بالاختيار الصحيح</p>
@@ -65,6 +62,8 @@ export default function HomePage() {
         </section>
 
         <TrustStrip />
+
+        <Gallery />
 
         <section className="bg-[color:var(--color-background)] py-20">
           <div className="container-shell">
@@ -106,7 +105,6 @@ export default function HomePage() {
         </section>
       </main>
       <CTASection />
-      <Footer />
     </>
   );
 }

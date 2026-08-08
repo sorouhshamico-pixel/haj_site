@@ -1,9 +1,19 @@
 import type { Metadata, Viewport } from 'next';
+import { Noto_Kufi_Arabic } from 'next/font/google';
 import './globals.css';
 import { siteConfig } from '@/lib/site-config';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+
+const notoKufiArabic = Noto_Kufi_Arabic({
+  subsets: ['arabic'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-noto-kufi',
+  display: 'swap'
+});
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://example.com'),
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: siteConfig.name,
     template: `%s | ${siteConfig.name}`
@@ -14,16 +24,43 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     type: 'website',
-    locale: 'ar_EG'
+    locale: 'ar_EG',
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    images: [{ url: siteConfig.ogImage }]
   },
   twitter: {
     card: 'summary_large_image',
     title: siteConfig.name,
-    description: siteConfig.description
+    description: siteConfig.description,
+    images: [siteConfig.ogImage]
   },
   alternates: {
     canonical: '/'
   }
+};
+
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'TravelAgency',
+  name: siteConfig.name,
+  alternateName: siteConfig.shortName,
+  description: siteConfig.description,
+  url: siteConfig.url,
+  logo: `${siteConfig.url}${siteConfig.logo}`,
+  image: `${siteConfig.url}${siteConfig.ogImage}`,
+  areaServed: {
+    '@type': 'Country',
+    name: 'مصر'
+  }
+};
+
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: siteConfig.name,
+  url: siteConfig.url,
+  inLanguage: 'ar'
 };
 
 export const viewport: Viewport = {
@@ -35,9 +72,19 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ar" dir="rtl" suppressHydrationWarning>
-      <body className="min-h-screen bg-[color:var(--color-background)] text-[color:var(--color-text)]">
+    <html lang="ar" dir="rtl" suppressHydrationWarning className={notoKufiArabic.variable}>
+      <body className="min-h-screen bg-[color:var(--color-background)] font-sans text-[color:var(--color-text)]">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

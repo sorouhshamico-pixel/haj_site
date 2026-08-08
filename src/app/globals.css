@@ -25,7 +25,7 @@ body {
   margin: 0;
   background: var(--color-background);
   color: var(--color-text);
-  font-family: 'Tahoma', 'Segoe UI', sans-serif;
+  font-family: var(--font-noto-kufi), 'Tahoma', 'Segoe UI', sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

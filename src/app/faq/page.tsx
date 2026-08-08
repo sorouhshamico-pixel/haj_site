@@ -20,9 +20,26 @@ const faqs = [
   }
 ];
 
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer
+    }
+  }))
+};
+
 export default function FaqPage() {
   return (
     <PageShell title="الأسئلة الشائعة" eyebrow="FAQ" description="إجابات مبسطة ومركزة على الأسئلة الأكثر شيوعًا حول الحج والعمرة.">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <div className="space-y-4">
         {faqs.map((faq) => (
           <div key={faq.question} className="rounded-[1.25rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-6 shadow-sm">
