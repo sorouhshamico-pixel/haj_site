@@ -14,7 +14,7 @@ export default function BlogPage() {
         <p className="text-sm font-semibold text-[color:var(--color-gold)]">المدونة</p>
         <h1 className="mt-4 text-4xl font-semibold text-[color:var(--color-primary)]">محتوى عربي ذي قيمة حول الحج والعمرة</h1>
         <p className="mt-6 text-lg leading-8 text-[color:var(--color-muted)]">
-          تم بناء نظام مدونة أولي يركز على المقالات المفيدة، مع روابط داخلية واضحة وتنسيق موحد.
+          مقالات ودلائل عملية تساعدك على الاستعداد لرحلة الحج أو العمرة، من المناسك خطوة بخطوة إلى النصائح العملية قبل السفر.
         </p>
       </div>
       <div className="mt-10 grid gap-4 md:grid-cols-2">

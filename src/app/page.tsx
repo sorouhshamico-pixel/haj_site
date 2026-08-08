@@ -54,7 +54,7 @@ export default function HomePage() {
                 <ul className="mt-4 space-y-3 text-sm leading-8 text-[color:var(--color-muted)]">
                   <li>• معلومات موثوقة عن الحج والعمرة من منظور عربي واضح.</li>
                   <li>• دليل شامل لخطوات السفر والاستعدادات.</li>
-                  <li>• هيكل واضح للبرامج والصفحات المساعدة للسيو.</li>
+                  <li>• برامج متعددة تناسب احتياجات وميزانيات مختلفة.</li>
                 </ul>
               </div>
             </div>
@@ -88,14 +88,14 @@ export default function HomePage() {
         <section className="bg-[color:var(--color-ivory)] py-20">
           <div className="container-shell grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <div>
-              <p className="text-sm font-semibold text-[color:var(--color-gold)]">لماذا هذا الموقع؟</p>
-              <h2 className="section-title mt-3">تصميم يركز على الثقة والوضوح في رحلة السفر الديني</h2>
+              <p className="text-sm font-semibold text-[color:var(--color-gold)]">لماذا الشيخ حسن عوض؟</p>
+              <h2 className="section-title mt-3">إشراف ميداني حقيقي على كل رحلة حج وعمرة</h2>
               <p className="mt-5 max-w-2xl text-lg leading-8 text-[color:var(--color-muted)]">
-                يهدف الموقع إلى أن يكون مرجعًا عربيًا مريحًا للمسافرين قبل الحج أو العمرة، مع مجموعة من الصفحات المنظمة التي تدعم البحث والتصفح والاحتياطات الأساسية.
+                نرافق حجاجنا ومعتمرينا خطوة بخطوة من التسجيل وحتى العودة، مع متابعة ميدانية مباشرة في مكة المكرمة والمدينة المنورة، وبرامج مصممة لتناسب مختلف الفئات والميزانيات.
               </p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
-              {['هيكل معلوماتي واضح', 'محتوى موجه للسوق المصري', 'تصميم ذكي ومريح للهواتف', 'SEO جاهز للانتشار'].map((item) => (
+              {['إشراف ميداني مباشر', 'مجموعات منظمة لكل رحلة', 'دعم وتواصل مستمر', 'برامج تناسب جميع الفئات'].map((item) => (
                 <div key={item} className="rounded-[1.25rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-6 text-center text-sm font-semibold text-[color:var(--color-primary)]">
                   {item}
                 </div>
