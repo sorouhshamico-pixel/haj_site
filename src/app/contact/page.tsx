@@ -16,11 +16,54 @@ export default function ContactPage() {
         </div>
         <div className="rounded-[1.5rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-8 shadow-sm">
           <form className="space-y-4">
-            <input className="w-full rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-background)] px-4 py-3" placeholder="الاسم" />
-            <input className="w-full rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-background)] px-4 py-3" placeholder="رقم الهاتف" />
-            <input className="w-full rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-background)] px-4 py-3" placeholder="البريد الإلكتروني" />
-            <textarea className="min-h-32 w-full rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-background)] px-4 py-3" placeholder="الرسالة" />
-            <button className="rounded-full bg-[color:var(--color-primary)] px-6 py-3 font-semibold text-white">إرسال الاستفسار</button>
+            <div>
+              <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-[color:var(--color-text)]">الاسم</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                autoComplete="name"
+                required
+                className="w-full rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-background)] px-4 py-3"
+                placeholder="الاسم بالكامل"
+              />
+            </div>
+            <div>
+              <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-[color:var(--color-text)]">رقم الهاتف</label>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                autoComplete="tel"
+                required
+                className="w-full rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-background)] px-4 py-3"
+                placeholder="01xxxxxxxxx"
+              />
+            </div>
+            <div>
+              <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-[color:var(--color-text)]">البريد الإلكتروني</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autoComplete="email"
+                className="w-full rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-background)] px-4 py-3"
+                placeholder="example@email.com"
+              />
+            </div>
+            <div>
+              <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-[color:var(--color-text)]">الرسالة</label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                className="min-h-32 w-full rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-background)] px-4 py-3"
+                placeholder="اكتب استفسارك هنا"
+              />
+            </div>
+            <button type="submit" className="rounded-full bg-[color:var(--color-primary)] px-6 py-3 font-semibold text-white transition hover:bg-[color:var(--color-primary-dark)]">
+              إرسال الاستفسار
+            </button>
           </form>
         </div>
       </div>

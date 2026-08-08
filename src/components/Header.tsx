@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { siteConfig, routes } from '@/lib/site-config';
@@ -14,10 +17,12 @@ const navItems = [
 ];
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <header className="sticky top-0 z-40 border-b border-[color:var(--color-border)]/80 bg-[color:var(--color-surface)]/95 backdrop-blur">
       <div className="container-shell flex items-center justify-between py-4">
-        <Link href={routes.home} className="flex items-center gap-3">
+        <Link href={routes.home} className="flex items-center gap-3" onClick={() => setIsMenuOpen(false)}>
           <div className="relative h-12 w-12 overflow-hidden rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-ivory)] p-1">
             <Image src={siteConfig.logo} alt={siteConfig.name} fill className="object-contain" />
           </div>
@@ -39,11 +44,43 @@ export default function Header() {
           <Link href={routes.contact} className="hidden rounded-full bg-[color:var(--color-primary)] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[color:var(--color-primary-dark)] sm:inline-flex">
             استفسر الآن
           </Link>
-          <Link href={routes.contact} className="inline-flex rounded-full border border-[color:var(--color-border)] px-3 py-2 text-sm font-semibold text-[color:var(--color-primary)] lg:hidden">
-            تواصل
-          </Link>
+          <button
+            type="button"
+            onClick={() => setIsMenuOpen((open) => !open)}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-nav"
+            aria-label={isMenuOpen ? 'إغلاق القائمة' : 'فتح القائمة'}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[color:var(--color-border)] text-[color:var(--color-primary)] lg:hidden"
+          >
+            {isMenuOpen ? (
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-5 w-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-5 w-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
+              </svg>
+            )}
+          </button>
         </div>
       </div>
+
+      {isMenuOpen ? (
+        <nav id="mobile-nav" className="border-t border-[color:var(--color-border)] bg-[color:var(--color-surface)] lg:hidden">
+          <div className="container-shell flex flex-col gap-1 py-4">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setIsMenuOpen(false)}
+                className="rounded-xl px-3 py-3 text-sm font-medium text-[color:var(--color-text)] transition hover:bg-[color:var(--color-ivory)] hover:text-[color:var(--color-primary)]"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </nav>
+      ) : null}
     </header>
   );
 }
