@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Noto_Kufi_Arabic } from 'next/font/google';
 import './globals.css';
-import { siteConfig } from '@/lib/site-config';
+import { siteConfig, phoneInternational, phoneSecondaryInternational } from '@/lib/site-config';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -40,6 +40,16 @@ export const metadata: Metadata = {
   }
 };
 
+const contactPoints = [phoneInternational, phoneSecondaryInternational]
+  .filter(Boolean)
+  .map((telephone) => ({
+    '@type': 'ContactPoint',
+    telephone,
+    contactType: 'customer service',
+    areaServed: 'EG',
+    availableLanguage: ['ar']
+  }));
+
 const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'TravelAgency',
@@ -49,6 +59,9 @@ const organizationJsonLd = {
   url: siteConfig.url,
   logo: `${siteConfig.url}${siteConfig.logo}`,
   image: `${siteConfig.url}${siteConfig.ogImage}`,
+  telephone: phoneInternational || undefined,
+  email: siteConfig.email || undefined,
+  contactPoint: contactPoints.length > 0 ? contactPoints : undefined,
   areaServed: {
     '@type': 'Country',
     name: 'مصر'

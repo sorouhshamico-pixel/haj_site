@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { routes } from '@/lib/site-config';
+import { routes, siteConfig, phoneInternational } from '@/lib/site-config';
 
 export default function CTASection() {
   return (
@@ -13,8 +13,10 @@ export default function CTASection() {
           </p>
         </div>
         <div className="flex flex-wrap gap-3">
-          <Link href={routes.contact} className="rounded-full bg-[color:var(--color-gold)] px-6 py-3 font-semibold text-[color:var(--color-primary-dark)]">تواصل معنا</Link>
-          <Link href={routes.blog} className="rounded-full border border-white/20 px-6 py-3 font-semibold text-white">استعرض المقالات</Link>
+          <a href={`tel:${phoneInternational}`} className="rounded-full bg-[color:var(--color-gold)] px-6 py-3 font-semibold text-[color:var(--color-primary-dark)]">
+            اتصل بنا: {siteConfig.phone}
+          </a>
+          <Link href={routes.contact} className="rounded-full border border-white/20 px-6 py-3 font-semibold text-white">تواصل معنا</Link>
         </div>
       </div>
     </section>

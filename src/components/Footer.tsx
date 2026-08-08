@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { siteConfig, routes } from '@/lib/site-config';
+import { siteConfig, routes, phoneInternational, phoneSecondaryInternational, whatsappLink } from '@/lib/site-config';
 
 export default function Footer() {
   return (
@@ -10,6 +10,15 @@ export default function Footer() {
           <p className="mt-4 max-w-md text-sm leading-8 text-[color:var(--color-muted)]">
             منصة عربية حديثة لتقديم المعلومات الواضحة والخدمات الموجهة للحجاج والمعتمرين من مصر، مع تركيز على الوضوح والثقة والراحة.
           </p>
+          <div className="mt-5 flex flex-col gap-2 text-sm text-[color:var(--color-muted)]">
+            <a href={`tel:${phoneInternational}`} className="transition hover:text-[color:var(--color-primary)]">{siteConfig.phone}</a>
+            <a href={`tel:${phoneSecondaryInternational}`} className="transition hover:text-[color:var(--color-primary)]">{siteConfig.phoneSecondary}</a>
+            {whatsappLink ? (
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="transition hover:text-[color:var(--color-primary)]">
+                تواصل عبر واتساب
+              </a>
+            ) : null}
+          </div>
         </div>
         <div>
           <h4 className="text-sm font-semibold text-[color:var(--color-text)]">الحج والعمرة</h4>

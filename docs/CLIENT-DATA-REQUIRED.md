@@ -1,17 +1,45 @@
-# Client Data Required
+# البيانات المطلوبة من العميل
 
-Please provide the following details to fully finalize the site:
+هذا الملف يوثّق كل بيانات العمل الحقيقية التي ما زالت ناقصة في الموقع. جميع هذه الحقول موجودة ومركزية بالفعل داخل [`src/lib/site-config.ts`](../src/lib/site-config.ts) بقيم فارغة `''`، بحيث بمجرد إضافتها في هذا الملف الواحد فقط ستظهر تلقائيًا في الهيدر والفوتر وصفحة التواصل وبيانات Schema (JSON-LD) في كل الموقع دون الحاجة لتعديل أي صفحة أخرى.
 
-- Phone number
-- WhatsApp number
-- Email address
-- Address
-- Governorate / city
-- Google Maps URL
-- Working hours
-- Social links
-- Program details
-- Flight or travel dates
-- Hotel names (if applicable)
-- Prices (if you want them published)
-- Licenses or official credentials (if applicable)
+## بيانات التواصل الأساسية
+
+| الحقل | الحالة | مكان التخزين |
+| --- | --- | --- |
+| رقم الهاتف الرئيسي | ✅ متوفر (01025050898) | `siteConfig.phone` |
+| رقم هاتف إضافي | ✅ متوفر (01004734146) | `siteConfig.phoneSecondary` |
+| دعم WhatsApp على الرقم الرئيسي | ⬜ غير مؤكد — تم حفظ الرقم كمرشّح في `siteConfig.whatsappNumber` لكن الإرسال عبره معطّل (`isWhatsAppEnabled: false`) حتى يتم تأكيد أن الرقم يدعم واتساب فعليًا | `siteConfig.whatsappNumber` / `siteConfig.isWhatsAppEnabled` |
+| البريد الإلكتروني | ⬜ غير متوفر | `siteConfig.email` |
+| العنوان بالتفصيل | ⬜ غير متوفر | `siteConfig.address` |
+| المحافظة / المدينة | ⬜ غير متوفر (القيمة الحالية عامة: "مصر") | `siteConfig.city` |
+| مواعيد العمل | ⬜ غير متوفر | `siteConfig.businessHours` |
+| رابط Google Maps | ⬜ غير متوفر | `siteConfig.googleMaps` |
+
+> لتفعيل WhatsApp: بعد التأكد أن الرقم 01025050898 يدعم واتساب فعليًا، غيّر `isWhatsAppEnabled` إلى `true` في `site-config.ts` وسيظهر رابط واتساب تلقائيًا في كل مكان (الهيدر، الفوتر، صفحة التواصل) دون أي تعديل إضافي.
+
+## روابط السوشيال ميديا
+
+| المنصة | الحالة | مكان التخزين |
+| --- | --- | --- |
+| Facebook | ⬜ غير متوفر | `siteConfig.socialLinks.facebook` |
+| Instagram | ⬜ غير متوفر | `siteConfig.socialLinks.instagram` |
+| Twitter / X | ⬜ غير متوفر | `siteConfig.socialLinks.twitter` |
+| YouTube | ⬜ غير متوفر | `siteConfig.socialLinks.youtube` |
+
+## أثر هذه البيانات على الموقع
+
+- **أرقام الهاتف**: تظهر الآن فعليًا كأزرار اتصال (`tel:`) في الهيدر والفوتر وصفحة التواصل وأزرار الـ CTA، وفي Schema كـ `telephone`/`contactPoint`.
+- **نموذج التواصل**: مبني بالكامل تقنيًا (واجهة + API route جاهزة)، لكنه لن يرسل الرسائل تلقائيًا حتى تتوفر وجهة إرسال حقيقية (بريد إلكتروني، أو تأكيد دعم واتساب). حاليًا يعرض للزائر رسالة صريحة بأن الإرسال المباشر قيد الإعداد، ويوجهه للاتصال المباشر بدلًا من ذلك. التفاصيل في [`src/app/api/contact/route.ts`](../src/app/api/contact/route.ts).
+- **Schema (JSON-LD)**: بيانات `telephone` و`contactPoint` مضافة الآن بالأرقام الحقيقية. حقول `email` و`address` و`sameAs` (لروابط السوشيال) ستُضاف تلقائيًا فقط عند توفر القيم.
+
+## بيانات تجارية إضافية (لإكمال المحتوى التسويقي)
+
+- تفاصيل برامج الحج والعمرة الفعلية (المدة الدقيقة، الفنادق، عدد الأيام في كل مدينة)
+- الأسعار الحالية إن رغبتم بنشرها
+- مواعيد الرحلات القادمة
+- أسماء الفنادق المستخدمة (إن وُجدت)
+- التراخيص والاعتمادات الرسمية (رقم ترخيص وزارة السياحة، اعتماد نقابة السياحة، إلخ) لعرضها كعنصر ثقة في صفحة "من نحن"
+
+## طريقة التحديث
+
+لتحديث أي من هذه البيانات، عدّل القيم المقابلة مباشرة داخل `src/lib/site-config.ts`، ثم أعد تشغيل build. لا حاجة لتعديل أي ملف آخر لأن كل الصفحات تقرأ من هذا الملف المركزي.
