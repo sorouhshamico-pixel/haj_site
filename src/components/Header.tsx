@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { siteConfig, routes, phoneInternational } from '@/lib/site-config';
@@ -18,13 +19,25 @@ const navItems = [
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-[color:var(--color-border)]/80 bg-[color:var(--color-surface)]/95 backdrop-blur">
+    <header
+      className={`sticky top-0 z-40 border-b bg-[color:var(--color-surface)]/95 backdrop-blur transition-shadow ${
+        isScrolled ? 'border-[color:var(--color-border)] shadow-[0_8px_24px_-16px_rgba(15,77,58,0.35)]' : 'border-transparent'
+      }`}
+    >
       <div className="container-shell flex items-center justify-between py-4">
         <Link href={routes.home} className="flex items-center gap-3" onClick={() => setIsMenuOpen(false)}>
           <div className="relative h-12 w-12 overflow-hidden rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-ivory)] p-1">
-            <Image src={siteConfig.logo} alt={siteConfig.name} fill className="object-contain" />
+            <Image src={siteConfig.logo} alt={siteConfig.name} fill className="object-contain" priority />
           </div>
           <div className="leading-tight">
             <p className="text-sm font-semibold text-[color:var(--color-primary)]">{siteConfig.shortName}</p>
@@ -34,7 +47,11 @@ export default function Header() {
 
         <nav className="hidden items-center gap-6 lg:flex">
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className="text-sm font-medium text-[color:var(--color-text)] transition hover:text-[color:var(--color-primary)]">
+            <Link
+              key={item.href}
+              href={item.href}
+              className="relative text-sm font-medium text-[color:var(--color-text)] transition hover:text-[color:var(--color-primary)] after:absolute after:-bottom-1 after:right-0 after:h-0.5 after:w-0 after:bg-[color:var(--color-gold)] after:transition-all after:content-[''] hover:after:w-full"
+            >
               {item.label}
             </Link>
           ))}
@@ -77,22 +94,31 @@ export default function Header() {
         </div>
       </div>
 
-      {isMenuOpen ? (
-        <nav id="mobile-nav" className="border-t border-[color:var(--color-border)] bg-[color:var(--color-surface)] lg:hidden">
-          <div className="container-shell flex flex-col gap-1 py-4">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setIsMenuOpen(false)}
-                className="rounded-xl px-3 py-3 text-sm font-medium text-[color:var(--color-text)] transition hover:bg-[color:var(--color-ivory)] hover:text-[color:var(--color-primary)]"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-        </nav>
-      ) : null}
+      <AnimatePresence>
+        {isMenuOpen ? (
+          <motion.nav
+            id="mobile-nav"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
+            className="overflow-hidden border-t border-[color:var(--color-border)] bg-[color:var(--color-surface)] lg:hidden"
+          >
+            <div className="container-shell flex flex-col gap-1 py-4">
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="rounded-xl px-3 py-3 text-sm font-medium text-[color:var(--color-text)] transition hover:bg-[color:var(--color-ivory)] hover:text-[color:var(--color-primary)]"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </motion.nav>
+        ) : null}
+      </AnimatePresence>
     </header>
   );
 }

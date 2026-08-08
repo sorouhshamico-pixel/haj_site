@@ -1,5 +1,6 @@
 import ContactForm from '@/components/ContactForm';
 import { siteConfig, phoneInternational, phoneSecondaryInternational, whatsappLink } from '@/lib/site-config';
+import Reveal from '@/components/motion/Reveal';
 
 export const metadata = {
   title: 'تواصل معنا',
@@ -11,7 +12,7 @@ export default function ContactPage() {
   return (
     <main id="main-content" className="container-shell py-20">
       <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-        <div>
+        <Reveal>
           <p className="text-sm font-semibold text-[color:var(--color-gold)]">تواصل معنا</p>
           <h1 className="mt-4 text-4xl font-semibold text-[color:var(--color-primary)]">نحن هنا للإجابة على استفساراتك</h1>
           <p className="mt-6 text-lg leading-8 text-[color:var(--color-muted)]">
@@ -21,7 +22,7 @@ export default function ContactPage() {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <a
               href={`tel:${phoneInternational}`}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--color-primary)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[color:var(--color-primary-dark)]"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--color-primary)] px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[color:var(--color-primary-dark)]"
             >
               اتصل بنا: {siteConfig.phone}
             </a>
@@ -42,8 +43,10 @@ export default function ContactPage() {
               </a>
             ) : null}
           </div>
-        </div>
-        <ContactForm />
+        </Reveal>
+        <Reveal delay={0.12}>
+          <ContactForm />
+        </Reveal>
       </div>
     </main>
   );
