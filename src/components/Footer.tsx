@@ -53,17 +53,17 @@ export default function Footer() {
       <IslamicMotifs tone="light" />
 
       <div className="container-shell relative grid gap-12 py-16 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
-        <div>
-          <div className="flex items-center gap-3">
+        <div className="text-center lg:text-right">
+          <div className="flex items-center justify-center gap-3 lg:justify-start">
             <div className="relative h-11 w-11 overflow-hidden rounded-full border border-white/20 bg-white/10 p-1">
               <Image src={siteConfig.logo} alt={siteConfig.name} fill className="object-contain" />
             </div>
             <h3 className="text-xl font-semibold text-white">{siteConfig.name}</h3>
           </div>
-          <p className="mt-5 max-w-md text-sm leading-8 text-white/70">
+          <p className="mx-auto mt-5 max-w-md text-sm leading-8 text-white/70 lg:mx-0">
             شركة متخصصة في تنظيم رحلات الحج والعمرة من مصر، بإشراف ميداني مباشر ومتابعة مستمرة لضمان رحلة مريحة وواضحة من التسجيل وحتى العودة.
           </p>
-          <div className="mt-6 flex flex-col gap-2.5 text-sm text-white/80">
+          <div className="mt-6 flex flex-col items-center gap-2.5 text-sm text-white/80 lg:items-start">
             <a href={`tel:${phoneInternational}`} className="inline-flex w-fit items-center gap-2 transition hover:text-[color:var(--color-gold-soft)]">
               <PhoneIcon className="h-4 w-4" />
               {siteConfig.phone}
@@ -74,7 +74,7 @@ export default function Footer() {
             </a>
           </div>
 
-          <div className="mt-7 flex items-center gap-3">
+          <div className="mt-7 flex items-center justify-center gap-3 lg:justify-start">
             {socialItems.map(({ key, href, label, Icon }) =>
               href ? (
                 <a
@@ -103,7 +103,7 @@ export default function Footer() {
         </div>
 
         {navColumns.map((column) => (
-          <div key={column.title}>
+          <div key={column.title} className="text-center lg:text-right">
             <h4 className="text-sm font-semibold tracking-normal text-[color:var(--color-gold-soft)]">{column.title}</h4>
             <ul className="mt-5 space-y-3 text-sm">
               {column.links.map((link) => (
@@ -119,7 +119,7 @@ export default function Footer() {
       </div>
 
       <div className="relative border-t border-white/10">
-        <div className="container-shell flex flex-col gap-2 py-5 text-sm text-white/60 sm:flex-row sm:items-center sm:justify-between">
+        <div className="container-shell flex flex-col items-center gap-2 py-5 text-center text-sm text-white/60 sm:flex-row sm:items-center sm:justify-between sm:text-right">
           <p>© {new Date().getFullYear()} {siteConfig.name}. جميع الحقوق محفوظة.</p>
           <p className="hidden sm:block">معكم بثقة في رحلة الحج والعمرة، من التسجيل وحتى العودة.</p>
         </div>
