@@ -28,39 +28,44 @@ export default function FloatingActions() {
   }, []);
 
   return (
-    <div className="fixed bottom-5 right-5 z-40 flex flex-col items-center gap-3 sm:bottom-8 sm:right-8">
-      {whatsappNumbers.map(({ link, label }) => (
-        <a
-          key={link}
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={label}
-          title={label}
-          className="flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 transition hover:-translate-y-1 hover:shadow-xl"
-        >
-          <WhatsAppIcon className="h-7 w-7" />
-        </a>
-      ))}
-
-      <AnimatePresence>
-        {showScrollTop ? (
-          <m.button
-            type="button"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            initial={{ opacity: 0, y: 12, scale: 0.85 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 12, scale: 0.85 }}
-            transition={{ duration: 0.2 }}
-            aria-label="العودة إلى أعلى الصفحة"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-surface)] text-[color:var(--color-primary)] shadow-lg shadow-black/10 transition hover:-translate-y-1 hover:text-[color:var(--color-gold)]"
+    <>
+      <div className="fixed bottom-5 right-5 z-40 flex flex-col items-center gap-3 sm:bottom-8 sm:right-8">
+        {whatsappNumbers.map(({ link, label }) => (
+          <a
+            key={link}
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={label}
+            title={label}
+            className="relative flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 transition hover:-translate-y-1 hover:shadow-xl"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-5 w-5">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 19V5m0 0-6 6m6-6 6 6" />
-            </svg>
-          </m.button>
-        ) : null}
-      </AnimatePresence>
-    </div>
+            <span className="absolute inset-0 -z-10 animate-ping rounded-full bg-[#25D366] opacity-75" aria-hidden="true" />
+            <WhatsAppIcon className="h-7 w-7" />
+          </a>
+        ))}
+      </div>
+
+      <div className="fixed bottom-5 left-5 z-40 sm:bottom-8 sm:left-8">
+        <AnimatePresence>
+          {showScrollTop ? (
+            <m.button
+              type="button"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              initial={{ opacity: 0, y: 12, scale: 0.85 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 12, scale: 0.85 }}
+              transition={{ duration: 0.2 }}
+              aria-label="العودة إلى أعلى الصفحة"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-surface)] text-[color:var(--color-primary)] shadow-lg shadow-black/10 transition hover:-translate-y-1 hover:text-[color:var(--color-gold)]"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-5 w-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 19V5m0 0-6 6m6-6 6 6" />
+              </svg>
+            </m.button>
+          ) : null}
+        </AnimatePresence>
+      </div>
+    </>
   );
 }

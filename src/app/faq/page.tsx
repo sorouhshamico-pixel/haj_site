@@ -33,7 +33,7 @@ export default function FaqPage() {
       <StaggerGroup className="space-y-4">
         {faqs.map((faq) => (
           <StaggerItem key={faq.question}>
-            <div className="rounded-[1.25rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-6 shadow-sm transition hover:border-[color:var(--color-gold-soft)]">
+            <div className="rounded-[1.25rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-6 shadow-sm transition hover:-translate-y-1 hover:border-[color:var(--color-gold-soft)] hover:shadow-soft">
               <h2 className="text-lg font-semibold text-[color:var(--color-primary)]">{faq.question}</h2>
               <p className="mt-3 text-sm leading-8 text-[color:var(--color-muted)]">{faq.answer}</p>
             </div>

@@ -137,13 +137,26 @@ export default function HomePage() {
           />
           <div className="absolute inset-0 bg-[linear-gradient(160deg,rgba(8,50,38,0.92),rgba(11,59,44,0.82)_55%,rgba(8,50,38,0.92))]" />
           <div className="container-shell relative">
-            <Reveal className="mx-auto max-w-3xl text-center">
-              <KaabaIcon className="mx-auto h-9 w-9 text-[color:var(--color-gold-soft)]" />
-              <p className="mt-6 text-2xl font-semibold leading-[2] sm:text-3xl">
-                «وَلِلَّهِ عَلَى النَّاسِ حِجُّ الْبَيْتِ مَنِ اسْتَطَاعَ إِلَيْهِ سَبِيلًا»
-              </p>
-              <p className="mt-4 text-sm font-semibold text-[color:var(--color-gold-soft)]">سورة آل عمران، الآية 97</p>
-            </Reveal>
+            <div className="mx-auto max-w-3xl text-center">
+              <Reveal>
+                <p className="text-xl font-semibold text-[color:var(--color-gold-soft)] sm:text-2xl">
+                  بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+                </p>
+                <div className="mx-auto mt-5 flex items-center justify-center gap-3" aria-hidden="true">
+                  <span className="h-px w-10 bg-[color:var(--color-gold-soft)]/40 sm:w-16" />
+                  <span className="h-2 w-2 rotate-45 bg-[color:var(--color-gold-soft)]" />
+                  <span className="h-px w-10 bg-[color:var(--color-gold-soft)]/40 sm:w-16" />
+                </div>
+              </Reveal>
+              <Reveal delay={0.12}>
+                <p className="mt-8 text-2xl font-semibold leading-[2] sm:text-3xl">
+                  ﴿وَلِلَّهِ عَلَى النَّاسِ حِجُّ الْبَيْتِ مَنِ اسْتَطَاعَ إِلَيْهِ سَبِيلًا﴾
+                </p>
+              </Reveal>
+              <Reveal delay={0.2}>
+                <p className="mt-4 text-sm font-semibold text-[color:var(--color-gold-soft)]">سورة آل عمران، الآية 97</p>
+              </Reveal>
+            </div>
           </div>
         </section>
 
@@ -156,9 +169,9 @@ export default function HomePage() {
                 <p className="mt-5 text-lg leading-8 text-[color:var(--color-muted)]">
                   في دقائق معدودة، يحدثك الشيخ حسن عوض بنفسه عن فلسفة الشركة في تنظيم رحلات الحج والعمرة، وكيف يرافق فريقه كل مجموعة على أرض الواقع في مكة المكرمة والمدينة المنورة.
                 </p>
-                <Link href={routes.about} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--color-primary)] transition hover:text-[color:var(--color-primary-dark)]">
+                <Link href={routes.about} className="group mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--color-primary)] transition hover:text-[color:var(--color-gold)]">
                   تعرف أكثر على الشركة
-                  <span aria-hidden="true">←</span>
+                  <span className="inline-block transition-transform group-hover:-translate-x-1" aria-hidden="true">←</span>
                 </Link>
               </div>
             </Reveal>
@@ -253,11 +266,13 @@ export default function HomePage() {
                   <h2 className="section-title mt-2">فئات برامج تناسب كل احتياج وميزانية</h2>
                 </div>
                 <div className="flex flex-wrap justify-center gap-3 sm:justify-start">
-                  <Link href={routes.hajjPrograms} className="text-sm font-semibold text-[color:var(--color-primary)] transition hover:text-[color:var(--color-primary-dark)]">
-                    كل برامج الحج ←
+                  <Link href={routes.hajjPrograms} className="group inline-flex items-center gap-1.5 text-sm font-semibold text-[color:var(--color-primary)] transition hover:text-[color:var(--color-gold)]">
+                    كل برامج الحج
+                    <span className="inline-block transition-transform group-hover:-translate-x-1" aria-hidden="true">←</span>
                   </Link>
-                  <Link href={routes.umrahPrograms} className="text-sm font-semibold text-[color:var(--color-primary)] transition hover:text-[color:var(--color-primary-dark)]">
-                    كل برامج العمرة ←
+                  <Link href={routes.umrahPrograms} className="group inline-flex items-center gap-1.5 text-sm font-semibold text-[color:var(--color-primary)] transition hover:text-[color:var(--color-gold)]">
+                    كل برامج العمرة
+                    <span className="inline-block transition-transform group-hover:-translate-x-1" aria-hidden="true">←</span>
                   </Link>
                 </div>
               </div>
@@ -291,8 +306,9 @@ export default function HomePage() {
                   <p className="eyebrow">دليلنا</p>
                   <h2 className="section-title mt-2">أحدث المقالات من مدونتنا</h2>
                 </div>
-                <Link href={routes.blog} className="text-sm font-semibold text-[color:var(--color-primary)] transition hover:text-[color:var(--color-primary-dark)]">
-                  كل المقالات ←
+                <Link href={routes.blog} className="group inline-flex items-center gap-1.5 text-sm font-semibold text-[color:var(--color-primary)] transition hover:text-[color:var(--color-gold)]">
+                  كل المقالات
+                  <span className="inline-block transition-transform group-hover:-translate-x-1" aria-hidden="true">←</span>
                 </Link>
               </div>
             </Reveal>
@@ -325,9 +341,9 @@ export default function HomePage() {
                 <p className="mt-5 text-lg leading-8 text-[color:var(--color-muted)]">
                   جمعنا لك أكثر الأسئلة تكرارًا من الحجاج والمعتمرين. لو سؤالك مش موجود، تواصل معنا مباشرة.
                 </p>
-                <Link href={routes.faq} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--color-primary)] transition hover:text-[color:var(--color-primary-dark)]">
+                <Link href={routes.faq} className="group mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--color-primary)] transition hover:text-[color:var(--color-gold)]">
                   كل الأسئلة الشائعة
-                  <span aria-hidden="true">←</span>
+                  <span className="inline-block transition-transform group-hover:-translate-x-1" aria-hidden="true">←</span>
                 </Link>
                 <div className="relative mt-8 hidden aspect-[4/5] w-full overflow-hidden rounded-[1.75rem] border border-[color:var(--color-border)] shadow-soft lg:block">
                   <Image
@@ -344,7 +360,7 @@ export default function HomePage() {
             <StaggerGroup className="space-y-4">
               {faqPreview.map((faq) => (
                 <StaggerItem key={faq.question}>
-                  <div className="rounded-[1.25rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-6 shadow-sm">
+                  <div className="rounded-[1.25rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-6 shadow-sm transition hover:-translate-y-1 hover:border-[color:var(--color-gold-soft)] hover:shadow-soft">
                     <h3 className="font-semibold text-[color:var(--color-primary)]">{faq.question}</h3>
                     <p className="mt-2 text-sm leading-8 text-[color:var(--color-muted)]">{faq.answer}</p>
                   </div>
