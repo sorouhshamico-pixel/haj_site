@@ -8,14 +8,14 @@
 | --- | --- | --- |
 | رقم الهاتف الرئيسي | ✅ متوفر (01025050898) | `siteConfig.phone` |
 | رقم هاتف إضافي | ✅ متوفر (01004734146) | `siteConfig.phoneSecondary` |
-| دعم WhatsApp على الرقم الرئيسي | ⬜ غير مؤكد — تم حفظ الرقم كمرشّح في `siteConfig.whatsappNumber` لكن الإرسال عبره معطّل (`isWhatsAppEnabled: false`) حتى يتم تأكيد أن الرقم يدعم واتساب فعليًا | `siteConfig.whatsappNumber` / `siteConfig.isWhatsAppEnabled` |
+| دعم WhatsApp على الرقمين | ✅ مفعّل للرقمين (01025050898 و01004734146) بطلب مباشر من صاحب الموقع | `siteConfig.whatsappNumber` / `whatsappNumberSecondary` / `isWhatsAppEnabled` |
 | البريد الإلكتروني | ⬜ غير متوفر | `siteConfig.email` |
 | العنوان بالتفصيل | ⬜ غير متوفر | `siteConfig.address` |
 | المحافظة / المدينة | ⬜ غير متوفر (القيمة الحالية عامة: "مصر") | `siteConfig.city` |
 | مواعيد العمل | ⬜ غير متوفر | `siteConfig.businessHours` |
 | رابط Google Maps | ⬜ غير متوفر | `siteConfig.googleMaps` |
 
-> لتفعيل WhatsApp: بعد التأكد أن الرقم 01025050898 يدعم واتساب فعليًا، غيّر `isWhatsAppEnabled` إلى `true` في `site-config.ts` وسيظهر رابط واتساب تلقائيًا في كل مكان (الهيدر، الفوتر، صفحة التواصل) دون أي تعديل إضافي.
+> أزرار واتساب العائمة (أسفل يمين الموقع)، بالإضافة لروابط واتساب في الفوتر وصفحة التواصل، تظهر الآن تلقائيًا وتفتح محادثة برسالة ترحيبية جاهزة لكل رقم. لتعطيل الميزة لاحقًا يكفي تغيير `isWhatsAppEnabled` إلى `false` في `site-config.ts`.
 
 ## روابط السوشيال ميديا
 

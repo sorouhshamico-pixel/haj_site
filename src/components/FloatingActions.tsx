@@ -2,7 +2,20 @@
 
 import { useEffect, useState } from 'react';
 import { AnimatePresence, m } from 'framer-motion';
-import { whatsappLink } from '@/lib/site-config';
+import { siteConfig, whatsappLink, whatsappLinkSecondary } from '@/lib/site-config';
+
+function WhatsAppIcon({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" className={className}>
+      <path d="M16.004 3C9.377 3 4 8.373 4 15c0 2.31.66 4.523 1.9 6.44L4 29l7.73-1.86A11.94 11.94 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3Zm0 21.8c-1.94 0-3.83-.52-5.48-1.5l-.39-.23-4.59 1.1 1.13-4.47-.25-.4A9.77 9.77 0 0 1 5.2 15c0-5.96 4.85-10.8 10.8-10.8 5.96 0 10.8 4.85 10.8 10.8 0 5.96-4.85 10.8-10.8 10.8Zm5.94-8.1c-.32-.16-1.9-.94-2.2-1.05-.29-.1-.5-.16-.72.16-.21.32-.83 1.04-1.01 1.26-.19.21-.37.24-.69.08-.32-.16-1.36-.5-2.58-1.6-.95-.85-1.6-1.9-1.78-2.22-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.55.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.72-1.74-.99-2.38-.26-.62-.53-.54-.72-.55-.19-.01-.4-.01-.61-.01-.21 0-.56.08-.85.4-.29.32-1.11 1.09-1.11 2.66 0 1.57 1.14 3.09 1.3 3.3.16.21 2.24 3.42 5.43 4.79.76.33 1.35.52 1.81.67.76.24 1.45.21 2 .13.61-.09 1.9-.78 2.17-1.53.27-.75.27-1.4.19-1.53-.08-.13-.29-.21-.61-.37Z" />
+    </svg>
+  );
+}
+
+const whatsappNumbers = [
+  { link: whatsappLink, label: `تواصل معنا عبر واتساب على ${siteConfig.phone}` },
+  { link: whatsappLinkSecondary, label: `تواصل معنا عبر واتساب على ${siteConfig.phoneSecondary}` }
+].filter((item) => item.link);
 
 export default function FloatingActions() {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -15,20 +28,20 @@ export default function FloatingActions() {
   }, []);
 
   return (
-    <div className="fixed bottom-5 left-5 z-40 flex flex-col items-center gap-3 sm:bottom-8 sm:left-8">
-      {whatsappLink ? (
+    <div className="fixed bottom-5 right-5 z-40 flex flex-col items-center gap-3 sm:bottom-8 sm:right-8">
+      {whatsappNumbers.map(({ link, label }) => (
         <a
-          href={whatsappLink}
+          key={link}
+          href={link}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="تواصل معنا عبر واتساب"
+          aria-label={label}
+          title={label}
           className="flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 transition hover:-translate-y-1 hover:shadow-xl"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" className="h-7 w-7">
-            <path d="M16.004 3C9.377 3 4 8.373 4 15c0 2.31.66 4.523 1.9 6.44L4 29l7.73-1.86A11.94 11.94 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3Zm0 21.8c-1.94 0-3.83-.52-5.48-1.5l-.39-.23-4.59 1.1 1.13-4.47-.25-.4A9.77 9.77 0 0 1 5.2 15c0-5.96 4.85-10.8 10.8-10.8 5.96 0 10.8 4.85 10.8 10.8 0 5.96-4.85 10.8-10.8 10.8Zm5.94-8.1c-.32-.16-1.9-.94-2.2-1.05-.29-.1-.5-.16-.72.16-.21.32-.83 1.04-1.01 1.26-.19.21-.37.24-.69.08-.32-.16-1.36-.5-2.58-1.6-.95-.85-1.6-1.9-1.78-2.22-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.55.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.72-1.74-.99-2.38-.26-.62-.53-.54-.72-.55-.19-.01-.4-.01-.61-.01-.21 0-.56.08-.85.4-.29.32-1.11 1.09-1.11 2.66 0 1.57 1.14 3.09 1.3 3.3.16.21 2.24 3.42 5.43 4.79.76.33 1.35.52 1.81.67.76.24 1.45.21 2 .13.61-.09 1.9-.78 2.17-1.53.27-.75.27-1.4.19-1.53-.08-.13-.29-.21-.61-.37Z" />
-          </svg>
+          <WhatsAppIcon className="h-7 w-7" />
         </a>
-      ) : null}
+      ))}
 
       <AnimatePresence>
         {showScrollTop ? (

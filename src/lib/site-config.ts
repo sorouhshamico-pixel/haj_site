@@ -18,10 +18,9 @@ export const siteConfig = {
   ogImage: '/images/hero-banner.jpg',
   phone: '01025050898',
   phoneSecondary: '01004734146',
-  // Candidate number for WhatsApp — kept separate from isWhatsAppEnabled
-  // because WhatsApp support on this line hasn't been confirmed yet.
   whatsappNumber: '201025050898',
-  isWhatsAppEnabled: false,
+  whatsappNumberSecondary: '201004734146',
+  isWhatsAppEnabled: true,
   email: '',
   address: '',
   city: 'مصر',
@@ -34,7 +33,7 @@ export const siteConfig = {
     youtube: ''
   },
   businessHours: '',
-  defaultWhatsAppMessage: 'السلام عليكم، أرغب في الاستفسار عن برامج الحج والعمرة.'
+  defaultWhatsAppMessage: 'السلام عليكم ورحمة الله، أرغب في الاستفسار عن برامج الحج والعمرة لديكم.'
 };
 
 function toEgyptInternational(localNumber: string) {
@@ -47,6 +46,11 @@ export const phoneSecondaryInternational = toEgyptInternational(siteConfig.phone
 export const whatsappLink =
   siteConfig.isWhatsAppEnabled && siteConfig.whatsappNumber
     ? `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(siteConfig.defaultWhatsAppMessage)}`
+    : '';
+
+export const whatsappLinkSecondary =
+  siteConfig.isWhatsAppEnabled && siteConfig.whatsappNumberSecondary
+    ? `https://wa.me/${siteConfig.whatsappNumberSecondary}?text=${encodeURIComponent(siteConfig.defaultWhatsAppMessage)}`
     : '';
 
 /**
