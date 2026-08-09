@@ -3,6 +3,7 @@ import PageShell from '@/components/PageShell';
 import { hajjPrograms } from '@/lib/programs';
 import { routes } from '@/lib/site-config';
 import { breadcrumbJsonLd } from '@/lib/breadcrumbs';
+import { buildMetadata } from '@/lib/metadata';
 
 const breadcrumbs = breadcrumbJsonLd([
   { name: 'الرئيسية', path: '/' },
@@ -10,11 +11,12 @@ const breadcrumbs = breadcrumbJsonLd([
   { name: 'برامج الحج', path: '/hajj/programs' }
 ]);
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'برامج الحج',
   description: 'فئات برامج الحج المتاحة من مصر مع الشيخ حسن عوض، تواصل معنا للحصول على التفاصيل الكاملة والمواعيد والأسعار المحدثة.',
-  alternates: { canonical: '/hajj/programs' }
-};
+  path: '/hajj/programs',
+  image: '/images/sections/hajj-programs-group-kaaba.jpg'
+});
 
 export default function HajjProgramsPage() {
   return (

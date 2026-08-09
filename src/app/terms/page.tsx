@@ -1,10 +1,11 @@
 import PageShell from '@/components/PageShell';
+import { buildMetadata } from '@/lib/metadata';
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'الشروط والأحكام',
   description: 'الشروط القانونية لاستخدام الموقع والمحتوى المعروض عليه.',
-  alternates: { canonical: '/terms' }
-};
+  path: '/terms'
+});
 
 const sections = [
   {

@@ -2,12 +2,14 @@ import Image from 'next/image';
 import Reveal from '@/components/motion/Reveal';
 import { StaggerGroup, StaggerItem } from '@/components/motion/StaggerGroup';
 import { ShieldIcon, StarTagIcon, HeartHandIcon, CompassIcon } from '@/components/icons';
+import { buildMetadata } from '@/lib/metadata';
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'من نحن',
   description: 'شركة الشيخ حسن عوض لتنظيم رحلات الحج والعمرة من مصر، بإشراف ميداني مباشر على كل رحلة.',
-  alternates: { canonical: '/about' }
-};
+  path: '/about',
+  image: '/images/sections/about-group-prophets-mosque.jpg'
+});
 
 const values = [
   { icon: ShieldIcon, title: 'الأمانة', text: 'نلتزم بالوضوح والصدق في كل معلومة نقدمها، من الحجز وحتى تفاصيل الرحلة.' },

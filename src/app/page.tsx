@@ -290,6 +290,16 @@ export default function HomePage() {
                   كل الأسئلة الشائعة
                   <span aria-hidden="true">←</span>
                 </Link>
+                <div className="relative mt-8 hidden aspect-[4/5] w-full overflow-hidden rounded-[1.75rem] border border-[color:var(--color-border)] shadow-soft lg:block">
+                  <Image
+                    src="/images/gallery/kaaba-ihram-night-01.jpg"
+                    alt="حجاج بالإحرام أمام الكعبة المشرفة ليلًا"
+                    fill
+                    sizes="(min-width: 1024px) 35vw, 100vw"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-black/0 to-black/0" />
+                </div>
               </div>
             </Reveal>
             <StaggerGroup className="space-y-4">

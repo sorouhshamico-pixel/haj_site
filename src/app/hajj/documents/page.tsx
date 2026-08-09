@@ -1,6 +1,7 @@
 import PageShell from '@/components/PageShell';
 import { StaggerGroup, StaggerItem } from '@/components/motion/StaggerGroup';
 import { breadcrumbJsonLd } from '@/lib/breadcrumbs';
+import { buildMetadata } from '@/lib/metadata';
 
 const breadcrumbs = breadcrumbJsonLd([
   { name: 'الرئيسية', path: '/' },
@@ -8,11 +9,12 @@ const breadcrumbs = breadcrumbJsonLd([
   { name: 'الأوراق المطلوبة', path: '/hajj/documents' }
 ]);
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'الأوراق والمستندات المطلوبة للحج',
   description: 'قائمة إرشادية بالأوراق والمستندات التي يحتاجها الحاج المصري قبل السفر: جواز السفر، التطعيمات، والصور الشخصية.',
-  alternates: { canonical: '/hajj/documents' }
-};
+  path: '/hajj/documents',
+  image: '/images/sections/hajj-documents-elders-kaaba.jpg'
+});
 
 const documents = [
   {

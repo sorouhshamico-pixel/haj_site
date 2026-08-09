@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import PageShell from '@/components/PageShell';
 import { breadcrumbJsonLd } from '@/lib/breadcrumbs';
+import { buildMetadata } from '@/lib/metadata';
 
 const breadcrumbs = breadcrumbJsonLd([
   { name: 'الرئيسية', path: '/' },
@@ -8,11 +9,12 @@ const breadcrumbs = breadcrumbJsonLd([
   { name: 'دليل مناسك العمرة', path: '/umrah/guide' }
 ]);
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'دليل مناسك العمرة خطوة بخطوة',
   description: 'دليل شامل لمناسك العمرة بالترتيب: الإحرام، الطواف، السعي بين الصفا والمروة، والحلق أو التقصير، بشرح مبسط للمعتمر القادم من مصر.',
-  alternates: { canonical: '/umrah/guide' }
-};
+  path: '/umrah/guide',
+  image: '/images/sections/umrah-guide-prophets-mosque.jpg'
+});
 
 const rituals = [
   {

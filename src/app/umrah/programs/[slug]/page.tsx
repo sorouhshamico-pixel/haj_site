@@ -5,6 +5,7 @@ import PageShell from '@/components/PageShell';
 import { umrahPrograms, getProgramBySlug } from '@/lib/programs';
 import { siteConfig, routes } from '@/lib/site-config';
 import { breadcrumbJsonLd } from '@/lib/breadcrumbs';
+import { buildMetadata } from '@/lib/metadata';
 
 export async function generateStaticParams() {
   return umrahPrograms.map((program) => ({ slug: program.slug }));
@@ -15,11 +16,12 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   if (!program) {
     return {};
   }
-  return {
+  return buildMetadata({
     title: program.name,
     description: program.summary,
-    alternates: { canonical: `/umrah/programs/${program.slug}` }
-  };
+    path: `/umrah/programs/${program.slug}`,
+    image: '/images/gallery/kaaba-group-women-02.jpg'
+  });
 }
 
 export default function UmrahProgramDetailPage({ params }: { params: { slug: string } }) {

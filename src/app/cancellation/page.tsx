@@ -1,10 +1,11 @@
 import PageShell from '@/components/PageShell';
+import { buildMetadata } from '@/lib/metadata';
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'سياسة الإلغاء والاسترداد',
   description: 'معلومات عامة حول سياسة الإلغاء والاسترداد المتعلقة بالاستفسارات والخدمات.',
-  alternates: { canonical: '/cancellation' }
-};
+  path: '/cancellation'
+});
 
 export default function CancellationPage() {
   return (

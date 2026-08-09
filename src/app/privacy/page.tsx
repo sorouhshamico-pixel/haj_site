@@ -1,10 +1,11 @@
 import PageShell from '@/components/PageShell';
+import { buildMetadata } from '@/lib/metadata';
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'سياسة الخصوصية',
   description: 'تفاصيل سياسة الخصوصية والاستخدام للموقع.',
-  alternates: { canonical: '/privacy' }
-};
+  path: '/privacy'
+});
 
 const sections = [
   {

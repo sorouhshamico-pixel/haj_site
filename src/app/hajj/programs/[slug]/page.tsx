@@ -5,6 +5,7 @@ import PageShell from '@/components/PageShell';
 import { hajjPrograms, getProgramBySlug } from '@/lib/programs';
 import { siteConfig, routes } from '@/lib/site-config';
 import { breadcrumbJsonLd } from '@/lib/breadcrumbs';
+import { buildMetadata } from '@/lib/metadata';
 
 export async function generateStaticParams() {
   return hajjPrograms.map((program) => ({ slug: program.slug }));
@@ -15,11 +16,12 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   if (!program) {
     return {};
   }
-  return {
+  return buildMetadata({
     title: program.name,
     description: program.summary,
-    alternates: { canonical: `/hajj/programs/${program.slug}` }
-  };
+    path: `/hajj/programs/${program.slug}`,
+    image: '/images/gallery/arafat-hajj-group-05.jpg'
+  });
 }
 
 export default function HajjProgramDetailPage({ params }: { params: { slug: string } }) {

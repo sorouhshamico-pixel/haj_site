@@ -3,6 +3,7 @@ import PageShell from '@/components/PageShell';
 import { umrahPrograms } from '@/lib/programs';
 import { routes } from '@/lib/site-config';
 import { breadcrumbJsonLd } from '@/lib/breadcrumbs';
+import { buildMetadata } from '@/lib/metadata';
 
 const breadcrumbs = breadcrumbJsonLd([
   { name: 'الرئيسية', path: '/' },
@@ -10,11 +11,12 @@ const breadcrumbs = breadcrumbJsonLd([
   { name: 'برامج العمرة', path: '/umrah/programs' }
 ]);
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'برامج العمرة',
   description: 'فئات برامج العمرة المتاحة من مصر مع الشيخ حسن عوض، تواصل معنا للحصول على التفاصيل الكاملة والمواعيد والأسعار المحدثة.',
-  alternates: { canonical: '/umrah/programs' }
-};
+  path: '/umrah/programs',
+  image: '/images/sections/umrah-programs-group-warm.jpg'
+});
 
 export default function UmrahProgramsPage() {
   return (

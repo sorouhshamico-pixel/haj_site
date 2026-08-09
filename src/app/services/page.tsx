@@ -1,12 +1,14 @@
 import PageShell from '@/components/PageShell';
 import { StaggerGroup, StaggerItem } from '@/components/motion/StaggerGroup';
 import { CompassIcon, ShieldIcon, DocumentIcon, GroupIcon } from '@/components/icons';
+import { buildMetadata } from '@/lib/metadata';
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'خدماتنا',
   description: 'استكشف الخدمات الرئيسية التي تقدمها شركة الشيخ حسن عوض لدعم رحلة الحج والعمرة من التسجيل وحتى العودة.',
-  alternates: { canonical: '/services' }
-};
+  path: '/services',
+  image: '/images/sections/services-field-support.jpg'
+});
 
 const services = [
   {

@@ -3,17 +3,19 @@ import PageShell from '@/components/PageShell';
 import { StaggerGroup, StaggerItem } from '@/components/motion/StaggerGroup';
 import { siteConfig } from '@/lib/site-config';
 import { breadcrumbJsonLd } from '@/lib/breadcrumbs';
+import { buildMetadata } from '@/lib/metadata';
 
 const breadcrumbs = breadcrumbJsonLd([
   { name: 'الرئيسية', path: '/' },
   { name: 'مكة المكرمة', path: '/makkah' }
 ]);
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'مكة المكرمة: أهم المعالم والمعلومات للحاج والمعتمر',
   description: 'دليل تعريفي بأبرز المعالم المقدسة في مكة المكرمة: المسجد الحرام، المشاعر المقدسة، وأهم النصائح العملية للحاج والمعتمر القادم من مصر.',
-  alternates: { canonical: '/makkah' }
-};
+  path: '/makkah',
+  image: '/images/sections/makkah-haram-panorama.jpg'
+});
 
 const landmarks = [
   {

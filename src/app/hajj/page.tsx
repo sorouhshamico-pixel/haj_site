@@ -1,13 +1,21 @@
 import Link from 'next/link';
-import Reveal from '@/components/motion/Reveal';
+import PageShell from '@/components/PageShell';
 import { StaggerGroup, StaggerItem } from '@/components/motion/StaggerGroup';
 import { StarTagIcon, DocumentIcon, CompassIcon, HeartHandIcon, MapPinIcon } from '@/components/icons';
+import { buildMetadata } from '@/lib/metadata';
+import { breadcrumbJsonLd } from '@/lib/breadcrumbs';
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'الحج',
   description: 'دليل شامل للحج من مصر، يشمل المعلومات الأساسية والروابط الداخلية للخطوات والوثائق والاستعداد.',
-  alternates: { canonical: '/hajj' }
-};
+  path: '/hajj',
+  image: '/images/sections/hajj-hub-haram-night.jpg'
+});
+
+const breadcrumbs = breadcrumbJsonLd([
+  { name: 'الرئيسية', path: '/' },
+  { name: 'الحج', path: '/hajj' }
+]);
 
 const sections = [
   { icon: StarTagIcon, title: 'برامج الحج', href: '/hajj/programs', text: 'تعرف على فئات برامج الحج المتاحة وتواصل معنا لمعرفة المواعيد والأسعار.' },
@@ -20,17 +28,14 @@ const sections = [
 
 export default function HajjPage() {
   return (
-    <main id="main-content" className="container-shell py-20">
-      <Reveal>
-        <div className="max-w-4xl">
-          <p className="text-sm font-semibold text-[color:var(--color-gold)]">الحج</p>
-          <h1 className="mt-4 text-4xl font-semibold text-[color:var(--color-primary)]">الحج من مصر: دليل موثوق ومبسط</h1>
-          <p className="mt-6 text-lg leading-8 text-[color:var(--color-muted)]">
-            يهدف هذا القسم إلى توجيه الحاج من خلال المعلومات الأساسية حول البرامج، الخطوات، الوثائق، والاستعداد للسفر، بما يساعد على فهم الرحلة ومراحلها قبل البدء. رحلة الحج تمر بعدة مراحل أساسية: التسجيل مع جهة منظمة موثوقة، استكمال الأوراق والتطعيمات، ثم أداء المناسك بترتيبها الصحيح من الإحرام وحتى طواف الوداع.
-          </p>
-        </div>
-      </Reveal>
-      <StaggerGroup className="mt-10 grid gap-4 md:grid-cols-2">
+    <PageShell
+      title="الحج من مصر: دليل موثوق ومبسط"
+      eyebrow="الحج"
+      description="يهدف هذا القسم إلى توجيه الحاج من خلال المعلومات الأساسية حول البرامج، الخطوات، الوثائق، والاستعداد للسفر، بما يساعد على فهم الرحلة ومراحلها قبل البدء. رحلة الحج تمر بعدة مراحل أساسية: التسجيل مع جهة منظمة موثوقة، استكمال الأوراق والتطعيمات، ثم أداء المناسك بترتيبها الصحيح من الإحرام وحتى طواف الوداع."
+      image={{ src: '/images/sections/hajj-hub-haram-night.jpg', alt: 'المسجد الحرام ليلًا بالأنوار المحيطة بالكعبة المشرفة' }}
+    >
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }} />
+      <StaggerGroup className="grid gap-4 md:grid-cols-2">
         {sections.map((section) => (
           <StaggerItem key={section.href}>
             <Link
@@ -46,6 +51,6 @@ export default function HajjPage() {
           </StaggerItem>
         ))}
       </StaggerGroup>
-    </main>
+    </PageShell>
   );
 }

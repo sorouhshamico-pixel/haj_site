@@ -5,6 +5,14 @@ import PageShell from '@/components/PageShell';
 import { posts, getPostBySlug } from '@/lib/blog-posts';
 import { siteConfig } from '@/lib/site-config';
 import { breadcrumbJsonLd } from '@/lib/breadcrumbs';
+import { buildMetadata } from '@/lib/metadata';
+
+const postImages: Record<string, string> = {
+  'guide-hajj-from-egypt': '/images/gallery/kaaba-ihram-night-01.jpg',
+  'umrah-preparation-tips': '/images/gallery/medina-mosque-group-04.jpg',
+  'best-time-for-umrah': '/images/gallery/medina-mosque-pilgrims-08.jpg',
+  'hajj-tips-for-elderly': '/images/gallery/kaaba-group-elders-06.jpg'
+};
 
 export async function generateStaticParams() {
   return posts.map((post) => ({ slug: post.slug }));
@@ -15,11 +23,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   if (!post) {
     return {};
   }
-  return {
+  return buildMetadata({
     title: post.title,
     description: post.excerpt,
-    alternates: { canonical: `/blog/${post.slug}` }
-  };
+    path: `/blog/${post.slug}`,
+    image: postImages[post.slug],
+    type: 'article'
+  });
 }
 
 export default function BlogPostPage({ params }: { params: { slug: string } }) {

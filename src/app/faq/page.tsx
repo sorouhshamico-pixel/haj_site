@@ -1,12 +1,14 @@
 import PageShell from '@/components/PageShell';
 import { faqs } from '@/lib/faqs';
 import { StaggerGroup, StaggerItem } from '@/components/motion/StaggerGroup';
+import { buildMetadata } from '@/lib/metadata';
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'الأسئلة الشائعة',
   description: 'إجابات واضحة حول الحج والعمرة والاستعداد قبل الرحلة.',
-  alternates: { canonical: '/faq' }
-};
+  path: '/faq',
+  image: '/images/gallery/medina-mosque-group-03.jpg'
+});
 
 const faqJsonLd = {
   '@context': 'https://schema.org',

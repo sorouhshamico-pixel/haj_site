@@ -1,12 +1,14 @@
 import ContactForm from '@/components/ContactForm';
 import { siteConfig, phoneInternational, phoneSecondaryInternational, whatsappLink } from '@/lib/site-config';
 import Reveal from '@/components/motion/Reveal';
+import { buildMetadata } from '@/lib/metadata';
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'تواصل معنا',
   description: 'اتصل بنا مباشرة أو استخدم نموذج التواصل للاستفسار عن برامج الحج والعمرة.',
-  alternates: { canonical: '/contact' }
-};
+  path: '/contact',
+  image: '/images/sections/services-field-support.jpg'
+});
 
 export default function ContactPage() {
   return (

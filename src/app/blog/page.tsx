@@ -2,12 +2,14 @@ import Link from 'next/link';
 import { posts } from '@/lib/blog-posts';
 import Reveal from '@/components/motion/Reveal';
 import { StaggerGroup, StaggerItem } from '@/components/motion/StaggerGroup';
+import { buildMetadata } from '@/lib/metadata';
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'المدونة',
   description: 'مقالات ودلائل موثوقة حول الحج والعمرة، مناسك الأداء، والاستعداد للسفر من مصر.',
-  alternates: { canonical: '/blog' }
-};
+  path: '/blog',
+  image: '/images/gallery/trip-guides-07.jpg'
+});
 
 export default function BlogPage() {
   return (

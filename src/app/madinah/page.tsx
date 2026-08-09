@@ -3,17 +3,19 @@ import PageShell from '@/components/PageShell';
 import { StaggerGroup, StaggerItem } from '@/components/motion/StaggerGroup';
 import { siteConfig } from '@/lib/site-config';
 import { breadcrumbJsonLd } from '@/lib/breadcrumbs';
+import { buildMetadata } from '@/lib/metadata';
 
 const breadcrumbs = breadcrumbJsonLd([
   { name: 'الرئيسية', path: '/' },
   { name: 'المدينة المنورة', path: '/madinah' }
 ]);
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'المدينة المنورة: أهم المعالم والمعلومات للحاج والمعتمر',
   description: 'دليل تعريفي بأبرز المعالم في المدينة المنورة: المسجد النبوي الشريف، مسجد قباء، مسجد القبلتين، وأهم النصائح العملية لزيارتها.',
-  alternates: { canonical: '/madinah' }
-};
+  path: '/madinah',
+  image: '/images/sections/madinah-prophets-mosque-dome.jpg'
+});
 
 const landmarks = [
   {
