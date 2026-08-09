@@ -1,11 +1,13 @@
 import Image from 'next/image';
 import Reveal from '@/components/motion/Reveal';
-import { faqs } from '@/lib/faqs';
+import { getFaqs } from '@/lib/faqs';
 import { StaggerGroup, StaggerItem } from '@/components/motion/StaggerGroup';
 import GeometricPattern from '@/components/GeometricPattern';
 import IslamicMotifs from '@/components/IslamicMotifs';
 import { StarTagIcon, MosqueIcon } from '@/components/icons';
 import { buildMetadata } from '@/lib/metadata';
+
+export const revalidate = 60;
 
 export const metadata = buildMetadata({
   title: 'الأسئلة الشائعة',
@@ -14,20 +16,22 @@ export const metadata = buildMetadata({
   image: '/images/gallery/medina-mosque-group-03.jpg'
 });
 
-const faqJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map((faq) => ({
-    '@type': 'Question',
-    name: faq.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: faq.answer
-    }
-  }))
-};
+export default async function FaqPage() {
+  const faqs = await getFaqs();
 
-export default function FaqPage() {
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer
+      }
+    }))
+  };
+
   return (
     <main id="main-content">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />

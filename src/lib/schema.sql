@@ -21,3 +21,10 @@ CREATE TABLE IF NOT EXISTS page_views (
 CREATE INDEX IF NOT EXISTS idx_page_views_created_at ON page_views (created_at);
 CREATE INDEX IF NOT EXISTS idx_page_views_path ON page_views (path);
 CREATE INDEX IF NOT EXISTS idx_contact_messages_created_at ON contact_messages (created_at);
+
+CREATE TABLE IF NOT EXISTS faqs (
+  id SERIAL PRIMARY KEY,
+  question TEXT NOT NULL,
+  answer TEXT NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);

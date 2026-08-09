@@ -10,7 +10,8 @@ export const metadata: Metadata = {
 
 const navItems = [
   { label: 'نظرة عامة', href: '/admin' },
-  { label: 'رسائل التواصل', href: '/admin/messages' }
+  { label: 'رسائل التواصل', href: '/admin/messages' },
+  { label: 'الأسئلة الشائعة', href: '/admin/faqs' }
 ];
 
 export default function AdminDashboardLayout({ children }: { children: React.ReactNode }) {
