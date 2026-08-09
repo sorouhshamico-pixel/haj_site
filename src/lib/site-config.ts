@@ -55,13 +55,13 @@ export const whatsappLinkSecondary =
     : '';
 
 /**
- * True only once a channel that can automatically deliver the contact
- * form's message exists (an email provider, or a confirmed WhatsApp Business
- * API integration) — a phone number for direct calls doesn't count. Update
- * siteConfig.email above (or wire real WhatsApp delivery) and this flips
- * automatically; no other file needs to change.
+ * True once a channel that can actually deliver the contact form's message
+ * exists — either the admin dashboard's database inbox (DATABASE_URL set) or
+ * a real email address. A phone number for direct calls doesn't count. Set
+ * DATABASE_URL (see docs/ADMIN-SETUP.md) or fill in siteConfig.email above and
+ * this flips automatically; no other file needs to change.
  */
-export const isFormDeliveryConfigured = Boolean(siteConfig.email);
+export const isFormDeliveryConfigured = Boolean(siteConfig.email) || Boolean(process.env.DATABASE_URL);
 
 export const routes = {
   home: '/',
