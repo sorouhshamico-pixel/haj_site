@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { routes, siteConfig, phoneInternational } from '@/lib/site-config';
 import GeometricPattern from '@/components/GeometricPattern';
 import Reveal from '@/components/motion/Reveal';
+import { PhoneIcon } from '@/components/icons';
 
 export default function CTASection() {
   return (
@@ -19,9 +20,10 @@ export default function CTASection() {
           <div className="flex flex-wrap justify-center gap-3 lg:justify-start">
             <a
               href={`tel:${phoneInternational}`}
-              className="rounded-full bg-[color:var(--color-gold)] px-6 py-3 font-semibold text-[color:var(--color-primary-dark)] transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/20"
+              className="inline-flex items-center gap-2 rounded-full bg-[color:var(--color-gold)] px-6 py-3 font-semibold text-[color:var(--color-primary-dark)] transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/20"
             >
-              اتصل بنا: {siteConfig.phone}
+              <PhoneIcon className="h-4 w-4" />
+              {siteConfig.phone}
             </a>
             <Link href={routes.contact} className="rounded-full border border-white/20 px-6 py-3 font-semibold text-white transition hover:bg-white/10">
               تواصل معنا

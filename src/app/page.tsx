@@ -209,8 +209,16 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="relative overflow-hidden bg-[color:var(--color-ivory)] py-20 lg:py-28">
-          <GeometricPattern id="why-geo" className="pointer-events-none absolute inset-0 h-full w-full text-[color:var(--color-primary)]/[0.04]" />
+        <section className="relative overflow-hidden py-20 lg:py-28">
+          <Image
+            src="/images/sections/makkah-haram-panorama.jpg"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(160deg,rgba(8,50,38,0.95),rgba(11,59,44,0.9)_45%,rgba(8,50,38,0.96))]" />
+          <GeometricPattern id="why-geo" className="pointer-events-none absolute inset-0 h-full w-full text-white/[0.07]" />
           <div className="container-shell relative grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <Reveal>
               <div className="rounded-[2rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-8 text-center shadow-sm sm:p-10 lg:text-right">
@@ -224,7 +232,7 @@ export default function HomePage() {
             <StaggerGroup className="grid gap-4 sm:grid-cols-2">
               {whyUs.map((item) => (
                 <StaggerItem key={item.title}>
-                  <div className="flex h-full flex-col items-center gap-3 rounded-[1.25rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-6 text-center transition hover:-translate-y-1 hover:shadow-soft">
+                  <div className="flex h-full flex-col items-center gap-3 rounded-[1.25rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-6 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
                     <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[color:var(--color-primary)]/10">
                       <item.icon className="h-5 w-5 text-[color:var(--color-primary)]" />
                     </div>
