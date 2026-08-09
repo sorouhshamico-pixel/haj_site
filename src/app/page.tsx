@@ -63,7 +63,7 @@ export default function HomePage() {
                 </p>
               </Reveal>
               <Reveal delay={0.08}>
-                <h1 className="text-4xl font-semibold leading-[1.9] sm:text-5xl lg:text-6xl">
+                <h1 className="text-4xl font-semibold leading-[1.3] sm:text-5xl sm:leading-[1.3] lg:text-6xl lg:leading-[1.3]">
                   مع الشيخ حسن عوض، رحلتك إلى بيت الله في أيدٍ أمينة.
                 </h1>
               </Reveal>
