@@ -7,9 +7,24 @@ import { StaggerGroup, StaggerItem } from '@/components/motion/StaggerGroup';
 
 type Photo = { src: string; alt: string };
 
+const INITIAL_VISIBLE = 8;
+const PAGE_SIZE = 4;
+
 export default function GalleryGrid({ photos }: { photos: Photo[] }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const visiblePhotos = photos.slice(0, visibleCount);
+  const hasMore = visibleCount < photos.length;
   const activePhoto = activeIndex !== null ? photos[activeIndex] : null;
+
+  const handleLoadMore = () => {
+    setIsLoadingMore(true);
+    window.setTimeout(() => {
+      setVisibleCount((count) => Math.min(count + PAGE_SIZE, photos.length));
+      setIsLoadingMore(false);
+    }, 450);
+  };
 
   const goPrev = useCallback(() => {
     setActiveIndex((current) => (current === null ? null : (current - 1 + photos.length) % photos.length));
@@ -33,7 +48,7 @@ export default function GalleryGrid({ photos }: { photos: Photo[] }) {
   return (
     <>
       <StaggerGroup className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-        {photos.map((photo, index) => (
+        {visiblePhotos.map((photo, index) => (
           <StaggerItem key={photo.src}>
             <button
               type="button"
@@ -53,6 +68,22 @@ export default function GalleryGrid({ photos }: { photos: Photo[] }) {
           </StaggerItem>
         ))}
       </StaggerGroup>
+
+      {hasMore ? (
+        <div className="mt-8 flex justify-center">
+          <button
+            type="button"
+            onClick={handleLoadMore}
+            disabled={isLoadingMore}
+            className="inline-flex items-center gap-2 rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-6 py-3 text-sm font-semibold text-[color:var(--color-primary)] shadow-sm transition hover:-translate-y-0.5 hover:border-[color:var(--color-gold-soft)] hover:shadow-soft disabled:cursor-wait disabled:opacity-70"
+          >
+            {isLoadingMore ? (
+              <span className="h-4 w-4 flex-shrink-0 animate-spin rounded-full border-2 border-[color:var(--color-border)] border-t-[color:var(--color-gold)]" aria-hidden="true" />
+            ) : null}
+            {isLoadingMore ? 'جارٍ التحميل...' : 'تصفح المزيد'}
+          </button>
+        </div>
+      ) : null}
 
       <AnimatePresence>
         {activePhoto ? (

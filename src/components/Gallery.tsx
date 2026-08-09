@@ -7,7 +7,9 @@ const photos = [
   { src: '/images/gallery/kaaba-group-elders-06.jpg', alt: 'حجاج من كبار السن حول الكعبة المشرفة' },
   { src: '/images/gallery/medina-mosque-pilgrims-08.jpg', alt: 'معتمرون أمام قبة المسجد النبوي الخضراء' },
   { src: '/images/gallery/medina-mosque-group-03.jpg', alt: 'مجموعة حجاج وسط ساحات المسجد النبوي' },
-  { src: '/images/gallery/trip-guides-07.jpg', alt: 'فريق الإشراف والمتابعة أثناء رحلة الحج والعمرة' }
+  { src: '/images/gallery/trip-guides-07.jpg', alt: 'فريق الإشراف والمتابعة أثناء رحلة الحج والعمرة' },
+  { src: '/images/sections/hajj-guide-pilgrims-kaaba.jpg', alt: 'حجاج يؤدون مناسك الحج أمام الكعبة المشرفة ليلًا' },
+  { src: '/images/sections/madinah-prophets-mosque-dome.jpg', alt: 'قبة المسجد النبوي الخضراء في المدينة المنورة' }
 ];
 
 export default function Gallery() {
