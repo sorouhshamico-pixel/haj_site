@@ -90,3 +90,31 @@ export function HeartHandIcon({ className }: IconProps) {
     </svg>
   );
 }
+
+export function KaabaIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <rect x="5" y="4.5" width="14" height="15" rx="1" />
+      <path d="M5 9h14" />
+      <rect x="10" y="14" width="4" height="5.5" rx="0.5" />
+    </svg>
+  );
+}
+
+export function CrescentMoonIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M20 13.5A8.5 8.5 0 1 1 10.5 4a7 7 0 0 0 9.5 9.5Z" />
+    </svg>
+  );
+}
+
+export function MosqueIcon({ className }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M5.5 20.5c0-4 2.8-6.7 6.5-6.7s6.5 2.7 6.5 6.7" />
+      <path d="M4 20.5h16" />
+      <path d="M12 13.8V10M10.4 10.9 12 9l1.6 1.9" />
+    </svg>
+  );
+}

@@ -7,7 +7,7 @@ import CTASection from '@/components/CTASection';
 import GeometricPattern from '@/components/GeometricPattern';
 import Reveal from '@/components/motion/Reveal';
 import { StaggerGroup, StaggerItem } from '@/components/motion/StaggerGroup';
-import { CompassIcon, DocumentIcon, StarTagIcon, ShieldIcon, GroupIcon, HeartHandIcon, CalendarIcon } from '@/components/icons';
+import { CompassIcon, DocumentIcon, ShieldIcon, GroupIcon, HeartHandIcon, CalendarIcon, KaabaIcon, CrescentMoonIcon } from '@/components/icons';
 import { routes } from '@/lib/site-config';
 import { hajjPrograms, umrahPrograms } from '@/lib/programs';
 import { posts } from '@/lib/blog-posts';
@@ -22,8 +22,8 @@ const trustItems = [
 ];
 
 const quickLinks = [
-  { icon: CompassIcon, title: 'دليل الحج', href: '/hajj/guide', text: 'مناسك الحج مرتبة خطوة بخطوة، من الإحرام حتى طواف الوداع.', category: 'حج' },
-  { icon: StarTagIcon, title: 'دليل العمرة', href: '/umrah/guide', text: 'خطوات العمرة والاحتياطات اللازمة قبل أداء المناسك.', category: 'عمرة' },
+  { icon: KaabaIcon, title: 'دليل الحج', href: '/hajj/guide', text: 'مناسك الحج مرتبة خطوة بخطوة، من الإحرام حتى طواف الوداع.', category: 'حج' },
+  { icon: CrescentMoonIcon, title: 'دليل العمرة', href: '/umrah/guide', text: 'خطوات العمرة والاحتياطات اللازمة قبل أداء المناسك.', category: 'عمرة' },
   { icon: DocumentIcon, title: 'الأوراق المطلوبة', href: '/hajj/documents', text: 'كل مستند تحتاجه قبل السفر، في قائمة واضحة ومباشرة.', category: 'وثائق' }
 ];
 
@@ -58,12 +58,12 @@ export default function HomePage() {
             <div className="mx-auto max-w-3xl text-center lg:mx-0 lg:text-right">
               <Reveal>
                 <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm backdrop-blur">
-                  <StarTagIcon className="h-4 w-4 text-[color:var(--color-gold-soft)]" />
+                  <KaabaIcon className="h-4 w-4 text-[color:var(--color-gold-soft)]" />
                   رحلة إيمانية تبدأ بالاختيار الصحيح
                 </p>
               </Reveal>
               <Reveal delay={0.08}>
-                <h1 className="text-4xl font-semibold leading-[1.5] sm:text-5xl lg:text-6xl">
+                <h1 className="text-4xl font-semibold leading-[1.9] sm:text-5xl lg:text-6xl">
                   مع الشيخ حسن عوض، رحلتك إلى بيت الله في أيدٍ أمينة.
                 </h1>
               </Reveal>
@@ -97,15 +97,26 @@ export default function HomePage() {
               </StaggerGroup>
             </div>
 
-            <Reveal delay={0.3} className="lg:pt-4">
-              <div className="rounded-[2rem] border border-white/20 bg-white/10 p-6 shadow-soft backdrop-blur">
-                <div className="rounded-[1.5rem] bg-[color:var(--color-ivory)] p-6 text-[color:var(--color-text)]">
-                  <p className="text-sm font-semibold text-[color:var(--color-primary)]">ماذا ستجد هنا؟</p>
-                  <ul className="mt-4 space-y-3 text-sm leading-8 text-[color:var(--color-muted)]">
-                    <li>• دليل مناسك كامل للحج والعمرة، خطوة بخطوة.</li>
-                    <li>• 6 فئات برامج بين الحج والعمرة تناسب كل ميزانية.</li>
-                    <li>• صور وفيديوهات حقيقية من رحلاتنا السابقة.</li>
-                  </ul>
+            <Reveal delay={0.3} className="relative lg:pt-4">
+              <div className="relative">
+                <div className="pointer-events-none absolute -top-8 -left-6 hidden h-40 w-32 -rotate-6 overflow-hidden rounded-[1.25rem] border-4 border-white/90 shadow-2xl shadow-black/40 lg:block">
+                  <Image
+                    src="/images/external/kaaba-crowd-unsplash.jpg"
+                    alt="حجاج يؤدون الطواف حول الكعبة المشرفة"
+                    fill
+                    sizes="150px"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="rounded-[2rem] border border-white/20 bg-white/10 p-6 shadow-soft backdrop-blur">
+                  <div className="rounded-[1.5rem] bg-[color:var(--color-ivory)] p-6 text-[color:var(--color-text)]">
+                    <p className="text-sm font-semibold text-[color:var(--color-primary)]">ماذا ستجد هنا؟</p>
+                    <ul className="mt-4 space-y-3 text-sm leading-8 text-[color:var(--color-muted)]">
+                      <li>• دليل مناسك كامل للحج والعمرة، خطوة بخطوة.</li>
+                      <li>• 6 فئات برامج بين الحج والعمرة تناسب كل ميزانية.</li>
+                      <li>• صور وفيديوهات حقيقية من رحلاتنا السابقة.</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </Reveal>
@@ -115,6 +126,26 @@ export default function HomePage() {
         <TrustStrip />
 
         <JourneyTimeline />
+
+        <section className="relative overflow-hidden py-24 text-white lg:py-32">
+          <Image
+            src="/images/external/kaaba-daylight-unsplash.jpg"
+            alt="المسجد الحرام والكعبة المشرفة نهارًا"
+            fill
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(160deg,rgba(8,50,38,0.92),rgba(11,59,44,0.82)_55%,rgba(8,50,38,0.92))]" />
+          <div className="container-shell relative">
+            <Reveal className="mx-auto max-w-3xl text-center">
+              <KaabaIcon className="mx-auto h-9 w-9 text-[color:var(--color-gold-soft)]" />
+              <p className="mt-6 text-2xl font-semibold leading-[2] sm:text-3xl">
+                «وَلِلَّهِ عَلَى النَّاسِ حِجُّ الْبَيْتِ مَنِ اسْتَطَاعَ إِلَيْهِ سَبِيلًا»
+              </p>
+              <p className="mt-4 text-sm font-semibold text-[color:var(--color-gold-soft)]">سورة آل عمران، الآية 97</p>
+            </Reveal>
+          </div>
+        </section>
 
         <section className="bg-[color:var(--color-surface)] py-20 lg:py-28">
           <div className="container-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">

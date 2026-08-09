@@ -1,12 +1,12 @@
-import { PhoneIcon, DocumentIcon, CompassIcon, ShieldIcon, HeartHandIcon } from '@/components/icons';
+import { PhoneIcon, DocumentIcon, CrescentMoonIcon, KaabaIcon, HeartHandIcon } from '@/components/icons';
 import Reveal from '@/components/motion/Reveal';
 import { StaggerGroup, StaggerItem } from '@/components/motion/StaggerGroup';
 
 const steps = [
   { icon: PhoneIcon, title: 'التواصل والاستشارة', text: 'تتواصل معنا وتختار فئة البرنامج المناسبة لاحتياجك وميزانيتك.' },
   { icon: DocumentIcon, title: 'استكمال الأوراق', text: 'نساعدك في تجهيز المستندات والتأشيرة والتطعيمات المطلوبة.' },
-  { icon: CompassIcon, title: 'السفر والإحرام', text: 'تبدأ رحلتك من الميقات بنية الحج أو العمرة بتوجيه من فريقنا.' },
-  { icon: ShieldIcon, title: 'أداء المناسك', text: 'متابعة ميدانية مباشرة معك في كل خطوة داخل الحرمين الشريفين.' },
+  { icon: CrescentMoonIcon, title: 'السفر والإحرام', text: 'تبدأ رحلتك من الميقات بنية الحج أو العمرة بتوجيه من فريقنا.' },
+  { icon: KaabaIcon, title: 'أداء المناسك', text: 'متابعة ميدانية مباشرة معك في كل خطوة داخل الحرمين الشريفين.' },
   { icon: HeartHandIcon, title: 'العودة بأمان', text: 'نرافقك حتى العودة إلى أرض الوطن بذكريات إيمانية لا تُنسى.' }
 ];
 
