@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { siteConfig, routes, phoneInternational, phoneSecondaryInternational, whatsappLink } from '@/lib/site-config';
+import { siteConfig, routes, phoneInternational, phoneSecondaryInternational } from '@/lib/site-config';
 import GeometricPattern from '@/components/GeometricPattern';
 import IslamicMotifs from '@/components/IslamicMotifs';
+import { PhoneIcon } from '@/components/icons';
 import { FacebookIcon, InstagramIcon, TiktokIcon } from '@/components/SocialIcons';
 
 const navColumns = [
@@ -64,16 +65,13 @@ export default function Footer() {
           </p>
           <div className="mt-6 flex flex-col gap-2.5 text-sm text-white/80">
             <a href={`tel:${phoneInternational}`} className="inline-flex w-fit items-center gap-2 transition hover:text-[color:var(--color-gold-soft)]">
+              <PhoneIcon className="h-4 w-4" />
               {siteConfig.phone}
             </a>
             <a href={`tel:${phoneSecondaryInternational}`} className="inline-flex w-fit items-center gap-2 transition hover:text-[color:var(--color-gold-soft)]">
+              <PhoneIcon className="h-4 w-4" />
               {siteConfig.phoneSecondary}
             </a>
-            {whatsappLink ? (
-              <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="inline-flex w-fit items-center gap-2 transition hover:text-[color:var(--color-gold-soft)]">
-                تواصل عبر واتساب
-              </a>
-            ) : null}
           </div>
 
           <div className="mt-7 flex items-center gap-3">

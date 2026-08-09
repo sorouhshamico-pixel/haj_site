@@ -19,6 +19,7 @@ const whatsappNumbers = [
 
 export default function FloatingActions() {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setShowScrollTop(window.scrollY > 480);
@@ -27,28 +28,48 @@ export default function FloatingActions() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    const footer = document.querySelector('footer');
+    if (!footer) return;
+    const observer = new IntersectionObserver(([entry]) => setIsFooterVisible(entry.isIntersecting), {
+      rootMargin: '0px 0px -10% 0px'
+    });
+    observer.observe(footer);
+    return () => observer.disconnect();
+  }, []);
+
+  const showFloating = !isFooterVisible;
+
   return (
     <>
       <div className="fixed bottom-5 right-5 z-40 flex flex-col items-center gap-3 sm:bottom-8 sm:right-8">
-        {whatsappNumbers.map(({ link, label }) => (
-          <a
-            key={link}
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={label}
-            title={label}
-            className="relative flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 transition hover:-translate-y-1 hover:shadow-xl"
-          >
-            <span className="absolute inset-0 -z-10 animate-ping rounded-full bg-[#25D366] opacity-75" aria-hidden="true" />
-            <WhatsAppIcon className="h-7 w-7" />
-          </a>
-        ))}
+        <AnimatePresence>
+          {showFloating
+            ? whatsappNumbers.map(({ link, label }) => (
+                <m.a
+                  key={link}
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  title={label}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.2 }}
+                  className="relative flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 transition hover:-translate-y-1 hover:shadow-xl"
+                >
+                  <span className="absolute inset-0 -z-10 animate-ping rounded-full bg-[#25D366] opacity-75" aria-hidden="true" />
+                  <WhatsAppIcon className="h-7 w-7" />
+                </m.a>
+              ))
+            : null}
+        </AnimatePresence>
       </div>
 
       <div className="fixed bottom-5 left-5 z-40 sm:bottom-8 sm:left-8">
         <AnimatePresence>
-          {showScrollTop ? (
+          {showFloating && showScrollTop ? (
             <m.button
               type="button"
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
