@@ -7,13 +7,6 @@ import { siteConfig } from '@/lib/site-config';
 import { breadcrumbJsonLd } from '@/lib/breadcrumbs';
 import { buildMetadata } from '@/lib/metadata';
 
-const postImages: Record<string, string> = {
-  'guide-hajj-from-egypt': '/images/gallery/kaaba-ihram-night-01.jpg',
-  'umrah-preparation-tips': '/images/gallery/medina-mosque-group-04.jpg',
-  'best-time-for-umrah': '/images/gallery/medina-mosque-pilgrims-08.jpg',
-  'hajj-tips-for-elderly': '/images/gallery/kaaba-group-elders-06.jpg'
-};
-
 export async function generateStaticParams() {
   return posts.map((post) => ({ slug: post.slug }));
 }
@@ -27,7 +20,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     title: post.title,
     description: post.excerpt,
     path: `/blog/${post.slug}`,
-    image: postImages[post.slug],
+    image: post.image,
     type: 'article'
   });
 }
@@ -50,6 +43,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     '@type': 'Article',
     headline: post.title,
     description: post.excerpt,
+    image: `${siteConfig.url}${post.image}`,
     author: { '@type': 'Organization', name: siteConfig.name },
     publisher: { '@type': 'Organization', name: siteConfig.name },
     mainEntityOfPage: `${siteConfig.url}/blog/${post.slug}`,
@@ -57,7 +51,12 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   };
 
   return (
-    <PageShell title={post.title} eyebrow={post.category} description={post.excerpt}>
+    <PageShell
+      title={post.title}
+      eyebrow={post.category}
+      description={post.excerpt}
+      image={{ src: post.image, alt: post.imageAlt }}
+    >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}

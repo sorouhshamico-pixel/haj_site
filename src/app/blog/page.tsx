@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { posts } from '@/lib/blog-posts';
 import Reveal from '@/components/motion/Reveal';
 import { StaggerGroup, StaggerItem } from '@/components/motion/StaggerGroup';
@@ -23,16 +24,29 @@ export default function BlogPage() {
           </p>
         </div>
       </Reveal>
-      <StaggerGroup className="mt-10 grid gap-4 md:grid-cols-2">
+      <StaggerGroup className="mt-10 grid gap-6 md:grid-cols-2">
         {posts.map((post) => (
           <StaggerItem key={post.slug}>
             <Link
               href={`/blog/${post.slug}`}
-              className="block h-full rounded-[1.5rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-soft"
+              className="group block h-full overflow-hidden rounded-[1.5rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] shadow-sm transition hover:-translate-y-1 hover:shadow-soft"
             >
-              <p className="text-sm font-semibold text-[color:var(--color-gold)]">{post.category}</p>
-              <h2 className="mt-3 text-xl font-semibold text-[color:var(--color-primary)]">{post.title}</h2>
-              <p className="mt-3 text-sm leading-8 text-[color:var(--color-muted)]">{post.excerpt}</p>
+              <div className="relative aspect-[16/9] w-full overflow-hidden">
+                <Image
+                  src={post.image}
+                  alt={post.imageAlt}
+                  fill
+                  sizes="(min-width: 768px) 45vw, 100vw"
+                  className="object-cover transition duration-300 group-hover:scale-105"
+                />
+                <span className="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-[color:var(--color-primary)] backdrop-blur">
+                  {post.category}
+                </span>
+              </div>
+              <div className="p-7">
+                <h2 className="text-xl font-semibold text-[color:var(--color-primary)]">{post.title}</h2>
+                <p className="mt-3 text-sm leading-8 text-[color:var(--color-muted)]">{post.excerpt}</p>
+              </div>
             </Link>
           </StaggerItem>
         ))}

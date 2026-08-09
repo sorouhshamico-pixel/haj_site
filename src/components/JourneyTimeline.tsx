@@ -1,6 +1,7 @@
 import { PhoneIcon, DocumentIcon, CrescentMoonIcon, KaabaIcon, HeartHandIcon } from '@/components/icons';
 import Reveal from '@/components/motion/Reveal';
 import { StaggerGroup, StaggerItem } from '@/components/motion/StaggerGroup';
+import IslamicMotifs from '@/components/IslamicMotifs';
 
 const steps = [
   { icon: PhoneIcon, title: 'التواصل والاستشارة', text: 'تتواصل معنا وتختار فئة البرنامج المناسبة لاحتياجك وميزانيتك.' },
@@ -12,8 +13,9 @@ const steps = [
 
 export default function JourneyTimeline() {
   return (
-    <section className="bg-[color:var(--color-background)] py-20 lg:py-28">
-      <div className="container-shell">
+    <section className="relative overflow-hidden bg-[color:var(--color-background)] py-20 lg:py-28">
+      <IslamicMotifs tone="dark" />
+      <div className="container-shell relative">
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">كيف تبدأ رحلتك؟</p>

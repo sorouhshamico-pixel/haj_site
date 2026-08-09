@@ -7,12 +7,13 @@ import CTASection from '@/components/CTASection';
 import GeometricPattern from '@/components/GeometricPattern';
 import Reveal from '@/components/motion/Reveal';
 import { StaggerGroup, StaggerItem } from '@/components/motion/StaggerGroup';
-import { CompassIcon, DocumentIcon, ShieldIcon, GroupIcon, HeartHandIcon, CalendarIcon, KaabaIcon, CrescentMoonIcon } from '@/components/icons';
+import { CompassIcon, DocumentIcon, ShieldIcon, GroupIcon, HeartHandIcon, CalendarIcon, KaabaIcon, CrescentMoonIcon, StarTagIcon, MosqueIcon } from '@/components/icons';
 import { routes } from '@/lib/site-config';
 import { hajjPrograms, umrahPrograms } from '@/lib/programs';
 import { posts } from '@/lib/blog-posts';
 import { faqs } from '@/lib/faqs';
 import HeroAnimated from '@/components/HeroAnimated';
+import IslamicMotifs from '@/components/IslamicMotifs';
 
 const trustItems = [
   'إرشاد قبل السفر',
@@ -53,6 +54,7 @@ export default function HomePage() {
           />
           <GeometricPattern id="hero-geo" className="pointer-events-none absolute inset-0 h-full w-full text-white/[0.06]" />
           <HeroAnimated />
+          <IslamicMotifs tone="light" />
 
           <div className="container-shell relative grid gap-10 py-24 lg:grid-cols-[1.1fr_0.9fr] lg:py-32">
             <div className="mx-auto max-w-3xl text-center lg:mx-0 lg:text-right">
@@ -232,6 +234,7 @@ export default function HomePage() {
           />
           <div className="absolute inset-0 bg-[linear-gradient(160deg,rgba(8,50,38,0.95),rgba(11,59,44,0.9)_45%,rgba(8,50,38,0.96))]" />
           <GeometricPattern id="why-geo" className="pointer-events-none absolute inset-0 h-full w-full text-white/[0.07]" />
+          <IslamicMotifs tone="light" />
           <div className="container-shell relative grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <Reveal>
               <div className="rounded-[2rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-8 text-center shadow-sm sm:p-10 lg:text-right">
@@ -361,8 +364,18 @@ export default function HomePage() {
               {faqPreview.map((faq) => (
                 <StaggerItem key={faq.question}>
                   <div className="rounded-[1.25rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-6 shadow-sm transition hover:-translate-y-1 hover:border-[color:var(--color-gold-soft)] hover:shadow-soft">
-                    <h3 className="font-semibold text-[color:var(--color-primary)]">{faq.question}</h3>
-                    <p className="mt-2 text-sm leading-8 text-[color:var(--color-muted)]">{faq.answer}</p>
+                    <div className="flex items-start gap-3">
+                      <span className="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-[color:var(--color-primary)]/10">
+                        <StarTagIcon className="h-3.5 w-3.5 text-[color:var(--color-gold)]" />
+                      </span>
+                      <h3 className="font-semibold text-[color:var(--color-primary)]">{faq.question}</h3>
+                    </div>
+                    <div className="mt-2 flex items-start gap-3">
+                      <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[color:var(--color-gold)]/10">
+                        <MosqueIcon className="h-3 w-3 text-[color:var(--color-primary)]" />
+                      </span>
+                      <p className="text-sm leading-8 text-[color:var(--color-muted)]">{faq.answer}</p>
+                    </div>
                   </div>
                 </StaggerItem>
               ))}

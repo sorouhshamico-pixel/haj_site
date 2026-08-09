@@ -3,6 +3,8 @@ export type BlogPost = {
   title: string;
   excerpt: string;
   category: string;
+  image: string;
+  imageAlt: string;
   sections: { heading: string; paragraphs: string[] }[];
 };
 
@@ -12,6 +14,8 @@ export const posts: BlogPost[] = [
     title: 'دليل الحج من مصر: من التسجيل إلى طواف الوداع',
     excerpt: 'خطوات رحلة الحج من مصر بشكل مبسط، من التسجيل والاستعداد وحتى أداء المناسك والعودة.',
     category: 'حج',
+    image: '/images/gallery/kaaba-ihram-night-01.jpg',
+    imageAlt: 'حجاج بالإحرام أمام الكعبة المشرفة ليلًا',
     sections: [
       {
         heading: 'قبل السفر: التسجيل والاستعداد',
@@ -58,6 +62,8 @@ export const posts: BlogPost[] = [
     title: 'نصائح عملية قبل السفر لأداء العمرة',
     excerpt: 'مجموعة نصائح عملية تساعد المعتمر المصري على الاستعداد الجيد قبل السفر إلى مكة المكرمة.',
     category: 'عمرة',
+    image: '/images/gallery/kaaba-group-women-02.jpg',
+    imageAlt: 'مجموعة من المعتمرات أمام الكعبة المشرفة',
     sections: [
       {
         heading: 'استكمال الأوراق مبكرًا',
@@ -96,6 +102,8 @@ export const posts: BlogPost[] = [
     title: 'أفضل وقت لأداء العمرة على مدار العام',
     excerpt: 'مقارنة بين مواسم العمرة المختلفة (رمضان، الإجازات، بقية العام) لمساعدتك على اختيار التوقيت الأنسب لك.',
     category: 'عمرة',
+    image: '/images/gallery/medina-mosque-group-03.jpg',
+    imageAlt: 'مجموعة حجاج وسط ساحات المسجد النبوي',
     sections: [
       {
         heading: 'العمرة في رمضان',
@@ -129,6 +137,8 @@ export const posts: BlogPost[] = [
     title: 'نصائح لكبار السن قبل وأثناء رحلة الحج',
     excerpt: 'إرشادات عملية تساعد كبار السن ومرافقيهم على أداء مناسك الحج بأمان وراحة أكبر.',
     category: 'حج',
+    image: '/images/gallery/kaaba-group-elders-06.jpg',
+    imageAlt: 'حجاج من كبار السن حول الكعبة المشرفة',
     sections: [
       {
         heading: 'الفحص الطبي قبل السفر',
