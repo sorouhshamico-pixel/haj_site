@@ -7,7 +7,7 @@ import IslamicMotifs from '@/components/IslamicMotifs';
 
 export default function CTASection() {
   return (
-    <section className="relative overflow-hidden bg-[linear-gradient(135deg,rgba(15,77,58,0.95),rgba(8,50,38,0.9))] py-20 text-white">
+    <section className="relative overflow-hidden bg-[linear-gradient(180deg,rgba(15,77,58,0.95),rgba(8,50,38,0.93))] py-20 text-white">
       <GeometricPattern id="cta-geo" className="pointer-events-none absolute inset-0 h-full w-full text-white/[0.05]" />
       <IslamicMotifs tone="light" />
       <Reveal className="container-shell relative">

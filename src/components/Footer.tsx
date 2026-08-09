@@ -48,7 +48,7 @@ const footerLinkClass =
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-[linear-gradient(160deg,rgba(8,50,38,0.98),rgba(11,59,44,0.95))] text-white">
+    <footer className="relative overflow-hidden bg-[linear-gradient(180deg,rgba(8,50,38,0.93),rgba(6,42,32,0.98))] text-white">
       <GeometricPattern id="footer-geo" className="pointer-events-none absolute inset-0 h-full w-full text-white/[0.05]" />
       <IslamicMotifs tone="light" />
 
@@ -83,9 +83,10 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white transition hover:-translate-y-1 hover:border-transparent hover:bg-[color:var(--color-gold)] hover:text-[color:var(--color-primary-dark)]"
+                  className="group relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-white/15 bg-white/5 text-white transition-all duration-300 hover:-translate-y-1.5 hover:border-transparent hover:shadow-lg hover:shadow-[color:var(--color-gold)]/30"
                 >
-                  <Icon className="h-4 w-4" />
+                  <span className="absolute inset-0 scale-0 rounded-full bg-[color:var(--color-gold)] transition-transform duration-300 ease-out group-hover:scale-100" aria-hidden="true" />
+                  <Icon className="relative h-4 w-4 transition-colors duration-300 group-hover:text-[color:var(--color-primary-dark)]" />
                 </a>
               ) : (
                 <span
