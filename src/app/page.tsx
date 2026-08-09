@@ -197,7 +197,7 @@ export default function HomePage() {
         <section className="bg-[color:var(--color-surface)] py-20 lg:py-28">
           <div className="container-shell">
             <Reveal>
-              <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:items-end sm:justify-between sm:text-right">
+              <div className="flex flex-col items-center gap-4 text-center lg:flex-row lg:items-end lg:justify-between lg:text-right">
                 <div>
                   <p className="eyebrow">قبل أن تسافر</p>
                   <h2 className="section-title mt-2">كل ما تحتاج معرفته قبل رحلتك</h2>
@@ -263,12 +263,12 @@ export default function HomePage() {
         <section className="bg-[color:var(--color-background)] py-20 lg:py-28">
           <div className="container-shell">
             <Reveal>
-              <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:items-end sm:justify-between sm:text-right">
+              <div className="flex flex-col items-center gap-4 text-center lg:flex-row lg:items-end lg:justify-between lg:text-right">
                 <div>
                   <p className="eyebrow">برامجنا</p>
                   <h2 className="section-title mt-2">فئات برامج تناسب كل احتياج وميزانية</h2>
                 </div>
-                <div className="flex flex-wrap justify-center gap-3 sm:justify-start">
+                <div className="flex flex-wrap justify-center gap-3 lg:justify-start">
                   <Link href={routes.hajjPrograms} className="group inline-flex items-center gap-1.5 text-sm font-semibold text-[color:var(--color-primary)] transition hover:text-[color:var(--color-gold)]">
                     كل برامج الحج
                     <span className="inline-block transition-transform group-hover:-translate-x-1" aria-hidden="true">←</span>
@@ -304,7 +304,7 @@ export default function HomePage() {
         <section className="bg-[color:var(--color-surface)] py-20 lg:py-28">
           <div className="container-shell">
             <Reveal>
-              <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:items-end sm:justify-between sm:text-right">
+              <div className="flex flex-col items-center gap-4 text-center lg:flex-row lg:items-end lg:justify-between lg:text-right">
                 <div>
                   <p className="eyebrow">دليلنا</p>
                   <h2 className="section-title mt-2">أحدث المقالات من مدونتنا</h2>
