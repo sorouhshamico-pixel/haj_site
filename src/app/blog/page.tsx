@@ -3,6 +3,9 @@ import Image from 'next/image';
 import { posts } from '@/lib/blog-posts';
 import Reveal from '@/components/motion/Reveal';
 import { StaggerGroup, StaggerItem } from '@/components/motion/StaggerGroup';
+import GeometricPattern from '@/components/GeometricPattern';
+import IslamicMotifs from '@/components/IslamicMotifs';
+import { CalendarIcon } from '@/components/icons';
 import { buildMetadata } from '@/lib/metadata';
 
 export const metadata = buildMetadata({
@@ -12,45 +15,101 @@ export const metadata = buildMetadata({
   image: '/images/gallery/trip-guides-07.jpg'
 });
 
+const [featuredPost, ...restPosts] = posts;
+
 export default function BlogPage() {
   return (
-    <main id="main-content" className="container-shell py-20">
-      <Reveal>
-        <div className="max-w-3xl">
-          <p className="text-sm font-semibold text-[color:var(--color-gold)]">المدونة</p>
-          <h1 className="mt-4 text-4xl font-semibold text-[color:var(--color-primary)]">دليلك الكامل لرحلة الحج والعمرة</h1>
-          <p className="mt-6 text-lg leading-8 text-[color:var(--color-muted)]">
-            مقالات ودلائل عملية تساعدك على الاستعداد لرحلة الحج أو العمرة، من المناسك خطوة بخطوة إلى النصائح العملية قبل السفر.
-          </p>
+    <main id="main-content">
+      <section className="relative overflow-hidden py-24 text-white lg:py-32">
+        <Image
+          src="/images/gallery/trip-guides-07.jpg"
+          alt="فريق الإشراف والمتابعة أثناء رحلة الحج والعمرة"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(160deg,rgba(8,50,38,0.95),rgba(11,59,44,0.88)_50%,rgba(8,50,38,0.96))]" />
+        <GeometricPattern id="blog-hero-geo" className="pointer-events-none absolute inset-0 h-full w-full text-white/[0.06]" />
+        <IslamicMotifs tone="light" />
+
+        <div className="container-shell relative">
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <p className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm backdrop-blur">
+              <CalendarIcon className="h-4 w-4 text-[color:var(--color-gold-soft)]" />
+              المدونة
+            </p>
+            <h1 className="mt-5 text-4xl font-semibold leading-[1.3] sm:text-5xl">دليلك الكامل لرحلة الحج والعمرة</h1>
+            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-white/80">
+              مقالات ودلائل عملية تساعدك على الاستعداد لرحلة الحج أو العمرة، من المناسك خطوة بخطوة إلى النصائح العملية قبل السفر.
+            </p>
+          </Reveal>
         </div>
-      </Reveal>
-      <StaggerGroup className="mt-10 grid gap-6 md:grid-cols-2">
-        {posts.map((post) => (
-          <StaggerItem key={post.slug}>
-            <Link
-              href={`/blog/${post.slug}`}
-              className="group block h-full overflow-hidden rounded-[1.5rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] shadow-sm transition hover:-translate-y-1 hover:shadow-soft"
-            >
-              <div className="relative aspect-[16/9] w-full overflow-hidden">
-                <Image
-                  src={post.image}
-                  alt={post.imageAlt}
-                  fill
-                  sizes="(min-width: 768px) 45vw, 100vw"
-                  className="object-cover transition duration-300 group-hover:scale-105"
-                />
-                <span className="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-[color:var(--color-primary)] backdrop-blur">
-                  {post.category}
-                </span>
-              </div>
-              <div className="p-7">
-                <h2 className="text-xl font-semibold text-[color:var(--color-primary)]">{post.title}</h2>
-                <p className="mt-3 text-sm leading-8 text-[color:var(--color-muted)]">{post.excerpt}</p>
-              </div>
-            </Link>
-          </StaggerItem>
-        ))}
-      </StaggerGroup>
+      </section>
+
+      <section className="bg-[color:var(--color-background)] py-20 lg:py-28">
+        <div className="container-shell">
+          {featuredPost ? (
+            <Reveal>
+              <Link
+                href={`/blog/${featuredPost.slug}`}
+                className="group grid overflow-hidden rounded-[1.75rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] shadow-sm transition hover:-translate-y-1 hover:shadow-soft lg:grid-cols-2"
+              >
+                <div className="relative aspect-[16/9] w-full overflow-hidden lg:aspect-auto">
+                  <Image
+                    src={featuredPost.image}
+                    alt={featuredPost.imageAlt}
+                    fill
+                    priority
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-cover transition duration-300 group-hover:scale-105"
+                  />
+                  <span className="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-[color:var(--color-primary)] backdrop-blur">
+                    {featuredPost.category}
+                  </span>
+                </div>
+                <div className="flex flex-col justify-center p-8 sm:p-10">
+                  <p className="eyebrow">أحدث مقال</p>
+                  <h2 className="mt-2 text-2xl font-semibold text-[color:var(--color-primary)] sm:text-3xl">{featuredPost.title}</h2>
+                  <p className="mt-4 text-sm leading-8 text-[color:var(--color-muted)]">{featuredPost.excerpt}</p>
+                  <span className="group mt-6 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-[color:var(--color-gold)]">
+                    اقرأ المقال كاملًا
+                    <span className="inline-block transition-transform group-hover:-translate-x-1" aria-hidden="true">←</span>
+                  </span>
+                </div>
+              </Link>
+            </Reveal>
+          ) : null}
+
+          <StaggerGroup className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {restPosts.map((post) => (
+              <StaggerItem key={post.slug}>
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="group block h-full overflow-hidden rounded-[1.5rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] shadow-sm transition hover:-translate-y-1 hover:shadow-soft"
+                >
+                  <div className="relative aspect-[16/9] w-full overflow-hidden">
+                    <Image
+                      src={post.image}
+                      alt={post.imageAlt}
+                      fill
+                      sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw"
+                      className="object-cover transition duration-300 group-hover:scale-105"
+                    />
+                    <span className="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-[color:var(--color-primary)] backdrop-blur">
+                      {post.category}
+                    </span>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-lg font-semibold text-[color:var(--color-primary)]">{post.title}</h3>
+                    <p className="mt-3 text-sm leading-8 text-[color:var(--color-muted)]">{post.excerpt}</p>
+                  </div>
+                </Link>
+              </StaggerItem>
+            ))}
+          </StaggerGroup>
+        </div>
+      </section>
     </main>
   );
 }
