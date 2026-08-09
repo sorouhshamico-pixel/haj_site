@@ -350,8 +350,8 @@ export default function HomePage() {
                 </Link>
                 <div className="relative mt-8 hidden aspect-[4/5] w-full overflow-hidden rounded-[1.75rem] border border-[color:var(--color-border)] shadow-soft lg:block">
                   <Image
-                    src="/images/gallery/kaaba-ihram-night-01.jpg"
-                    alt="حجاج بالإحرام أمام الكعبة المشرفة ليلًا"
+                    src="/images/external/haram-archway-umrah-unsplash.jpg"
+                    alt="الكعبة المشرفة من خلال قوس معماري في المسجد الحرام"
                     fill
                     sizes="(min-width: 1024px) 35vw, 100vw"
                     className="object-cover"

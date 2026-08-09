@@ -14,8 +14,8 @@ export const posts: BlogPost[] = [
     title: 'دليل الحج من مصر: من التسجيل إلى طواف الوداع',
     excerpt: 'خطوات رحلة الحج من مصر بشكل مبسط، من التسجيل والاستعداد وحتى أداء المناسك والعودة.',
     category: 'حج',
-    image: '/images/gallery/kaaba-ihram-night-01.jpg',
-    imageAlt: 'حجاج بالإحرام أمام الكعبة المشرفة ليلًا',
+    image: '/images/external/haram-architecture-daylight-unsplash.jpg',
+    imageAlt: 'واجهة المسجد الحرام المعمارية نهارًا',
     sections: [
       {
         heading: 'قبل السفر: التسجيل والاستعداد',
