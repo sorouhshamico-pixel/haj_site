@@ -24,68 +24,104 @@ function WhatsAppIcon({ className }: { className?: string }) {
 
 export default function ContactPage() {
   return (
-    <main id="main-content" className="py-20 lg:py-28">
-      <div className="container-shell grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
-        <Reveal>
-          <div className="relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(160deg,rgba(8,50,38,0.97),rgba(11,59,44,0.93))] p-8 text-white shadow-soft sm:p-10">
-            <GeometricPattern id="contact-geo" className="pointer-events-none absolute inset-0 h-full w-full text-white/[0.05]" />
-            <IslamicMotifs tone="light" />
+    <main id="main-content">
+      <section className="relative overflow-hidden py-24 text-white lg:py-32">
+        <Image
+          src="/images/gallery/trip-guides-07.jpg"
+          alt="فريق الإشراف والمتابعة أثناء رحلة الحج والعمرة"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(160deg,rgba(8,50,38,0.95),rgba(11,59,44,0.88)_50%,rgba(8,50,38,0.96))]" />
+        <GeometricPattern id="contact-hero-geo" className="pointer-events-none absolute inset-0 h-full w-full text-white/[0.06]" />
+        <IslamicMotifs tone="light" />
 
-            <div className="relative">
-              <p className="text-sm font-semibold text-[color:var(--color-gold-soft)]">تواصل معنا</p>
-              <h1 className="mt-3 text-3xl font-semibold leading-[1.3] sm:text-4xl">نحن هنا للإجابة على استفساراتك</h1>
-              <p className="mt-4 leading-8 text-white/80">
-                يمكنك التواصل معنا للاستفسار عن البرامج أو طلب المساعدة في ترتيبات السفر.
-              </p>
+        <div className="container-shell relative">
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <p className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm backdrop-blur">
+              <PhoneIcon className="h-4 w-4 text-[color:var(--color-gold-soft)]" />
+              تواصل معنا
+            </p>
+            <h1 className="mt-5 text-4xl font-semibold leading-[1.3] sm:text-5xl">نحن هنا للإجابة على استفساراتك</h1>
+            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-white/80">
+              يمكنك التواصل معنا للاستفسار عن البرامج أو طلب المساعدة في ترتيبات السفر.
+            </p>
+          </Reveal>
+        </div>
+      </section>
 
-              <div className="mt-8 flex flex-col gap-3">
-                <a
-                  href={`tel:${phoneInternational}`}
-                  className="group inline-flex items-center justify-between gap-3 rounded-full border border-white/15 bg-white/10 px-5 py-3 text-sm font-semibold backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/20"
-                >
-                  اتصل بنا: {siteConfig.phone}
-                  <PhoneIcon className="h-4 w-4 flex-shrink-0 text-[color:var(--color-gold-soft)]" />
-                </a>
-                <a
-                  href={`tel:${phoneSecondaryInternational}`}
-                  className="group inline-flex items-center justify-between gap-3 rounded-full border border-white/15 bg-white/10 px-5 py-3 text-sm font-semibold backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/20"
-                >
-                  رقم إضافي: {siteConfig.phoneSecondary}
-                  <PhoneIcon className="h-4 w-4 flex-shrink-0 text-[color:var(--color-gold-soft)]" />
-                </a>
-                {whatsappLink ? (
+      <section className="bg-[color:var(--color-background)] py-20 lg:py-28">
+        <div className="container-shell grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <Reveal>
+            <div className="relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(160deg,rgba(8,50,38,0.97),rgba(11,59,44,0.93))] p-8 text-white shadow-soft sm:p-10">
+              <GeometricPattern id="contact-card-geo" className="pointer-events-none absolute inset-0 h-full w-full text-white/[0.05]" />
+              <IslamicMotifs tone="light" />
+
+              <div className="relative">
+                <p className="text-sm font-semibold text-[color:var(--color-gold-soft)]">طرق التواصل السريع</p>
+                <p className="mt-3 leading-8 text-white/80">
+                  للرد الفوري، تواصل معنا مباشرة عبر الاتصال أو واتساب.
+                </p>
+
+                <div className="mt-8 flex flex-col gap-3">
                   <a
-                    href={whatsappLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-flex items-center justify-between gap-3 rounded-full bg-[#25D366] px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/20"
+                    href={`tel:${phoneInternational}`}
+                    className="group inline-flex items-center justify-between gap-3 rounded-full border border-white/15 bg-white/10 px-5 py-3 text-sm font-semibold backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/20"
                   >
-                    تواصل عبر واتساب
-                    <WhatsAppIcon className="h-5 w-5 flex-shrink-0" />
+                    اتصل بنا: {siteConfig.phone}
+                    <PhoneIcon className="h-4 w-4 flex-shrink-0 text-[color:var(--color-gold-soft)]" />
                   </a>
-                ) : null}
+                  <a
+                    href={`tel:${phoneSecondaryInternational}`}
+                    className="group inline-flex items-center justify-between gap-3 rounded-full border border-white/15 bg-white/10 px-5 py-3 text-sm font-semibold backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/20"
+                  >
+                    رقم إضافي: {siteConfig.phoneSecondary}
+                    <PhoneIcon className="h-4 w-4 flex-shrink-0 text-[color:var(--color-gold-soft)]" />
+                  </a>
+                  {whatsappLink ? (
+                    <a
+                      href={whatsappLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-center justify-between gap-3 rounded-full bg-[#25D366] px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/20"
+                    >
+                      تواصل عبر واتساب
+                      <WhatsAppIcon className="h-5 w-5 flex-shrink-0" />
+                    </a>
+                  ) : null}
+                </div>
+              </div>
+
+              <div className="relative mt-8 overflow-hidden rounded-[1.5rem] border border-white/15">
+                <div className="relative aspect-[4/3] w-full">
+                  <Image
+                    src="/images/sections/services-field-support.jpg"
+                    alt="فريق الإشراف الميداني لشركة الشيخ حسن عوض أثناء إحدى الرحلات"
+                    fill
+                    sizes="(min-width: 1024px) 40vw, 100vw"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/0 to-black/0" />
+                </div>
               </div>
             </div>
+          </Reveal>
 
-            <div className="relative mt-8 overflow-hidden rounded-[1.5rem] border border-white/15">
-              <div className="relative aspect-[4/3] w-full">
-                <Image
-                  src="/images/sections/services-field-support.jpg"
-                  alt="فريق الإشراف الميداني لشركة الشيخ حسن عوض أثناء إحدى الرحلات"
-                  fill
-                  sizes="(min-width: 1024px) 40vw, 100vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/0 to-black/0" />
+          <Reveal delay={0.12}>
+            <div>
+              <h2 className="text-2xl font-semibold text-[color:var(--color-primary)]">راسلنا مباشرة</h2>
+              <p className="mt-3 text-sm leading-7 text-[color:var(--color-muted)]">
+                املأ النموذج التالي وسنعاود التواصل معك في أقرب وقت ممكن، أو استخدم أرقام الاتصال وواتساب للرد الفوري.
+              </p>
+              <div className="mt-6">
+                <ContactForm />
               </div>
             </div>
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.12}>
-          <ContactForm />
-        </Reveal>
-      </div>
+          </Reveal>
+        </div>
+      </section>
     </main>
   );
 }
