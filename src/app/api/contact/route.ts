@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getSql, isDatabaseConfigured } from '@/lib/db';
+import { isFormDeliveryConfigured } from '@/lib/site-config';
 
 type ContactPayload = {
   name: string;
@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  if (!isDatabaseConfigured) {
+  if (!isFormDeliveryConfigured) {
     return NextResponse.json(
       {
         status: 'not_configured',
@@ -41,11 +41,13 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const sql = getSql();
-  await sql`
-    INSERT INTO contact_messages (name, phone, email, message)
-    VALUES (${body.name.trim()}, ${body.phone.trim()}, ${body.email?.trim() || null}, ${body.message.trim()})
-  `;
-
-  return NextResponse.json({ status: 'sent', message: 'تم إرسال رسالتك بنجاح، سنتواصل معك قريبًا.' });
+  // TODO: once siteConfig.email is filled in with a real address and an
+  // email provider is wired up here (or a confirmed WhatsApp Business API
+  // integration exists), deliver the message and return { status: 'sent' }
+  // only after confirmed successful delivery. Until that code exists, keep
+  // returning 'not_configured' below — never report success without it.
+  return NextResponse.json(
+    { status: 'not_configured', message: 'خدمة الإرسال المباشر قيد الإعداد حاليًا ولم تُفعّل بعد. لم يتم إرسال رسالتك.' },
+    { status: 503 }
+  );
 }
