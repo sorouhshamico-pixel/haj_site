@@ -62,8 +62,8 @@ export const posts: BlogPost[] = [
     title: 'نصائح عملية قبل السفر لأداء العمرة',
     excerpt: 'مجموعة نصائح عملية تساعد المعتمر المصري على الاستعداد الجيد قبل السفر إلى مكة المكرمة.',
     category: 'عمرة',
-    image: '/images/gallery/kaaba-group-women-02.jpg',
-    imageAlt: 'مجموعة من المعتمرات أمام الكعبة المشرفة',
+    image: '/images/external/haram-archway-umrah-unsplash.jpg',
+    imageAlt: 'الكعبة المشرفة من خلال قوس معماري في المسجد الحرام',
     sections: [
       {
         heading: 'استكمال الأوراق مبكرًا',

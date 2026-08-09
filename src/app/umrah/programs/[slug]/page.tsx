@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     title: program.name,
     description: program.summary,
     path: `/umrah/programs/${program.slug}`,
-    image: '/images/gallery/kaaba-group-women-02.jpg'
+    image: '/images/external/haram-archway-umrah-unsplash.jpg'
   });
 }
 

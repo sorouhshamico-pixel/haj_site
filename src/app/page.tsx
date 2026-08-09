@@ -103,8 +103,8 @@ export default function HomePage() {
               <div className="relative">
                 <div className="pointer-events-none absolute -top-8 -left-6 hidden h-40 w-32 -rotate-6 overflow-hidden rounded-[1.25rem] border-4 border-white/90 shadow-2xl shadow-black/40 lg:block">
                   <Image
-                    src="/images/external/kaaba-crowd-unsplash.jpg"
-                    alt="حجاج يؤدون الطواف حول الكعبة المشرفة"
+                    src="/images/external/haram-architecture-daylight-unsplash.jpg"
+                    alt="واجهة المسجد الحرام المعمارية"
                     fill
                     sizes="150px"
                     className="object-cover"
@@ -131,8 +131,8 @@ export default function HomePage() {
 
         <section className="relative overflow-hidden py-24 text-white lg:py-32">
           <Image
-            src="/images/external/kaaba-daylight-unsplash.jpg"
-            alt="المسجد الحرام والكعبة المشرفة نهارًا"
+            src="/images/external/haram-archway-umrah-unsplash.jpg"
+            alt="الكعبة المشرفة من خلال قوس معماري في المسجد الحرام"
             fill
             sizes="100vw"
             className="object-cover object-center"
