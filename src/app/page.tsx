@@ -11,7 +11,7 @@ import { CompassIcon, DocumentIcon, ShieldIcon, GroupIcon, HeartHandIcon, Calend
 import { routes } from '@/lib/site-config';
 import { hajjPrograms, umrahPrograms } from '@/lib/programs';
 import { posts } from '@/lib/blog-posts';
-import { getFaqs } from '@/lib/faqs';
+import { faqs } from '@/lib/faqs';
 import HeroAnimated from '@/components/HeroAnimated';
 import IslamicMotifs from '@/components/IslamicMotifs';
 
@@ -37,12 +37,9 @@ const whyUs = [
 
 const featuredPrograms = [hajjPrograms[1], umrahPrograms[1]];
 const latestPosts = posts.slice(0, 3);
+const faqPreview = faqs.slice(0, 4);
 
-export const revalidate = 60;
-
-export default async function HomePage() {
-  const faqPreview = (await getFaqs()).slice(0, 4);
-
+export default function HomePage() {
   return (
     <>
       <main id="main-content">

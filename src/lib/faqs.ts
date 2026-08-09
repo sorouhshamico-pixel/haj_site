@@ -1,11 +1,6 @@
-import { getSql, isDatabaseConfigured } from '@/lib/db';
+export type Faq = { question: string; answer: string };
 
-export type Faq = { id?: number; question: string; answer: string };
-
-// Used only as a fallback when the database isn't configured yet, and as the
-// seed content for the `faqs` table (see docs/ADMIN-SETUP.md). Once the
-// database is live, getFaqs() below always reads from it instead.
-export const fallbackFaqs: Faq[] = [
+export const faqs: Faq[] = [
   {
     question: 'ما الفرق بين الحج والعمرة؟',
     answer: 'الحج ركن من أركان الإسلام له وقت محدد في ذي الحجة ويشمل مناسك مثل الوقوف بعرفة، بينما العمرة يمكن أداؤها في أي وقت من العام وتقتصر مناسكها على الإحرام والطواف والسعي والحلق أو التقصير.'
@@ -39,15 +34,3 @@ export const fallbackFaqs: Faq[] = [
     answer: 'إشراف مباشر من الشيخ حسن عوض وفريقه على أرض الواقع وليس عبر وسطاء، مع فئات برامج متعددة تناسب ميزانيات مختلفة ومتابعة لصيقة لكبار السن والعائلات.'
   }
 ];
-
-export async function getFaqs(): Promise<Faq[]> {
-  if (!isDatabaseConfigured) return fallbackFaqs;
-
-  try {
-    const sql = getSql();
-    const rows = (await sql`SELECT id, question, answer FROM faqs ORDER BY id ASC`) as unknown as Faq[];
-    return rows.length > 0 ? rows : fallbackFaqs;
-  } catch {
-    return fallbackFaqs;
-  }
-}
