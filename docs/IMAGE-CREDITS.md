@@ -8,8 +8,9 @@
 
 | الملف | الاستخدام على الموقع | المصدر |
 | --- | --- | --- |
-| `public/images/external/haram-architecture-daylight-unsplash.jpg` | خلفية قسم البداية (Hero) في صفحة "الحج"، والصورة العائمة في هيدر الصفحة الرئيسية | [ekrem osmanoglu — Unsplash](https://unsplash.com/photos/brown-concrete-building-during-daytime-FLFjAn3gQI8) |
-| `public/images/external/haram-archway-umrah-unsplash.jpg` | خلفية قسم البداية (Hero) في صفحة "العمرة"، خلفية قسم الآية القرآنية بالصفحة الرئيسية، وصورة غلاف مقال "نصائح عملية قبل السفر لأداء العمرة" | [Hushaan — Unsplash](https://unsplash.com/photos/a-view-of-a-mosque-through-an-archway-EWtprB5HAL0) |
+| `public/images/external/haram-architecture-daylight-unsplash.jpg` | خلفية قسم البداية (Hero) في صفحتي "الحج" و"مكة المكرمة"، الصورة العائمة في هيدر الصفحة الرئيسية، وصورة غلاف مقال "دليل الحج من مصر" | [ekrem osmanoglu — Unsplash](https://unsplash.com/photos/brown-concrete-building-during-daytime-FLFjAn3gQI8) |
+| `public/images/external/haram-archway-umrah-unsplash.jpg` | خلفية قسم البداية (Hero) في صفحتي "العمرة" و"دليل مناسك الحج"، خلفية قسم الآية القرآنية والصورة العائمة بالصفحة الرئيسية، وصورة غلاف مقال "نصائح عملية قبل السفر لأداء العمرة" | [Hushaan — Unsplash](https://unsplash.com/photos/a-view-of-a-mosque-through-an-archway-EWtprB5HAL0) |
+| `public/images/external/nabawi-dome-sunrise-unsplash.jpg` | خلفية قسم البداية (Hero) في صفحة "المدينة المنورة" | [Sulthan Auliya — Unsplash](https://unsplash.com/photos/brown-and-white-concrete-dome-building-rzzS0_pMsD0) |
 
 الملفان `kaaba-crowd-unsplash.jpg` و`kaaba-daylight-unsplash.jpg` كانا مُستخدمين سابقًا وتم استبدالهما بالصور أعلاه (بدون أشخاص) للالتزام بالقاعدة أعلاه. الملفان لا يزالان موجودين على القرص لكن غير مُشار إليهما في أي كود.
 
