@@ -292,7 +292,7 @@ export default function HomePage() {
                     <p className="mt-3 text-sm leading-8 text-[color:var(--color-muted)]">{program.summary}</p>
                     <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-[color:var(--color-gold)]">
                       عرض التفاصيل
-                      <span className="transition-transform group-hover:-translate-x-1">←</span>
+                      <span className="inline-block transition-transform group-hover:-translate-x-1" aria-hidden="true">←</span>
                     </span>
                   </Link>
                 </StaggerItem>
