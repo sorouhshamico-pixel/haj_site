@@ -8,7 +8,7 @@ import { buildMetadata } from '@/lib/metadata';
 
 export const metadata = buildMetadata({
   title: 'من نحن',
-  description: 'شركة الشيخ حسن عوض لتنظيم رحلات الحج والعمرة من مصر، بإشراف ميداني مباشر على كل رحلة.',
+  description: 'الشيخ حسن عوض لتنظيم رحلات الحج والعمرة من مصر، بإشراف ميداني مباشر على كل رحلة.',
   path: '/about',
   image: '/images/sections/about-group-prophets-mosque.jpg'
 });
@@ -42,11 +42,26 @@ export default function AboutPage() {
               <KaabaIcon className="h-4 w-4 text-[color:var(--color-gold-soft)]" />
               من نحن
             </p>
-            <h1 className="mt-5 text-4xl font-semibold leading-[1.3] sm:text-5xl">شركة الشيخ حسن عوض لرحلات الحج والعمرة</h1>
+            <h1 className="mt-5 text-4xl font-semibold leading-[1.3] sm:text-5xl">الشيخ حسن عوض لرحلات الحج والعمرة</h1>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-white/80">
               ننظم رحلات الحج والعمرة للمسافرين من مصر بإشراف ميداني مباشر من الشيخ حسن عوض وفريقه، في مكة المكرمة والمدينة المنورة، من لحظة التسجيل وحتى العودة إلى أرض الوطن.
             </p>
           </Reveal>
+
+          <StaggerGroup className="mx-auto mt-12 grid max-w-2xl gap-4 sm:grid-cols-3">
+            {[
+              { value: '3', label: 'فئات لبرامج الحج' },
+              { value: '3', label: 'فئات لبرامج العمرة' },
+              { value: 'ميداني', label: 'إشراف مباشر ومستمر' }
+            ].map((stat) => (
+              <StaggerItem key={stat.label}>
+                <div className="rounded-2xl border border-white/15 bg-white/10 px-4 py-5 text-center backdrop-blur">
+                  <p className="text-2xl font-semibold text-[color:var(--color-gold-soft)]">{stat.value}</p>
+                  <p className="mt-1 text-sm text-white/75">{stat.label}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerGroup>
         </div>
       </section>
 
@@ -97,7 +112,7 @@ export default function AboutPage() {
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[1.5rem] border border-[color:var(--color-border)] shadow-sm">
                 <Image
                   src="/images/sections/about-team-lobby.jpg"
-                  alt="فريق شركة الشيخ حسن عوض قبل انطلاق إحدى رحلات الحج والعمرة"
+                  alt="فريق الشيخ حسن عوض قبل انطلاق إحدى رحلات الحج والعمرة"
                   fill
                   sizes="(min-width: 640px) 45vw, 100vw"
                   className="object-cover"
