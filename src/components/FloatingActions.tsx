@@ -20,12 +20,21 @@ const whatsappNumbers = [
 export default function FloatingActions() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isFooterVisible, setIsFooterVisible] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setShowScrollTop(window.scrollY > 480);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 1024px)');
+    const onChange = () => setIsDesktop(mediaQuery.matches);
+    onChange();
+    mediaQuery.addEventListener('change', onChange);
+    return () => mediaQuery.removeEventListener('change', onChange);
   }, []);
 
   useEffect(() => {
@@ -38,7 +47,9 @@ export default function FloatingActions() {
     return () => observer.disconnect();
   }, []);
 
-  const showFloating = !isFooterVisible;
+  // On mobile the footer's centered layout doesn't overlap these buttons, so only
+  // hide them near the footer on desktop where the overlap was actually observed.
+  const showFloating = !isDesktop || !isFooterVisible;
 
   return (
     <>
