@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Reveal from '@/components/motion/Reveal';
 import { StaggerGroup, StaggerItem } from '@/components/motion/StaggerGroup';
+import ReadingProgress from '@/components/ReadingProgress';
 import { posts, getPostBySlug } from '@/lib/blog-posts';
 import { siteConfig } from '@/lib/site-config';
 import { breadcrumbJsonLd } from '@/lib/breadcrumbs';
@@ -59,6 +60,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }} />
 
+      <ReadingProgress />
       <main id="main-content">
         <section className="relative flex h-[52vh] min-h-[420px] w-full items-end overflow-hidden text-white">
           <Image src={post.image} alt={post.imageAlt} fill priority sizes="100vw" className="object-cover object-center" />

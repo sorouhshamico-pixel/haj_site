@@ -7,6 +7,7 @@ import IslamicMotifs from '@/components/IslamicMotifs';
 import { StarTagIcon, DocumentIcon, CompassIcon, HeartHandIcon, MapPinIcon, CrescentMoonIcon } from '@/components/icons';
 import { buildMetadata } from '@/lib/metadata';
 import { breadcrumbJsonLd } from '@/lib/breadcrumbs';
+import AnimatedCounter from '@/components/motion/AnimatedCounter';
 
 export const metadata = buildMetadata({
   title: 'العمرة',
@@ -72,7 +73,9 @@ export default function UmrahPage() {
             {stats.map((stat) => (
               <StaggerItem key={stat.label}>
                 <div className="rounded-2xl border border-white/15 bg-white/10 px-4 py-5 text-center backdrop-blur">
-                  <p className="text-2xl font-semibold text-[color:var(--color-gold-soft)]">{stat.value}</p>
+                  <p className="text-2xl font-semibold text-[color:var(--color-gold-soft)]">
+                    <AnimatedCounter value={stat.value} />
+                  </p>
                   <p className="mt-1 text-sm text-white/75">{stat.label}</p>
                 </div>
               </StaggerItem>
