@@ -244,8 +244,8 @@ export const posts: BlogPost[] = [
     title: 'قائمة الأمتعة الكاملة للحج: ماذا تحضر ولا تنسى',
     excerpt: 'قائمة عملية ومنظمة بكل ما يحتاجه الحاج في حقيبته، من ملابس الإحرام إلى الأدوية والمستلزمات الشخصية.',
     category: 'التحضير والاستعداد',
-    image: '/images/sections/hajj-guide-pilgrims-kaaba.jpg',
-    imageAlt: 'حجاج يؤدون مناسك الحج أمام الكعبة المشرفة ليلًا',
+    image: '/images/external/luggage-flatlay-unsplash.jpg',
+    imageAlt: 'حقائب سفر مجهزة استعدادًا للرحلة',
     keywords: ['أمتعة الحج', 'قائمة حقيبة الحج', 'ماذا تحضر للحج', 'مستلزمات الحاج'],
     sections: [
       {
@@ -316,8 +316,8 @@ export const posts: BlogPost[] = [
     title: 'أفضل وقت لحجز رحلة الحج من مصر: نصائح وتوقيتات',
     excerpt: 'متى يجب أن تبدأ في حجز رحلة الحج؟ نصائح توقيت عملية تساعدك على تجنب الزحام وضمان أفضل الأماكن المتاحة.',
     category: 'التحضير والاستعداد',
-    image: '/images/sections/hajj-programs-group-kaaba.jpg',
-    imageAlt: 'مجموعة من الحجاج مع فريق الإشراف أمام الكعبة المشرفة',
+    image: '/images/external/airplane-window-unsplash.jpg',
+    imageAlt: 'منظر من نافذة الطائرة أثناء رحلة السفر',
     keywords: ['حجز رحلة الحج', 'متى أحجز الحج', 'مواعيد التسجيل للحج', 'الحج من مصر'],
     sections: [
       {
@@ -352,8 +352,8 @@ export const posts: BlogPost[] = [
     title: 'كيف تختار شركة تنظيم رحلات الحج والعمرة الموثوقة',
     excerpt: 'معايير عملية تساعدك على التمييز بين الجهات الموثوقة وغيرها عند اختيار من ستنظم رحلتك المقدسة.',
     category: 'التحضير والاستعداد',
-    image: '/images/sections/about-team-lobby.jpg',
-    imageAlt: 'فريق شركة الشيخ حسن عوض قبل انطلاق إحدى رحلات الحج والعمرة',
+    image: '/images/external/travel-planning-flatlay-unsplash.jpg',
+    imageAlt: 'بوصلة وخريطة وكاميرا أدوات للتخطيط للرحلة',
     keywords: ['اختيار شركة حج وعمرة', 'شركات الحج الموثوقة', 'كيف تختار جهة الحج', 'شركة عمرة موثوقة'],
     sections: [
       {
@@ -1007,8 +1007,8 @@ export const posts: BlogPost[] = [
     title: 'كيف تحافظ على لياقتك البدنية استعدادًا لمناسك الحج',
     excerpt: 'نصائح عملية لتحسين لياقتك البدنية قبل السفر، لتؤدي مناسك الحج بمجهود أقل وراحة أكبر.',
     category: 'الصحة والسفر',
-    image: '/images/sections/services-field-support.jpg',
-    imageAlt: 'فريق الإشراف الميداني لشركة الشيخ حسن عوض أثناء إحدى الرحلات',
+    image: '/images/external/saudi-desert-mountains-unsplash.jpg',
+    imageAlt: 'منظر صحراوي وجبلي في المملكة العربية السعودية',
     keywords: ['اللياقة البدنية للحج', 'الاستعداد الجسدي للحج', 'رياضة قبل الحج', 'تحمل مجهود الحج'],
     sections: [
       {
@@ -1801,8 +1801,8 @@ export const posts: BlogPost[] = [
     title: 'أفضل الأدعية المأثورة في الحج والعمرة',
     excerpt: 'مجموعة من الأدعية المأثورة التي يُستحب للحاج والمعتمر الإكثار منها في مواقف مختلفة أثناء المناسك.',
     category: 'الفضل والأحكام العامة',
-    image: '/images/external/haram-architecture-daylight-unsplash.jpg',
-    imageAlt: 'واجهة المسجد الحرام المعمارية نهارًا',
+    image: '/images/external/prayer-beads-unsplash.jpg',
+    imageAlt: 'سبحة خشبية للذكر والدعاء',
     keywords: ['أدعية الحج', 'دعاء العمرة', 'أدعية الطواف', 'دعاء يوم عرفة'],
     sections: [
       {
