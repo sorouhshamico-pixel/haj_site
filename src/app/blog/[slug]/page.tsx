@@ -24,7 +24,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     description: post.excerpt,
     path: `/blog/${post.slug}`,
     image: post.image,
-    type: 'article'
+    type: 'article',
+    keywords: post.keywords
   });
 }
 
@@ -53,7 +54,9 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     inLanguage: 'ar'
   };
 
-  const relatedPosts = posts.filter((item) => item.slug !== post.slug).slice(0, 3);
+  const sameCategory = posts.filter((item) => item.slug !== post.slug && item.category === post.category);
+  const otherPosts = posts.filter((item) => item.slug !== post.slug && item.category !== post.category);
+  const relatedPosts = [...sameCategory, ...otherPosts].slice(0, 3);
 
   return (
     <>
@@ -105,8 +108,40 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 ))}
               </StaggerGroup>
 
+              {post.links.length > 0 ? (
+                <Reveal delay={0.05}>
+                  <div className="mt-14 rounded-[1.5rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] p-6">
+                    <p className="text-sm font-semibold text-[color:var(--color-primary)]">روابط ومصادر ذات صلة</p>
+                    <ul className="mt-4 space-y-2">
+                      {post.links.map((link) =>
+                        link.external ? (
+                          <li key={link.href}>
+                            <a
+                              href={link.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 text-sm text-[color:var(--color-muted)] transition hover:text-[color:var(--color-primary)]"
+                            >
+                              <span aria-hidden="true">↗</span>
+                              {link.label}
+                            </a>
+                          </li>
+                        ) : (
+                          <li key={link.href}>
+                            <Link href={link.href} className="inline-flex items-center gap-2 text-sm text-[color:var(--color-muted)] transition hover:text-[color:var(--color-primary)]">
+                              <span aria-hidden="true">←</span>
+                              {link.label}
+                            </Link>
+                          </li>
+                        )
+                      )}
+                    </ul>
+                  </div>
+                </Reveal>
+              ) : null}
+
               <Reveal delay={0.1}>
-                <div className="mt-14 flex flex-wrap gap-3 border-t border-[color:var(--color-border)] pt-8">
+                <div className="mt-8 flex flex-wrap gap-3 border-t border-[color:var(--color-border)] pt-8">
                   <Link href="/blog" className="rounded-full bg-[color:var(--color-primary)] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[color:var(--color-primary-dark)]">
                     العودة للمدونة
                   </Link>

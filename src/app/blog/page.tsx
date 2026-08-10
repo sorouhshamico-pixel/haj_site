@@ -17,6 +17,27 @@ export const metadata = buildMetadata({
 
 const [featuredPost, ...restPosts] = posts;
 
+const categories = Array.from(new Set(restPosts.map((post) => post.category)));
+const groupedByCategory = categories.map((category) => ({
+  category,
+  items: restPosts.filter((post) => post.category === category)
+}));
+
+const categoryIds: Record<string, string> = {
+  'التحضير والاستعداد': 'preparation',
+  'المناسك والأحكام': 'rituals',
+  'الأوراق والإجراءات': 'documents',
+  'الصحة والسفر': 'health',
+  'الأماكن المقدسة': 'holy-sites',
+  'التكلفة والميزانية': 'costs',
+  'فئات خاصة': 'special-groups',
+  'الفضل والأحكام العامة': 'virtue-and-rulings'
+};
+
+function categorySlug(category: string) {
+  return categoryIds[category] ?? 'category';
+}
+
 export default function BlogPage() {
   return (
     <main id="main-content">
@@ -81,35 +102,53 @@ export default function BlogPage() {
             </Reveal>
           ) : null}
 
-          <StaggerGroup className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {restPosts.map((post) => (
-              <StaggerItem key={post.slug}>
-                <Link
-                  href={`/blog/${post.slug}`}
-                  className="group block h-full overflow-hidden rounded-[1.5rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] shadow-sm transition hover:-translate-y-1 hover:shadow-soft"
-                >
-                  <div className="relative aspect-[16/9] w-full overflow-hidden">
-                    <Image
-                      src={post.image}
-                      alt={post.imageAlt}
-                      fill
-                      sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw"
-                      className="object-cover transition duration-300 group-hover:scale-105"
-                    />
-                    <span className="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-[color:var(--color-primary)] backdrop-blur">
-                      {post.category}
-                    </span>
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-lg font-semibold text-[color:var(--color-primary)]">{post.title}</h3>
-                    <p className="mt-3 text-sm leading-8 text-[color:var(--color-muted)]">{post.excerpt}</p>
-                  </div>
-                </Link>
-              </StaggerItem>
+          <nav aria-label="أقسام المدونة" className="mt-10 flex flex-wrap justify-center gap-2 lg:justify-start">
+            {groupedByCategory.map(({ category }) => (
+              <a
+                key={category}
+                href={`#${categorySlug(category)}`}
+                className="rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-surface)] px-4 py-2 text-sm font-medium text-[color:var(--color-primary)] transition hover:border-[color:var(--color-gold-soft)] hover:bg-[color:var(--color-ivory)]"
+              >
+                {category}
+              </a>
             ))}
-          </StaggerGroup>
+          </nav>
         </div>
       </section>
+
+      {groupedByCategory.map(({ category, items }) => (
+        <section key={category} id={categorySlug(category)} className="scroll-mt-24 border-t border-[color:var(--color-border)] py-16 lg:py-20 odd:bg-[color:var(--color-surface)] even:bg-[color:var(--color-background)]">
+          <div className="container-shell">
+            <Reveal>
+              <p className="eyebrow">{category}</p>
+            </Reveal>
+            <StaggerGroup className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {items.map((post) => (
+                <StaggerItem key={post.slug}>
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="group block h-full overflow-hidden rounded-[1.5rem] border border-[color:var(--color-border)] bg-[color:var(--color-surface)] shadow-sm transition hover:-translate-y-1 hover:shadow-soft"
+                  >
+                    <div className="relative aspect-[16/9] w-full overflow-hidden">
+                      <Image
+                        src={post.image}
+                        alt={post.imageAlt}
+                        fill
+                        sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw"
+                        className="object-cover transition duration-300 group-hover:scale-105"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-lg font-semibold text-[color:var(--color-primary)]">{post.title}</h3>
+                      <p className="mt-3 text-sm leading-8 text-[color:var(--color-muted)]">{post.excerpt}</p>
+                    </div>
+                  </Link>
+                </StaggerItem>
+              ))}
+            </StaggerGroup>
+          </div>
+        </section>
+      ))}
     </main>
   );
 }

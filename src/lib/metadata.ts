@@ -6,19 +6,22 @@ export function buildMetadata({
   description,
   path,
   image,
-  type = 'website'
+  type = 'website',
+  keywords
 }: {
   title: string;
   description: string;
   path: string;
   image?: string;
   type?: 'website' | 'article';
+  keywords?: string[];
 }): Metadata {
   const ogImage = image ?? siteConfig.ogImage;
 
   return {
     title,
     description,
+    keywords,
     alternates: { canonical: path },
     openGraph: {
       title,
