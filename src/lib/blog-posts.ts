@@ -717,8 +717,8 @@ export const posts: BlogPost[] = [
     title: 'الدليل الكامل لتأشيرة الحج للمصريين: الشروط والخطوات',
     excerpt: 'كل ما يحتاج الحاج المصري معرفته عن تأشيرة الحج، من الشروط الأساسية إلى خطوات الاستخراج عبر الجهات الرسمية.',
     category: 'الأوراق والإجراءات',
-    image: '/images/sections/hajj-documents-elders-kaaba.jpg',
-    imageAlt: 'حجاج من كبار السن أمام الكعبة المشرفة ليلًا',
+    image: '/images/external/travel-documents-flatlay-unsplash.jpg',
+    imageAlt: 'جواز سفر ومستلزمات السفر مرتبة استعدادًا للرحلة',
     keywords: ['تأشيرة الحج للمصريين', 'شروط تأشيرة الحج', 'أوراق الحج', 'تصريح الحج'],
     sections: [
       {
@@ -1331,8 +1331,8 @@ export const posts: BlogPost[] = [
     title: 'الفرق بين برامج الحج الاقتصادية والمريحة وVIP',
     excerpt: 'مقارنة عملية بين فئات برامج الحج المختلفة، لتختار الفئة الأنسب لاحتياجك وميزانيتك.',
     category: 'التكلفة والميزانية',
-    image: '/images/sections/hajj-hub-haram-night.jpg',
-    imageAlt: 'المسجد الحرام ليلًا بالأنوار المحيطة بالكعبة المشرفة',
+    image: '/images/external/makkah-clock-tower-unsplash.jpg',
+    imageAlt: 'برج الساعة في مكة المكرمة والمباني السكنية القريبة من الحرم',
     keywords: ['فئات برامج الحج', 'حج اقتصادي أم VIP', 'مقارنة برامج الحج', 'اختيار برنامج الحج المناسب'],
     sections: [
       {
@@ -1550,8 +1550,8 @@ export const posts: BlogPost[] = [
     title: 'فضل الحج في القرآن والسنة: آيات وأحاديث نبوية',
     excerpt: 'جولة في أبرز ما ورد في القرآن الكريم والسنة النبوية حول فضل الحج وعظيم أجره عند الله عز وجل.',
     category: 'الفضل والأحكام العامة',
-    image: '/images/external/haram-architecture-daylight-unsplash.jpg',
-    imageAlt: 'واجهة المسجد الحرام المعمارية نهارًا',
+    image: '/images/external/quran-flatlay-unsplash.jpg',
+    imageAlt: 'مصحف القرآن الكريم',
     keywords: ['فضل الحج', 'آيات عن الحج', 'أحاديث عن الحج', 'أجر الحج المبرور'],
     sections: [
       {

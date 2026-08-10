@@ -11,7 +11,14 @@
 | `public/images/external/haram-architecture-daylight-unsplash.jpg` | خلفية قسم البداية (Hero) في صفحتي "الحج" و"مكة المكرمة"، الصورة العائمة في هيدر الصفحة الرئيسية، وصورة غلاف مقال "دليل الحج من مصر" | [ekrem osmanoglu — Unsplash](https://unsplash.com/photos/brown-concrete-building-during-daytime-FLFjAn3gQI8) |
 | `public/images/external/haram-archway-umrah-unsplash.jpg` | خلفية قسم البداية (Hero) في صفحتي "العمرة" و"دليل مناسك الحج"، خلفية قسم الآية القرآنية والصورة العائمة بالصفحة الرئيسية، وصورة غلاف مقال "نصائح عملية قبل السفر لأداء العمرة" | [Hushaan — Unsplash](https://unsplash.com/photos/a-view-of-a-mosque-through-an-archway-EWtprB5HAL0) |
 | `public/images/external/nabawi-dome-sunrise-unsplash.jpg` | خلفية قسم البداية (Hero) في صفحة "المدينة المنورة" | [Sulthan Auliya — Unsplash](https://unsplash.com/photos/brown-and-white-concrete-dome-building-rzzS0_pMsD0) |
+| `public/images/external/makkah-clock-tower-unsplash.jpg` | صورة غلاف مقال "الفرق بين برامج الحج الاقتصادية والمريحة وVIP" | [Unsplash](https://unsplash.com/photos/a-clock-tower-in-mecca-saudi-arabia-OtMuoRVL2rY) |
+| `public/images/external/quran-flatlay-unsplash.jpg` | صورة غلاف مقال "فضل الحج في القرآن والسنة" | [Ashkan Forouzani — Unsplash](https://unsplash.com/photos/quran-book-7blIFp0kFP4) |
+| `public/images/external/travel-documents-flatlay-unsplash.jpg` | صورة غلاف مقال "الدليل الكامل لتأشيرة الحج للمصريين" | [Unsplash](https://unsplash.com/photos/ready-to-travel-passport-and-camera-YQKyQti0sJY) |
 
 الملفان `kaaba-crowd-unsplash.jpg` و`kaaba-daylight-unsplash.jpg` كانا مُستخدمين سابقًا وتم استبدالهما بالصور أعلاه (بدون أشخاص) للالتزام بالقاعدة أعلاه. الملفان لا يزالان موجودين على القرص لكن غير مُشار إليهما في أي كود.
+
+## ملاحظة حول صور لم يتم استخدامها
+
+عند البحث عن صور خارجية لمواضيع مقالات المدونة الـ50 (تحديدًا: جبل عرفة، مزدلفة، منى، جبل النور/غار حراء، مسجد قباء، مقبرة البقيع)، لم يتم العثور على صور موثوقة من Unsplash يمكن التأكد بصرِيًا من دقة موضوعها (أغلب النتائج كانت مواقع صور مدفوعة، أو صورًا عامة لصحراء/جبل غير مؤكد أنها الموقع المقصود فعليًا). كما تم رفض مرشح لصورة داخل المسجد النبوي لظهور نساء بوضوح فيه (مخالفة للقاعدة أعلاه)، ومرشح آخر لصندوق إسعافات أولية لعدم مناسبة طابعه (تصوير "عتيق" غير احترافي). للحفاظ على دقة المحتوى وصدقه، أُبقيت هذه المقالات على الصور الحقيقية الموجودة أصلًا من رحلات العميل بدلًا من استبدالها بصور غير مؤكدة.
 
 إذا رغب العميل لاحقًا في استبدال هذه الصور بصور حقيقية من رحلات الشركة (رجال فقط، أو معمارية)، يكفي استبدال الملفات بنفس الاسم في `public/images/external/` دون أي تعديل على الكود.
