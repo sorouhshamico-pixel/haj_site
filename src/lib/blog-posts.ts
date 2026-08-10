@@ -1078,8 +1078,8 @@ export const posts: BlogPost[] = [
     title: 'دليلك لزيارة مسجد قباء: فضله وكيفية الوصول إليه',
     excerpt: 'تعريف بمسجد قباء، أول مسجد بُني في الإسلام، وفضل زيارته وأفضل الأوقات لذلك.',
     category: 'الأماكن المقدسة',
-    image: '/images/sections/madinah-prophets-mosque-dome.jpg',
-    imageAlt: 'قبة المسجد النبوي الخضراء في المدينة المنورة',
+    image: '/images/external/quba-mosque-pexels.jpg',
+    imageAlt: 'مسجد قباء في المدينة المنورة، أول مسجد بُني في الإسلام',
     keywords: ['مسجد قباء', 'زيارة مسجد قباء', 'فضل مسجد قباء', 'أول مسجد في الإسلام'],
     sections: [
       {
@@ -1694,8 +1694,8 @@ export const posts: BlogPost[] = [
     title: 'ماذا تفعل إذا فاتك الوقوف بعرفة؟ أحكام فوات الحج',
     excerpt: 'توضيح للحالة النادرة التي قد يفوت فيها الحاج الوقوف بعرفة، وما يترتب على ذلك من أحكام.',
     category: 'الفضل والأحكام العامة',
-    image: '/images/gallery/arafat-hajj-group-05.jpg',
-    imageAlt: 'مجموعة حجاج في يوم الوقوف بعرفة',
+    image: '/images/external/arafat-jabal-rahmah-pixabay.jpg',
+    imageAlt: 'نصب جبل الرحمة في عرفات عند غروب الشمس',
     keywords: ['فوات الحج', 'فوات الوقوف بعرفة', 'أحكام فوات الحج', 'ماذا لو فاتني عرفة'],
     sections: [
       {
